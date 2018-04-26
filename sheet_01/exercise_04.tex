@@ -100,13 +100,14 @@ Für alle $\sigma \in S_n$ schreiben wir im Folgenden abkürzend
             \sign'(\sigma)
   \defined  \prod_{1 \leq i < j \leq n} \frac{\sigma(j) - \sigma(i)}{j - i} \,.
 \]
+Wir zeigen, dass $\sign' = \sign$ gilt.
 
 
 
 \subsubsection*{Multiplikativität von $\sign'$}
 
-Wir zeigen zunächst, dass $\sign'$ multiplikativ ist.
-Hierfür betrachten wir im Indexmengen der folgenden Form:
+Wir zeigen zunächst, dass die Abbildung $\sign'$ multiplikativ ist.
+Anstelle von Paaren $(i,j)$ mit $1 \leq i < j \leq n$ wollen wir hierfür im Folgenden allgemeiner über Indexmengen der folgenden Form aufmultiplizieren.
 \begin{equation}
 \label{equation: definition of T}
   \begin{tabular}{c}
@@ -138,8 +139,7 @@ gilt.
 \end{lemma}
 
 \begin{proof}
-  Wir bezeichnen den gegebenen Ausdruck abkürzend mit $\sign'_T(\sigma)$.
-  
+  Wir bezeichnen den rechten Ausdruck abkürzend mit $\sign'_T(\sigma)$.
   Per Definition von $\sign'$ gilt $\sign' = \sign'_{T_0}$.
   
   Erfüllen $T_1, T_2$ die Bedingung~\eqref{equation: definition of T}, so gilt $\sigma'_{T_1} = \sigma'_{T_2}$, denn für alle $1 \leq i, j \leq n$ mit $i \neq j$ gilt
@@ -188,7 +188,7 @@ gilt.
 
 \subsubsection*{Bestimmung von $\sign'(\sigma_k)$}
 
-Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma = \sigma_k$, d.h.\ für sogennante \emph{einfache Transpositionen}.
+Als Nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma = \sigma_k$, d.h.\ für sogennante \emph{einfache Transpositionen}.
 
 \begin{lemma}
 \label{lemma: sign' is only a sign}
@@ -205,8 +205,8 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
     = \prod_{(i,j) \in T_0} (\sigma(j) - \sigma(i))
     = \prod_{(i,j) \in \sigma(T_0)} (j-i)
   \end{gather*}
-  erhalten für alle $1 \leq i < j \leq n$ mit $i \neq j$ genau einen der beiden Faktoren $j-i$ oder $i-j$, und jeder der Faktoron ist von dieser Form.
-  Da sich die Faktoren $j-i$ und $i-j$ nur bis auf Vorzeichen unterscheiden, unterscheiden sich auch die beiden Produkte nur bis auf Vorzeichen.
+  erhalten für alle $1 \leq i < j \leq n$ mit $i \neq j$ genau einen der beiden Faktoren $j-i$ oder $i-j$, und jeder der Faktoron ist auch von einer dieser Formen.
+  Da sich die Faktoren $j-i$ und $i-j$ nur bis auf Vorzeichen unterscheiden, unterscheiden sich auch insgesamt die beiden Produkte nur bis auf Vorzeichen.
 \end{proof}
 
 \begin{corollary}
@@ -225,10 +225,9 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
 \begin{remark}
   Man bezeichnet ein Paar $(i,j)$ mit $1 \leq i < j \leq n$ und $\sigma(j) > \sigma(i)$ als einen \emph{Fehlstand} von $\sigma$.
   Es ist also $f(\sigma)$ die Anzahl der Fehlstände von $\sigma$.
-  Man bezeichnet diese Zahl auch als \emph{Länge von $\sigma$}, und schreibt stattdessen auch $\ell(\sigma)$.
   Es lässt sich zeigen, dass
   \[
-      \ell(\sigma)
+      f(\sigma)
     = \min
       \{
         r \in \Natural
@@ -236,6 +235,8 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
         \text{es gibt $1 \leq i_1, \dotsc, i_r < n$ mit $\sigma = \sigma_{i_1} \dotsm \sigma_{i_r}$}
       \}
   \]
+  gilt.
+  Man bezeichnet diese Zahl deshalb auch als \emph{Länge von $\sigma$}, und schreibt auch $\ell(\sigma)$ anstelle von $f(\sigma)$.
 \end{remark}
 
 \begin{lemma}
@@ -247,7 +248,7 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
   Nach Lemma~\ref{lemma: sign' is only a sign} gilt es zu zeigen, dass $\sigma_k$ eine ungerade Anzahl an Fehlständen besitzt.
   Wir zeigen, dass $(k,k+1)$ der einzige Fehlstand von $\sigma_k$ ist.
   
-  Ist $i < k$, so gilt für alle $j > i$, dass auch $\sigma_k(j) > i$, denn die Menge
+  Gilt $i < k$, so gilt für alle $j > i$, dass auch $\sigma_k(j) > i$ gilt, denn die Menge
   \[
       \{
         1 \leq j' \leq n
@@ -282,7 +283,7 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
 
 
 
-\subsection*{Beweis $\sign' = \sign$}
+\subsection*{Beweis von $\sign' = \sign$}
 
 \begin{corollary}
   Für alle $1 \leq i < r$ gilt $\sign'(\sigma_{i_1} \dotsm \sigma_{i_r}) = (-1)^r$.
@@ -304,7 +305,7 @@ Als nächstes Bestimmen wir $\sign'(\sigma)$ für Permuationen der Form $\sigma 
 \end{proof}
 
 \begin{remark}
-  Es gibt tatsächlich nur zwei multiplikative Abbildungen $S_n \to \{1, -1\}$:
+  Es gibt nur zwei multiplikative Abbildungen $S_n \to \{1, -1\}$:
   Das Vorzeichen $\sign$ und die \enquote{triviale} Abbildung
   \[
             S_n
