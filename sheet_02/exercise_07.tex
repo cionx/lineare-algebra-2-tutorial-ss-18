@@ -1,1 +1,122 @@
 \section{}
+
+
+
+
+
+\subsection{}
+
+\begin{itemize}
+  \item
+    Das Nullpolynom $0$ ist per Definition nicht irreduzibel.
+  \item
+    Das einzige Polynom vom Grad $0$ in $\Finite_2[X]$ ist das konstante $1$-Polynom $1 = 1 X^0$.
+    Dieses Polynom ist eine Einheit, und somit ebenfalls nicht irreduzibel.
+  \item
+    Polynome $f \in \Finite_2[X]$ vom Grad $\deg(f) = 1$ sind stets irreduzibel:
+    Für jede Zerlegung $f = g_1 g_2$ in $g_1, g_2 \in \Finite_2[X]$ folgt aus $\deg(f) = \deg(g_1) + \deg(g_2)$, dass entweder $\deg(g_1) = 1$ und $\deg(g_2) = 0$, oder $\deg(g_1) = 0$ oder $\deg(g_2) = 1$ gilt.
+    Es gilt also $\deg(g_1) = 0$ oder $\deg(g_2) = 0$, weshalb $g_1 = 1$ oder $g_2 = 1$ gilt.
+    Es ist also eines der Polynome $g_1$ oder $g_2$ eine Einheit.
+    
+    Die irreduziblen Polynome vom Grad $1$ in $\Finite_2[X]$ sind also
+    \[
+      X \,,
+      \quad
+      X + 1 \,.
+    \]
+
+  \item
+    Besitzt ein Polynom $f \in \Finite_2[X]$ vom Grad $\deg(f) \geq 2$ eine Nullstelle, so ist $f$ reduzibel:
+    
+    Ist $\lambda \in \Finite_2$ eine Nullstelle von $f$, so erhält man durch Abspalten des entsprechenden Linearfaktors $X - \lambda$ eine Zerlegung $f = (X - \lambda) g$ mit $g \in \Finite_2$.
+    Dabei gilt $\deg(f) = \deg(X-\lambda) + \deg(g) = \deg(g) + 1$, also $\deg(g) \in \{1, 2\}$.
+    Deshalb ist $g$ dann keine Einheit, und somit $f = (X-\lambda)g$ eine Zerlegung in zwei Nicht-Einheiten.
+  \item
+    Dabei hat ein normiertes Polyom $f = X^n + \sum_{k=0}^{n-1} a_k X^k \in \Finite_2[X]$ mit $a_k \in \{0,1\}$ genau dann keine Nullstelle, wenn $f(0) = 1$ und $f(1) = 1$ gelten.
+    Dabei gilt $f(0) = a_0$ und $f(1) = 1 + \sum_{k=0}^n a_k$.
+    Für die Irreduziblität von $f$ muss also $a_0 = 1$ gelten, und eine ungerade Anzahl der Koeffizienten $a_{n-1}, \dotsc, a_1$ muss $1$ sein (und alle anderen Koeffizienten notwendigerweise $0$).
+  \item
+    Gibt es für ein Polynom $f \in \Finite_2[X]$ vom Grad $\deg(f) \in \{2,3\}$ andererseits eine Zerlegung $f = g_1 g_2$ in zwei Nicht-Einheiten $g_1, g_2 \in \Finite_2[X]$, so gilt notwenderweise $\deg(g_1), \deg(g_2) \geq 1$, und zusammen mit $\deg(f) = \deg(g_1) + \deg(g_2)$ somit insgesamt $\deg(g_1) = 1$ oder $\deg(g_2) = 1$.
+    Dann hat $g_1$ oder $g_2$ eine Nullstelle, und somit auch $f = g_1 g_2$ diese Nullstelle.
+    
+    Das Polynom $f$ ist also genau irreduzibel, wenn $f$ keine Nullstelle hat.
+    
+    \begin{itemize}
+      \item
+        Gilt $\deg(f) = 2$, so ist $f$ von der Form $f = X^2 + aX + b$.
+        Wie bereits gesehen, hat $f$ genau dann keine Nullstelle, wenn $b = 1$ gilt, $a = 0$ gilt.
+        Das einzige irreduzible Polynom vom Grad $2$ in $\Finite_2[X]$ ist also
+        \[
+          X^2 + X + 1 \,.
+        \]
+      \item
+        Gilt $\deg(f) = 3$, so ist $f$ von der Form $f = X^3 + aX^2 + bX + c$.
+        Wie bereits gesehen, hat $f$ genau dann keine Nullstelle, wenn $c = 1$ gilt, und eine ungerade Anzahl der Koeffizienten $a, b$ gleich $1$ ist.
+        Die beiden irreduziblen Polynome vom Grad $3$ in $\Finite_3[X]$ sind also
+        \[
+          X^3 + X^2 + 1 \,,
+          \quad
+          X^3 + X + 1 \,.
+        \]
+    \end{itemize}
+    
+  \item
+    Damit ein Polynom $f = X^4 + aX^3 + bX^2 + cX + d \in \Finite_2[X]$ irreduzibel ist, darf $f$ keine Nullstelle haben.
+    Es muss also $d = 1$ gelten, und eine ungerade Anzahl der Koeffizienten $a, b, c$ muss gleich $1$ sein.
+    Hierdurch ergeben sich $3$ Kandidaten für irreduzible Polynome vom Grad $4$ in $\Finite_2[X]$:
+    \[
+      X^4 + X^3 + X^2 + 1 \,,
+      \quad
+      X^4 + X^3 + X + 1 \,,
+      \quad
+      X^4 + X^2 + X + 1 \,.
+    \]
+    Es müssen noch die Polynome ausgeschlossen werden, die sich als Produkt $f = g_1 g_2$ zweier irreduzibler Poylnome $g_1, g_2$ vom Grad $2$ zerlegen lassen.
+    Da $X^2 + X + 1$ das einzige irreduzible Polynom vom Grad $2$ ist, muss nur noch
+    \[
+        (X^2 + X + 1)(X^2 + X + 1)
+      = X^4 + X^2 + 1
+    \]
+    ausgeschlossen werden.
+    Die beiden irreduziblen Polynom vom Grad $4$ in $\Finite_2[X]$ sind also
+    \[
+      X^4 + X^3 + X^2 + 1 \,,
+      \quad
+      X^4 + X^3 + X + 1 \,.
+    \]
+\end{itemize}
+
+
+
+
+
+\subsection{}
+
+Das neutrale Element von $H$ ist $1$.
+Für alle $x, y \in H$ mit $x \neq 1$ oder $y \neq 1$ gilt $xy > 1$, und somit $xy \neq 1$.
+Deshalb ist $1$ die einzige Einheit in $H$.
+
+Die Menge der reduziblen Elemente in $H$ ist somit
+\begin{align*}
+      \{ xy \suchthat x, y \in H, x, y \neq 1 \}
+  &=  \{ xy \suchthat x, y \in 4 \Natural_1 \}
+   =  \{ 4x' \cdot 4y' \suchthat x', y' \in \Natural_1 \} \\
+  &=  \{ 16x'y' \suchthat x', y' \in \Natural_1 \}
+   =  \{ 16z' \suchthat z' \in \Natural_1\}
+   =  16 \Natural_1 \,.
+\end{align*}
+Die Menge der irreduziblen Elemente ist somit $H \smallsetminus 16 \Natural_1$.
+
+Es gibt in $H$ keine Primelemente:
+Für jedes $x \in H$, $x \neq 1$ gilt auch $2x \in H$.
+Es gilt $x \notdivides 2x$ in $H$, da $2 \notin H$ gilt, aber $x \divides (4x^2) = (2x)(2x)$ in $H$, da $4x \in H$ gilt.
+Das zeigt, dass $x$ nicht prim in $H$ ist.
+
+
+
+
+
+
+
+
+

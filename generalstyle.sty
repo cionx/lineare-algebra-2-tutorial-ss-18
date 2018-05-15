@@ -4,7 +4,18 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{enumitem}
 \usepackage{csquotes}
+
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\setlist[enumerate, 1]{leftmargin=*}
+\setlist[enumerate, 2]{leftmargin=*}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+\setlist[itemize, 3]{leftmargin=*}
 
 \newcounter{everything}
 
@@ -20,6 +31,9 @@
 \renewcommand{\thesubsection}{(\roman{subsection})}
 
 \newcommand{\defined}{\coloneqq}
+\newcommand{\divides}{\mathrel{|}}
+\newcommand{\notdivides}{\mathrel{\nmid}}
+
 \NewDocumentCommand{\suchthat}{s}{
   \IfBooleanTF{#1}
     {\,\middle|\,}
