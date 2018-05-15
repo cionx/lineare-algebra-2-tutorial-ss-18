@@ -1,1 +1,265 @@
 \section{}
+
+
+
+
+
+\subsection*{$\sim$ ist eine Äquivalenzrelation}
+
+Für jedes $(f,g) \in R \times (R \smallsetminus\{0\})$ gilt $fg = fg$, und somit $(f,g) \sim (f,g)$.
+Das zeigt die Reflexivität von $\sim$.
+
+Für alle $(f,g), (f',g') \in R \times (R \smallsetminus\{0\})$ mit $(f,g) \sim (f',g')$ gilt $fg' = f'g$, also auch $f'g = fg'$, und somit $(f', g') \sim (f,g)$.
+Das zeigt die Symmetrie von $\sim$.
+
+Es seien $(f,g), (f', g'), (f'', g'') \in R \times (R \smallsetminus\{0\})$, so dass $(f,g) \sim (f',g')$ und $(f',g') \sim (f'', g'')$ gelten.
+Dann gelten $fg' = f'g$ und $f''g' = f'g''$, und deshalb gilt
+\[
+    fg''g'
+  = fg'g''
+  = f'gg''
+  = f'g''g
+  = f''g'g
+  = f''gg' \,.
+\]
+Da $R$ ein Integritätsbereich ist, und $g' \neq 0$ lässt sich die Gleichung $fg''g' = f''gg'$ zu $fg'' = f''g$ kürzen (es gilt $(fg'' - f''g)g' = 0$ mit $g' \neq 0$, also $fg'' - f''g = 0$).
+Das zeigt die Transitivität von $\sim$.
+
+Es gilt die folgende Kürzungsregel für Brüche:
+
+\begin{lemma}
+  \label{lemma: cancelling fractions}
+  Für alle $f/g \in \Quotient{R}$ und $g' \in R \smallsetminus \{0\}$ ist der Bruch $(fg')/(gg')$ wohldefiniert, und es gilt
+  \[
+      \frac{fg'}{gg'}
+    = \frac{f}{g} \,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Es gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ somit auch $g g' \neq 0$.
+  Das zeigt, dass $(fg', gg') \in R \times (R \smallsetminus \{0\})$ gilt, und der Bruch $(fg')/(gg')$ somit wohldefiniert ist.
+  Die behauptete Gleichheit der Brüche ergibt sich daraus, dass $fg' \cdot g = f \cdot g g'$ gilt, und somit $(f,g) \sim (f',g')$.
+\end{proof}
+
+
+
+
+
+\subsection*{Die Addition $+$ ist wohldefiniert}
+
+Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ somit auch $g g' \neq 0$.
+Deshalb gilt $(f g' + f' g, g g') \in R \times (R \smallsetminus\{0\})$.
+Der Bruch $(f g' + f' g)/(g g') \in (R \times (R \smallsetminus\{0\}))/{\sim}$ ist deshalb wohldefiniert.
+
+Es seien $(f,g), (f', g'), (u, v), (u', v') \in R \times (R \smallsetminus\{0\})$ mit $(f, g) \sim (f', g')$ und $(u,v) \sim (u',v')$.
+Dann gilt auch $(f v + u g, g v) \sim (f' v' + u' g', g' v')$, denn es gelten $f g' = f' g$ und $u v' = u' v$, und somit auch
+\[
+    (f v + u g) g' v'
+  = f v g' v' + u g g' v'
+  = f' v g v' + u' g g' v
+  = (f' v' + u' g') g v \,.
+\]
+Diese Unäbhängigkeit vom Repräsentanten zeigt, dass die Addition $+$ wohldefiniert ist.
+
+
+
+
+
+\subsection*{Die Multiplikation $\cdot$ ist wohldefiniert}
+
+Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ gilt somet auch $g g ' \neq 0$.
+Deshalb gilt $(f f', g g') \in R \times (R \smallsetminus\{0\})$.
+Der Bruch $(ff')/(gg') \in (R \times (R \smallsetminus\{0\}))/{\sim}$ ist deshalb wohldefiniert.
+
+Es seien $(f,g), (f', g'), (u, v), (u', v') \in R \times (R \smallsetminus\{0\})$ mit $(f, g) \sim (f', g')$ und $(u,v) \sim (u',v')$.
+Dann gilt auch $(f u, g v ) \sim (f' u', g' v')$, denn es gelten $f g' = f' g$ und $u v' = u' v$, und somit auch
+\[
+      f u \cdot g' v'
+    = f u g' v'
+    = f' u g v'
+    = f' u' g v
+    = f' u' \cdot g v \,.
+\]
+Diese Unäbhängigkeit vom Repräsentanten zeigt, dass die Multiplikation $\cdot$ wohldefiniert ist.
+
+
+
+
+
+\subsection*{Assoziativität der Addition}
+
+Für alle $f/g, f'/g', f''/g'' \in \Quotient{R}$ gilt
+\begin{align*}
+      \frac{f}{g} + \left( \frac{f'}{g'} + \frac{f''}{g''} \right)
+  &=  \frac{f}{g} + \frac{f' g'' + f'' g'}{g' g''}
+   =  \frac{f g' g'' + f' g g'' + f'' g g'}{g g' g''} \\
+  &=  \frac{f g' + f' g}{g g'} + \frac{f''}{g''}
+   =  \left( \frac{f}{g} + \frac{f'}{g'} \right) + \frac{f''}{g''} \,.
+\end{align*}
+Das zeigt die Assoziativität der Addition.
+
+
+
+
+
+\subsection*{Kommutativität der Addition}
+
+Für alle $f/g, f'/g' \in \Quotient{R}$ gilt
+\[
+    \frac{f}{g} + \frac{f'}{g'}
+  = \frac{f g' + f' g}{g g'}
+  = \frac{f' g + f g'}{g' g}
+  = \frac{f'}{g'} + \frac{f}{g} \,.
+\]
+Das zeigt die Kommutativität der Addition.
+
+
+
+
+
+\subsection*{Existenz des additiv neutralen Elements}
+
+Für alle $f/g \in \Quotient{R}$ gilt
+\[
+    \frac{f}{g}
+  + \frac{0}{1}
+  = \frac{f \cdot 1 + 0 \cdot g}{1 \cdot g}
+  = \frac{f}{g} \,.
+\]
+Also ist $0/1$ additiv neutral.
+Nach der Kürzungsregel aus Lemma~\ref{lemma: cancelling fractions} gilt dabei für alle $g \in R \smallsetminus \{0\}$, dass
+\[
+    \frac{0}{1}
+  = \frac{0 \cdot g}{1 \cdot g}
+  = \frac{0}{g} \,.
+\]
+
+
+
+
+
+\subsection*{Existenz von additiv Inversen}
+
+Für alle $f/g \in \Quotient{R}$ gilt auch $-f/g \in \Quotient{R}$, und
+\[
+    \frac{f}{g} + \frac{-f}{g}
+  = \frac{f g - f g}{g g}
+  = \frac{0}{g^2}
+  = \frac{0}{1} \,.
+\]
+Also ist $-f/g$ additiv invers zu $f/g$.
+
+
+
+
+
+\subsection*{Assoziativität der Multiplikation}
+
+Für alle $f/g, f'/g', f''/g'' \in \Quotient{R}$ gilt
+\[
+    \frac{f}{g} \cdot \left( \frac{f'}{g'} \cdot \frac{f''}{g''} \right)
+  = \frac{f}{g'} \cdot \frac{f' f''}{g' g''}
+  = \frac{f f' f''}{g g' g''}
+  = \frac{f f'}{g g'} \cdot \frac{f''}{g''}
+  = \left( \frac{f}{g} \cdot \frac{f'}{g'} \right) \cdot \frac{f''}{g''} \,.
+\]
+Das zeigt die Assoziativität der Multiplikation.
+(Es ist okay, zu sagen, dass die Assoziativität der Multiplikation von $\Quotient{R}$ direkt aus der Assoziativität der Multiplikation von $R$ folgt.)
+
+
+
+
+
+\subsection*{Kommutativität der Multiplikation}
+
+Für alle $f/g, f'/g' \in \Quotient{R}$ gilt
+\[
+    \frac{f}{g} \cdot \frac{f'}{g'}
+  = \frac{f f'}{g g'}
+  = \frac{f' f}{g' g}
+  = \frac{f'}{g'} \cdot \frac{f}{g} \,.
+\]
+Das zeigt die Kommutativität der Multiplikation.
+(Es ist okay, zu sagen, dass die Kommutativität der Multiplikation von $\Quotient{R}$ direkt aus der Kommutativität der Multiplikation von $R$ folgt.)
+
+
+
+
+
+\subsection*{Existenz des multiplikativ neutralen Elements}
+
+In $R$ gilt $0 \neq 1$, weshalb der Bruch $1/1 \in \Quotient{R}$ wohldefiniert ist.
+Für alle $f/g \in \Quotient{R}$ gilt
+\[
+    \frac{f}{g} \cdot \frac{1}{1}
+  = \frac{f \cdot 1}{g \cdot 1}
+  = \frac{f}{g} \,.
+\]
+Das zeigt, dass $1/1$ multiplikativ neutral in $\Quotient{R}$ ist.
+Dabei gilt nach der Kürzungsregel aus Lemma~\ref{lemma: cancelling fractions} für alle $g \in R \smallsetminus \{0\}$, dass
+\[
+    \frac{1}{1}
+  = \frac{1 \cdot g}{1 \cdot g}
+  = \frac{g}{g} \,.
+\]
+
+
+
+
+
+\subsection*{Existenz von multiplikativ neutralen}
+
+Es sei $f/g \in \Quotient{R}$ mit $f/g \neq 0_{\Quotient{R}} = 0/1 = 0/g$.
+Dann gilt $f \neq 0$, weshalb der Bruch $g/f \in \Quotient{R}$ wohldefiniert ist.
+Es gilt
+\[
+    \frac{f}{g} \cdot \frac{g}{f}
+  = \frac{fg}{gf}
+  = \frac{1}{1} \,,
+\]
+was zeigt, dass $g/f$ multiplikativ invers zu $f/g$ in $\Quotient{R}$ ist.
+
+
+
+
+
+\subsection*{Distributivität von Addition und Multiplikation}
+
+\begin{lemma}
+  Für alle $f, f' \in R$, $g \in R \smallsetminus \{0\}$ gilt
+  \[
+    \frac{f + f'}{g} = \frac{f}{g} + \frac{f'}{g} \,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Es gilt $(f + f', g) \sim (f g + f' g, g^2)$, da
+  \[
+      (f + f') \cdot g^2
+    = f g^2 + f' g^2
+    = (f g + f' g) \cdot g \,.
+  \qedhere
+  \]
+\end{proof}
+
+Mit dem obigen Lemma und der Kürzungsregel aus Lemma~\ref{lemma: cancelling fractions} folgt für alle Brüche $f/g, f'/g', f''/g'' \in \Quotient{R}$, dass
+\begin{align*}
+      \frac{f}{g} \cdot \left( \frac{f'}{g'} + \frac{f''}{g''} \right)
+  &=  \frac{f}{g} \cdot \frac{f' g'' + f'' g'}{g' g''}
+   =  \frac{f f' g'' + f f'' g'}{g g' g''}  \\
+  &=  \frac{f f' g''}{g g' g''} + \frac{f f'' g'}{g g' g''}
+   =  \frac{f f'}{g g'} + \frac{f f''}{g g''}
+   =  \frac{f}{g} \cdot \frac{f'}{g'} + \frac{f}{g} \cdot \frac{f''}{g''}
+\end{align*}
+gilt.
+Das zeigt die Distributivität.
+
+
+
+
+
+\subsection*{$0 \neq 1$ in $\Quotient{R}$}
+
+Es gilt $0_{\Quotient{R}} \neq 1_{\Quotient{R}}$, denn es gelten $0_{\Quotient{R}} = 0/1$ und $1_{\Quotient{R}} = 1/1$, und wegen $0 \cdot 1 = 0 \neq 1 = 1 \cdot 1$ gilt $(0,1) \nsim (1,1)$.
+
