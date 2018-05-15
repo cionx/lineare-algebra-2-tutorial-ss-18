@@ -1,1 +1,110 @@
 \section{}
+
+Wir konstruieren iterative Polynome $q_0, q_1, \dotsc \in K[X]$ und $r_0, r_1, \dotsc \in K[X]$ mit den folgenden Eigenschaften:
+\begin{itemize}
+  \item
+    Es gilt $f = q_i g + r_i$ für alle $i$.
+  \item
+    Es gilt $\deg(r_0) > \deg(r_1) > \deg(r_2) > \dotsb$
+\end{itemize}
+Nach $N$ vielen Iterationen gilt $\deg(r_N) < \deg(g)$, denn wegen $g \neq 0$ gilt $\deg(g) \geq 0$.
+Für $g \defined g_N$ und $r \defined r_N$ gilt dann $f = qg + r$ mit $\deg(r) < \deg(g)$.
+
+\begin{enumerate}
+  \item
+    Wir beginnen mit $r_0 \defined f_0$ und $q_0 \defined 0$.
+    Es gilt dann $f = 0 \cdot g + f = q_0 f + r_0$.
+  \item
+    Gilt $\deg(r_i) < \deg(g)$ für ein $i$, so terminiert der Algorithmus.
+  \item
+    Gilt $\deg(r_i) \geq \deg(g)$, so werden $q_{i+1}$ und $r_{i+1}$ wie folgt definiert:
+    
+    Es sei $b X^m$ der Leitterm von $g$, d.h.\ es gelte $g = b X^m + \sum_{k=0}^{m-1} b_k X^k$ mit $b \neq 0$.
+    Es sei $a X^n$ der Leitterm von $r_i$, d.h.\ es gelte $r_i = a X^n + \sum_{k=0}^{n-1} a_k X^k$ mit $a \neq 0$.
+    Nach Annahme gilt dabei $n \geq m$.
+    Es seien
+    \[
+      q_{i+1} \defined q_i + \frac{a}{b} X^{n-m}
+      r_{i+1} \defined r_i - \frac{a}{b} X^{n-m} g \,.
+    \]
+    Dann gelten die gewünschten Bedingungen:
+    \begin{itemize}
+      \item
+        Es gilt $q_{i+1} g + r_{i+1} = q_i + \frac{a}{b} X^{n-m} g + r_i - \frac{a}{b} X^{n-m} g = q_i g + r_i = f$.
+      \item
+        Die beiden Polynome $r_i$ und $\frac{a}{b} X^{n-m} g$ haben den gleichen Leitterm $a X^n$, weshalb $r_{i+1} = r_i - \frac{a}{b} X^{n-m} g$ einen echt kleineren Grad hat als $r_i$.
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection*{Beispiel: $X^3 + 3X + 3$ durch $X + 1$}
+
+Es seien $f \defined X^3 + 3X + 3$ und $g \defined X + 1$.
+Der Leitterm von $g$ ist $X$.
+
+\begin{enumerate}
+  \item
+    Wir beginnen mit $q_0 \defined 0$ und $r_0 \defined f$.
+  \item
+    Es gilt $\deg(r_0) = \deg(f) = 3 > 1 = \deg(g)$, also setzen wir den Algorithmus fort:
+    Der Leitterm von $r_0 = f = X^3 + 3X + 3$ ist $X^3$.
+    Wir setzen also
+    \begin{gather*}
+                q_1
+      \defined  q_0 + X^{3-1}
+      =         0 + X^2 = X^2
+    \shortintertext{und}
+                r_1
+      \defined  r_0 - X^2 g
+      =         (X^3 + 3X + 3) - X^2 (X + 1)
+      =         -X^2 + 3X + 3 \,.
+    \end{gather*}
+  \item
+    Es gilt $\deg(r_1) = 2 > 1 = \deg(g)$, also setzen wir den Algorithmus fort:
+    Der Letterm von $r_1 = -X^2 + 3X + 3$ ist $-X^2$.
+    Wir setzen also
+    \begin{gather*}
+                q_2
+      \defined  q_1 - X^{2-1}
+      =         X^2 - X
+    \shortintertext{und}
+                r_2
+      \defined  r_1 - (-X) g
+      =         (-X^2 + 3X + 3) - (-X) (X + 1)
+      =         4X + 3 \,.
+    \end{gather*}
+  \item
+    Es gilt $\deg(r_2) = 1 = 1 = \deg(g)$, also setzen wir den Algorithmus fort:
+    Der Letterm von $r_2 = 4X + 3$ ist $4X$.
+    Wir setzen also
+    \begin{gather*}
+                q_3
+      \defined  q_2 + 4 X^{1-1}
+      =         X^2 - X + 4
+    \shortintertext{und}
+                r_3
+      \defined  r_2 - 4 g
+      =         (4X + 3) - 4 (X + 1)
+      =         -1 \,.
+    \end{gather*}
+  \item
+    Es gilt $\deg(r_3) = 0 < 1 = \deg(g)$, also beenden wir den Algorithmus.
+\end{enumerate}
+Wir erhalten somit die Polynome $q \defined g_3 = X^2 - X + 4$ und $r \defined r_3 = -1$ mit $f = qg + r$ und $\deg(r) < \deg(g)$.
+
+Die obige Rechnung lässt sich schematisch wie folgt zusammenfassen:
+\[
+  \polylongdiv[style=B]{X^3 + 3X + 3}{X + 1}
+\]
+
+\subsection*{Beispiel: $2X^4 + X^3 + X^2 + X + 1$ durch $2X^2 - 1$}
+
+Schematisch zusammengefasst erhalten wir die folgende Rechnung:
+\[
+  \polylongdiv[style=B]{2X^4 + X^3 + X^2 + X + 1}{2X^2 - 1}
+\]
+Für die Polynome $q \defined X^2 + \frac{1}{2} X + 1$ und $r \defined \frac{3}{2} X + 2$ gilt also $f = qg + r$ mit $\deg(r) < \deg(g)$.
+
+
+
+
