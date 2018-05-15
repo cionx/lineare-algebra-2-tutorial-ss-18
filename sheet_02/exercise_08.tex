@@ -6,8 +6,8 @@
 
 \subsection{}
 
-Aus der Vorlesung ist bekannt, dass Eigenvektoren zu verschiedenen Eigenvektoren linear unabhängig sind, dass also die Summe $\sum_{\lambda \in K} \eigenspace{A}{\lambda}$ direkt ist.
-Für jedes $v \in \sum_{\lambda \in K} \eigenspace{A}{\lambda}$ ist also die Darstellung $v = \sum_{\lambda \in K} v_\lambda$ mit
+Aus der Vorlesung ist bereits bekannt, dass Eigenvektoren zu verschiedenen Eigenvektoren linear unabhängig sind, dass also die Summe $\sum_{\lambda \in K} \eigenspace{A}{\lambda}$ direkt ist.
+Für jedes $v \in \sum_{\lambda \in K} \eigenspace{A}{\lambda} = \bigoplus_{\lambda \in K} \eigenspace{A}{\lambda}$ ist also die Darstellung $v = \sum_{\lambda \in K} v_\lambda$ mit
 \begin{itemize}
   \item
     $v_{\lambda} \in \eigenspace{A}{\lambda}$ für alle $\lambda \in K$, und
@@ -32,14 +32,16 @@ Dies steht aber im Widerspruch dazu, dass $v$ und $w$ Eigenvektoren sind, und so
 Gilt $A = \lambda E_n$ für ein $\lambda \in K$, so gilt $Av = \lambda E_n v = \lambda v$ für alle $v \in V$, weshalb jedes $v \in V$, $v \neq 0$ ein Eigenvektor von $V$ zum Eigenvektor $\lambda$ ist.
 
 Es sei nun andererseits jeder Vektor $v \in V$, $v \neq 0$ ein Eigenvektor von $V$ zum Eigenvektor $\lambda_v \in V$.
+(Man bemerke, dass der Eigenwert $\lambda_v$ a priori von $v$ abhängt!)
 
 \begin{claim*}
-  Für alle $v, w \in V$ mit $v, w \neq 0$ gilt $\lambda_v = \lambda_w$.
+  Für alle $v, w \in V$, $v, w \neq 0$ gilt $\lambda_v = \lambda_w$.
 \end{claim*}
 
 \begin{proof}
   Gebe es $v, w \in V$, $v, w \neq 0$ mit $\lambda_v \neq \lambda_w$, so wären $v$ und $w$ Eigenvektoren von $V$ zu verschiedenen Eigenwerten.
-  Nach dem vorherigen Aufgabenteil würde dann $v + w \neq 0$ gelten, aber $v + w$ kein Eigenvektor von $A$ sein, im Widerspruch zur Annahme.
+  Nach dem vorherigen Aufgabenteil würde dann $v + w \neq 0$ gelten, und $v + w$ kein Eigenvektor von $A$ sein.
+  Dies steht im Widerspruch zur Annahme (a).
 \end{proof}
 
 Es sind also alle $v \in V$ mit $v \neq 0$ bereits Eigenvektoren zum selben Eigenwert $\lambda \defined \lambda_v \in K$.

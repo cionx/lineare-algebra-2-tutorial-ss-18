@@ -22,7 +22,7 @@ Dann gelten $fg' = f'g$ und $f''g' = f'g''$, und deshalb gilt
   = f''g'g
   = f''gg' \,.
 \]
-Da $R$ ein Integritätsbereich ist, und $g' \neq 0$ lässt sich die Gleichung $fg''g' = f''gg'$ zu $fg'' = f''g$ kürzen (es gilt $(fg'' - f''g)g' = 0$ mit $g' \neq 0$, also $fg'' - f''g = 0$).
+Da $R$ ein Integritätsbereich ist, und $g' \neq 0$ gilt, lässt sich die Gleichung $fg''g' = f''gg'$ zu $fg'' = f''g$ kürzen (es gilt $(fg'' - f''g)g' = 0$ mit $g' \neq 0$, also $fg'' - f''g = 0$).
 Das zeigt die Transitivität von $\sim$.
 
 Es gilt die folgende Kürzungsregel für Brüche:
@@ -37,9 +37,9 @@ Es gilt die folgende Kürzungsregel für Brüche:
 \end{lemma}
 
 \begin{proof}
-  Es gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ somit auch $g g' \neq 0$.
+  Es gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ gilt somit auch $g g' \neq 0$.
   Das zeigt, dass $(fg', gg') \in R \times (R \smallsetminus \{0\})$ gilt, und der Bruch $(fg')/(gg')$ somit wohldefiniert ist.
-  Die behauptete Gleichheit der Brüche ergibt sich daraus, dass $fg' \cdot g = f \cdot g g'$ gilt, und somit $(f,g) \sim (f',g')$.
+  Die behauptete Gleichheit der Brüche ergibt sich daraus, dass $fg' \cdot g = f \cdot g g'$ gilt, und somit $(f,g) \sim (f',g')$ gilt.
 \end{proof}
 
 
@@ -48,7 +48,7 @@ Es gilt die folgende Kürzungsregel für Brüche:
 
 \subsection*{Die Addition $+$ ist wohldefiniert}
 
-Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ somit auch $g g' \neq 0$.
+Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ gilt somit auch $g g' \neq 0$.
 Deshalb gilt $(f g' + f' g, g g') \in R \times (R \smallsetminus\{0\})$.
 Der Bruch $(f g' + f' g)/(g g') \in (R \times (R \smallsetminus\{0\}))/{\sim}$ ist deshalb wohldefiniert.
 
@@ -68,7 +68,7 @@ Diese Unäbhängigkeit vom Repräsentanten zeigt, dass die Addition $+$ wohldefi
 
 \subsection*{Die Multiplikation $\cdot$ ist wohldefiniert}
 
-Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ gilt somet auch $g g ' \neq 0$.
+Für $(f,g), (f', g') \in R \times (R \smallsetminus\{0\})$ gelten $g, g' \neq 0$, und wegen der Nullteilerfreiheit von $R$ gilt somit auch $g g ' \neq 0$.
 Deshalb gilt $(f f', g g') \in R \times (R \smallsetminus\{0\})$.
 Der Bruch $(ff')/(gg') \in (R \times (R \smallsetminus\{0\}))/{\sim}$ ist deshalb wohldefiniert.
 
@@ -141,7 +141,7 @@ Nach der Kürzungsregel aus Lemma~\ref{lemma: cancelling fractions} gilt dabei f
 
 \subsection*{Existenz von additiv Inversen}
 
-Für alle $f/g \in \Quotient{R}$ gilt auch $-f/g \in \Quotient{R}$, und
+Für alle $f/g \in \Quotient{R}$ gilt auch $-f/g \in \Quotient{R}$, und es gilt
 \[
     \frac{f}{g} + \frac{-f}{g}
   = \frac{f g - f g}{g g}
@@ -165,7 +165,7 @@ Für alle $f/g, f'/g', f''/g'' \in \Quotient{R}$ gilt
   = \left( \frac{f}{g} \cdot \frac{f'}{g'} \right) \cdot \frac{f''}{g''} \,.
 \]
 Das zeigt die Assoziativität der Multiplikation.
-(Es ist okay, zu sagen, dass die Assoziativität der Multiplikation von $\Quotient{R}$ direkt aus der Assoziativität der Multiplikation von $R$ folgt.)
+(Es ist hier okay zu sagen, dass die Assoziativität der Multiplikation von $\Quotient{R}$ direkt aus der Assoziativität der Multiplikation von $R$ folgt.)
 
 
 
@@ -181,7 +181,7 @@ Für alle $f/g, f'/g' \in \Quotient{R}$ gilt
   = \frac{f'}{g'} \cdot \frac{f}{g} \,.
 \]
 Das zeigt die Kommutativität der Multiplikation.
-(Es ist okay, zu sagen, dass die Kommutativität der Multiplikation von $\Quotient{R}$ direkt aus der Kommutativität der Multiplikation von $R$ folgt.)
+(Es ist hier okay zu sagen, dass die Kommutativität der Multiplikation von $\Quotient{R}$ direkt aus der Kommutativität der Multiplikation von $R$ folgt.)
 
 
 
@@ -216,9 +216,10 @@ Es gilt
 \[
     \frac{f}{g} \cdot \frac{g}{f}
   = \frac{fg}{gf}
+  = \frac{fg}{fg}
   = \frac{1}{1} \,,
 \]
-was zeigt, dass $g/f$ multiplikativ invers zu $f/g$ in $\Quotient{R}$ ist.
+was zeigt, dass $g/f$ in $\Quotient{R}$ multiplikativ invers zu $f/g$ ist.
 
 
 
@@ -234,7 +235,7 @@ was zeigt, dass $g/f$ multiplikativ invers zu $f/g$ in $\Quotient{R}$ ist.
 \end{lemma}
 
 \begin{proof}
-  Es gilt $(f + f', g) \sim (f g + f' g, g^2)$, da
+  Es gilt $(f + f', g) \sim (f g + f' g, g^2)$, denn es gilt
   \[
       (f + f') \cdot g^2
     = f g^2 + f' g^2
@@ -259,7 +260,7 @@ Das zeigt die Distributivität.
 
 
 
-\subsection*{$0 \neq 1$ in $\Quotient{R}$}
+\subsection*{Es gilt $0 \neq 1$ in $\Quotient{R}$}
 
 Es gilt $0_{\Quotient{R}} \neq 1_{\Quotient{R}}$, denn es gelten $0_{\Quotient{R}} = 0/1$ und $1_{\Quotient{R}} = 1/1$, und wegen $0 \cdot 1 = 0 \neq 1 = 1 \cdot 1$ gilt $(0,1) \nsim (1,1)$.
 

@@ -14,6 +14,7 @@
     Dieses Polynom ist eine Einheit, und somit ebenfalls nicht irreduzibel.
   \item
     Polynome $f \in \Finite_2[X]$ vom Grad $\deg(f) = 1$ sind stets irreduzibel:
+    
     Für jede Zerlegung $f = g_1 g_2$ in $g_1, g_2 \in \Finite_2[X]$ folgt aus $\deg(f) = \deg(g_1) + \deg(g_2)$, dass entweder $\deg(g_1) = 1$ und $\deg(g_2) = 0$, oder $\deg(g_1) = 0$ oder $\deg(g_2) = 1$ gilt.
     Es gilt also $\deg(g_1) = 0$ oder $\deg(g_2) = 0$, weshalb $g_1 = 1$ oder $g_2 = 1$ gilt.
     Es ist also eines der Polynome $g_1$ oder $g_2$ eine Einheit.
@@ -28,23 +29,24 @@
   \item
     Besitzt ein Polynom $f \in \Finite_2[X]$ vom Grad $\deg(f) \geq 2$ eine Nullstelle, so ist $f$ reduzibel:
     
-    Ist $\lambda \in \Finite_2$ eine Nullstelle von $f$, so erhält man durch Abspalten des entsprechenden Linearfaktors $X - \lambda$ eine Zerlegung $f = (X - \lambda) g$ mit $g \in \Finite_2$.
+    Ist $\lambda \in \Finite_2$ eine Nullstelle von $f$, so erhält man durch Abspalten des entsprechenden Linearfaktors $X - \lambda$ eine Zerlegung $f = (X - \lambda) g$ mit $g \in \Finite_2[X]$.
     Dabei gilt $\deg(f) = \deg(X-\lambda) + \deg(g) = \deg(g) + 1$, also $\deg(g) \in \{1, 2\}$.
-    Deshalb ist $g$ dann keine Einheit, und somit $f = (X-\lambda)g$ eine Zerlegung in zwei Nicht-Einheiten.
-  \item
+    Deshalb ist $g$ keine Einheit, und somit $f = (X-\lambda)g$ eine Zerlegung in zwei Nicht-Einheiten.
+
     Dabei hat ein normiertes Polyom $f = X^n + \sum_{k=0}^{n-1} a_k X^k \in \Finite_2[X]$ mit $a_k \in \{0,1\}$ genau dann keine Nullstelle, wenn $f(0) = 1$ und $f(1) = 1$ gelten.
-    Dabei gilt $f(0) = a_0$ und $f(1) = 1 + \sum_{k=0}^n a_k$.
-    Für die Irreduziblität von $f$ muss also $a_0 = 1$ gelten, und eine ungerade Anzahl der Koeffizienten $a_{n-1}, \dotsc, a_1$ muss $1$ sein (und alle anderen Koeffizienten notwendigerweise $0$).
+    Dabei gilt $f(0) = a_0$ und $f(1) = 1 + \sum_{k=0}^{n-1} a_k$.
+    
+    Für die Irreduziblität von $f$ muss also $a_0 = 1$ gelten, und eine ungerade Anzahl der Indizes $1 \leq k \leq n-1$ mit $a_k = 1$ muss ungerade sein (die anderen Koeffizienten müssen notwendigerweise $0$ sein).
   \item
-    Gibt es für ein Polynom $f \in \Finite_2[X]$ vom Grad $\deg(f) \in \{2,3\}$ andererseits eine Zerlegung $f = g_1 g_2$ in zwei Nicht-Einheiten $g_1, g_2 \in \Finite_2[X]$, so gilt notwenderweise $\deg(g_1), \deg(g_2) \geq 1$, und zusammen mit $\deg(f) = \deg(g_1) + \deg(g_2)$ somit insgesamt $\deg(g_1) = 1$ oder $\deg(g_2) = 1$.
+    Gibt es für ein Polynom $f \in \Finite_2[X]$ vom Grad $\deg(f) \in \{2,3\}$ andererseits eine Zerlegung $f = g_1 g_2$ in zwei Nicht-Einheiten $g_1, g_2 \in \Finite_2[X]$, so gilt notwenderweise $\deg(g_1), \deg(g_2) \geq 1$ (denn sonst wäre $g_1$ oder $g_2$ eine Einheit), und zusammen mit $\deg(f) = \deg(g_1) + \deg(g_2)$ somit insgesamt $\deg(g_1) = 1$ oder $\deg(g_2) = 1$.
     Dann hat $g_1$ oder $g_2$ eine Nullstelle, und somit auch $f = g_1 g_2$ diese Nullstelle.
     
-    Das Polynom $f$ ist also genau irreduzibel, wenn $f$ keine Nullstelle hat.
+    Ein Polynom $f$ vom Grad $\deg(f) \in \{2,3\}$ ist also genau dann irreduzibel, wenn $f$ keine Nullstelle hat.
     
     \begin{itemize}
       \item
         Gilt $\deg(f) = 2$, so ist $f$ von der Form $f = X^2 + aX + b$.
-        Wie bereits gesehen, hat $f$ genau dann keine Nullstelle, wenn $b = 1$ gilt, $a = 0$ gilt.
+        Wie bereits gesehen, hat $f$ genau dann keine Nullstelle, wenn $b = 1$ und $a = 0$ gelten.
         Das einzige irreduzible Polynom vom Grad $2$ in $\Finite_2[X]$ ist also
         \[
           X^2 + X + 1 \,.
@@ -86,6 +88,23 @@
     \]
 \end{itemize}
 
+Die irreduziblen Polynome vom Grad $\leq 4$ in $\Finite_2[X]$ sind also
+\begin{gather*}
+  X \,,
+  \quad
+  X+1 \,,
+  \quad
+  X^2 + X + 1 \,,
+  \quad
+  X^3 + X^2 + 1 \,,
+  \quad
+  X^3 + X + 1 \,,
+  \\
+  X^4 + X^3 + X^2 + 1 \,,
+  \quad
+  X^4 + X^3 + X + 1 \,.
+\end{gather*}
+
 
 
 
@@ -93,7 +112,7 @@
 \subsection{}
 
 Das neutrale Element von $H$ ist $1$.
-Für alle $x, y \in H$ mit $x \neq 1$ oder $y \neq 1$ gilt $xy > 1$, und somit $xy \neq 1$.
+Für alle $x, y \in H$ mit $x \neq 1$ oder $y \neq 1$ gilt $x,y > 1$, also auch $xy > 1$ und somit $xy \neq 1$.
 Deshalb ist $1$ die einzige Einheit in $H$.
 
 Die Menge der reduziblen Elemente in $H$ ist somit
@@ -105,9 +124,10 @@ Die Menge der reduziblen Elemente in $H$ ist somit
    =  \{ 16z' \suchthat z' \in \Natural_1\}
    =  16 \Natural_1 \,.
 \end{align*}
-Die Menge der irreduziblen Elemente ist somit $H \smallsetminus 16 \Natural_1$.
+Die Menge der irreduziblen Elemente ist somit $(H \smallsetminus \{1\}) \smallsetminus 16 \Natural_1 = H \smallsetminus (\{1\} \cup 16 \Natural_1)$.
 
 Es gibt in $H$ keine Primelemente:
+Die Einheit $1$ ist per Definition kein Primelement.
 Für jedes $x \in H$, $x \neq 1$ gilt auch $2x \in H$.
 Es gilt $x \notdivides 2x$ in $H$, da $2 \notin H$ gilt, aber $x \divides (4x^2) = (2x)(2x)$ in $H$, da $4x \in H$ gilt.
 Das zeigt, dass $x$ nicht prim in $H$ ist.
