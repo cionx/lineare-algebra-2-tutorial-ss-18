@@ -13,9 +13,11 @@
 \newtheorem{theorem}[everything]{Satz}
 
 \theoremstyle{definition}
+\newtheorem*{claim*}{Behauptung}
 \newtheorem{remark}[everything]{Bemerkung}
 
 \renewcommand{\thesection}{Hausaufgabe H\arabic{section}}
+\renewcommand{\thesubsection}{(\roman{subsection})}
 
 \newcommand{\defined}{\coloneqq}
 \NewDocumentCommand{\suchthat}{s}{
@@ -31,6 +33,7 @@
 \newcommand{\Complex}{\mathbb{C}}
 \newcommand{\Finite}{\mathbb{F}}
 
+\newcommand{\eigenspace}[2]{\operatorname{Eig}(#1, #2)}
 \newcommand{\matrices}[2]{#2^{#1, #1}}
 \newcommand{\mnatrices}[3]{#3^{#1, #2}}
 
