@@ -6,8 +6,8 @@
 
 \subsection{}
 
-Ist allgemeiner $h \colon V \to V$ ein Endomorphismus und $v \in V$, $v \neq 0$ ein Eigenvektor von $h$ zum Eigenwert $\lambda \in V$, dann ist der Vektor $v$ für alle $p \in K[X]$ auch ein Eigenvektor von $p(h)$ zum Eigenwert $p(\lambda)$:
-Aus $f(v) = \lambda v$ ergibt sich nämlich induktiv, dass $f^k(v) = \lambda^k v$ für alle $k \geq 0$ gilt;
+Ist allgemeiner $h \colon V \to V$ ein Endomorphismus und $v \in V$, $v \neq 0$ ein Eigenvektor von $h$ zum Eigenwert $\lambda \in K$, dann ist der Vektor $v$ für jedes Polynom $p \in K[X]$ auch ein Eigenvektor von $p(h)$ zum Eigenwert $p(\lambda)$:
+Aus $h(v) = \lambda v$ ergibt sich nämlich induktiv, dass $h^k(v) = \lambda^k v$ für alle $k \geq 0$ gilt;
 für $p = \sum_{k=0}^n a_k X^k$ ergibt sich somit, dass
 \[
     p(h)(v)
@@ -22,7 +22,7 @@ Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
   \leavevmode
   \begin{enumerate}
     \item
-      Es gilt $f^2 = \id_V$, also $f^2 - \id_V = 0$, und somit $p(f) = 0$ für das Polynom $p \defined t^2 - 1 = (t-1)(t+1)$.
+      Es gilt $f^2 = \id_V$, also $f^2 - \id_V = 0$, und somit $p(f) = 0$ für das Polynom $p \defined X^2 - 1 = (X-1)(X+1)$.
       Also sind $1$ und $-1$ die einzigen möglichen Eigenwerte von $f$.
       Dass beide Werte auch tatsächlich auftreten können, folgt durch Betrachtung des Beispiels $V = K^2$ und
       \[
@@ -33,7 +33,7 @@ Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
                   \end{pmatrix} \,.
       \]
     \item
-      Es gilt $g^2 = g$, also $g^2 - cg = 0$, und somit $p(g) = 0$ für $p \defined X^2 - cX = X(X-c)$.
+      Es gilt $g^2 = cg$, also $g^2 - cg = 0$, und somit $p(g) = 0$ für $p \defined X^2 - cX = X(X-c)$.
       Also sind $0$, $c$ die einzigen möglichen Eigenwerte von $g$.
       Dass beide Werte auch tatsächlich auftreten können, folgt durch Betrachtung des Beispiels $V = K^2$ und
       \[
@@ -44,7 +44,7 @@ Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
                   \end{pmatrix} \,.
       \]
     \item
-      Ist $h \colon V \to V$ ein nilpotenter Endomorphismus, so gibt es ein $N \geq 1$ mit $g^N = 0$.
+      Ist $h \colon V \to V$ ein nilpotenter Endomorphismus, so gibt es ein $N \geq 1$ mit $h^N = 0$.
       Für das Polynom $p \defined X^N$ gilt dann $p(h) = 0$.
       Deshalb ist $0$ der einzige mögliche Eigenwert von $h$.
   \end{enumerate}
@@ -54,7 +54,7 @@ Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
 
 
 
-\subsection{}
+\subsection*{(ii) + (iii)}
 
 Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeinern:
 
@@ -70,7 +70,7 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
 \end{lemma}
 
 \begin{proof}
-  Es folgt aus $p(f) = 0$, dass $\mu_f \divides p$.
+  Es folgt aus $p(f) = 0$, dass $\mu_f \divides p$ gilt.
   Das Minimalpolynom $\mu_f$ ist deshalb von der Form
   \[
       \mu_f
@@ -90,10 +90,10 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
       \[
                   p
         \defined  X^2 - 1
-        =         (X - 1)(X + 2)
+        =         (X - 1)(X + 1)
         \in       K[X] \,.
       \]
-      Gilt $1 \neq -1$, also $\ringchar{K} \neq 2$, so ist also $f$ diagonalisierbar mit möglichen Eigenwerten $1, -1$.
+      Gilt $1 \neq -1$, also $\ringchar{K} \neq 2$, so ist $f$ also diagonalisierbar mit möglichen Eigenwerten $1, -1$.
     \item
       Es sei allgemeiner $V$ ein endlichdimensionaler $\mathbb{C}$-Vektorraum und $g \colon V \to V$ ein Endomorphismus mit $g^n = \id_V$ für ein $n \geq 1$.
       Dann gilt $p(g) = 0$ für das Polynom $p \defined X^n - 1$.
@@ -103,10 +103,11 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
         \quad\text{mit}\quad
         \omega_k \defined e^{2 \pi i k / n} \,.
       \]
-      Dabei sind die Einheitswurzeln $\omega_0, \dotsc, \omega_{n-1}$ sind paarweise verschieden.
+      Dabei sind die Einheitswurzeln $\omega_0, \dotsc, \omega_{n-1}$ paarweise verschieden.
       Also ist $g$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
     \item
-      Ist $G \subseteq \GL{V}$ eine endliche Untergruppe mit $n \defined \card{G}$, ergibt sich aus grundlegender Gruppentheorie, dass $g^n = 1_G = \id_V$ für alle $g \in G$ gilt (wir werden dies hier nicht zeigen).
+      Ist $G \subseteq \GL{V}$ eine endliche mit $n \defined \card{G}$, so ergibt sich aus grundlegender Gruppentheorie, dass $g^n = 1$ für alle $g \in G$ gilt (wir werden dies hier nicht zeigen).
+      Ist also $G \subseteq \GL{V}$ eine endliche Untergruppe, so gilt für $n \defined \card{G}$, das $g^n = \id_V$ für alle $g \in G$ gilt.
       Nach dem obigen Beispiel ist deshalb jedes Gruppenelement $g \in G$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
     \item
       Es gelte $g^2 = cg$ für einen Skalar $c \in K$, also $p(g) = 0$ für das Polynom
@@ -124,7 +125,7 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
       \[
                   p
         \defined  X^2 - X
-        =         x(X-1) \,.
+        =         X(X-1) \,.
       \]
       Also ist $e$ diagonalisierbar mit möglichen Eigenwerten $0$, $1$.
       Es gilt somit

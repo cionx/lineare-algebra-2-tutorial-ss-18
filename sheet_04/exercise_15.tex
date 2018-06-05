@@ -7,7 +7,7 @@ Für alle $\lambda, \mu \in K$ lässt sich
 \]
 als der \emph{gemeinsame Eigenraum} von $f, g$ zu den Eigenwerten $\lambda, \mu$ bezeichnen;
 die Vektoren $v \in \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}$ mit $v \neq 0$ sind \emph{gemeinsame Eigenvektoren} von $f$ und $g$.
-Wir haben in dieser Aufgabe gezeigt, dass unter den gegebenen Bedingungen die Zerlegung
+Wir haben im Tutorium gesehen, dass
 \[
     V
   = \bigoplus_{\lambda \in K} \eigenspace{f}{\lambda}
@@ -16,7 +16,7 @@ Wir haben in dieser Aufgabe gezeigt, dass unter den gegebenen Bedingungen die Ze
 \]
 gilt, dass also $V$ in die gemeinsamen Eigenräume von $f$ und $g$ zerfällt.
 
-Ist $h \colon V \to V$ ein weiterer Endomorphismus der mit $f$ und $g$ kommutiert, so gilt
+Ist $h \colon V \to V$ ein weiterer Endomorphismus, der mit $f$ und $g$ kommutiert, so gilt
 \[
             h( \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}  )
   \subseteq h(\eigenspace{f}{\lambda}) \cap h(\eigenspace{g}{\mu})
@@ -32,7 +32,6 @@ Ist $h$ ebenfalls diagonalisierbar, so ergibt sich dann, dass
   &=  \bigoplus_{\lambda, \mu, \kappa \in K}
       \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \cap \eigenspace{h}{\kappa} \bigr] \,.
 \end{align*}
-
 Induktiv lässt sich damit die folgende Aussage zeigen:
 
 \begin{proposition}
@@ -54,7 +53,7 @@ Induktiv lässt sich damit die folgende Aussage zeigen:
   \end{enumerate}
 \end{proposition}
 
-Man bezeichnet Endomorphismen $f_1, \dotsc, f_n \colon V \to V$ die eine (und damit alle) der Bedinungen aus Proposition~\ref{proposition: equivalent conditions for simultaneously diagonalizable} erfüllen, als \emph{simultan diagonalisierbar}.
+Man bezeichnet Endomorphismen $f_1, \dotsc, f_n \colon V \to V$, die eine (und damit alle) der Bedinungen aus Proposition~\ref{proposition: equivalent conditions for simultaneously diagonalizable} erfüllen, als \emph{simultan diagonalisierbar}.
 Simultane Diagonalisierbarkeit spielt eine wichtige Rolle in der Darstellungstheorie, sowie in der Quantenmechanik.
 
 \begin{example}
@@ -66,11 +65,11 @@ Simultane Diagonalisierbarkeit spielt eine wichtige Rolle in der Darstellungsthe
   Hieraus ergeben sich beispielsweise die folgenden beiden Resultate:
   \begin{enumerate}
     \item
-      Jede endliche abelsche Untergruppe von $\GL(V)$ ist isomorph zu einer Untergruppe von $\diagonalgroup{n}{K}$ (die Gruppe der invertieren $(n \times n)$-Diagonalmatrizen über $K$).
+      Jede endliche abelsche Untergruppe von $\GL{V}$ ist isomorph zu einer Untergruppe von $\diagonalgroup{n}{\Complex}$ (die Gruppe der invertieren $(n \times n)$-Diagonalmatrizen über $\Complex$).
     \item
-      Der Vektorraum $V$ lässt sich als $V = V_1 \oplus \dotsb \oplus V_d$ zerlegen, wobei $V_i \subseteq V$ für jedes $i = 1, \dotsc, V_d$ ein eindimensionaler Untervektorraum ist, der $g$-invariant für jedes $g \in G$ (also $G$-invariant) ist.
+      Der Vektorraum $V$ lässt sich als $V = V_1 \oplus \dotsb \oplus V_d$ zerlegen, wobei $V_i \subseteq V$ für jedes $i = 1, \dotsc, d$ ein eindimensionaler Untervektorraum ist, der $g$-invariant für jedes $g \in G$ ist (also $G$-invariant).
       (Gilt $B = (b_1, \dotsc, b_d)$, so wähle man $V_i = \Lin(b_i)$.)
       
-      In der Sprache der Darstellungstheorie endlicher Gruppen bedeutet dies, dass die Darstellung $V$ von $G$ in eindimensionale Unterdarstellungen zerfällt.
+      In der Sprache der Darstellungstheorie endlicher Gruppen bedeutet dies, dass die Darstellung $V$ von $G$ in eindimensionale Unterdarstellungen zerfällt, bzw.\ dass jede irreduzible komplexe Darstellung einer endlichen abelschen Gruppe bereits eindimensional ist.
   \end{enumerate}
 \end{example}
