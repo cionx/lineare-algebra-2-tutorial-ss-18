@@ -1,1 +1,157 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Ist allgemeiner $h \colon V \to V$ ein Endomorphismus und $v \in V$, $v \neq 0$ ein Eigenvektor von $h$ zum Eigenwert $\lambda \in V$, dann ist der Vektor $v$ für alle $p \in K[X]$ auch ein Eigenvektor von $p(h)$ zum Eigenwert $p(\lambda)$:
+Aus $f(v) = \lambda v$ ergibt sich nämlich induktiv, dass $f^k(v) = \lambda^k v$ für alle $k \geq 0$ gilt;
+für $p = \sum_{k=0}^n a_k X^k$ ergibt sich somit, dass
+\[
+    p(h)(v)
+  = \sum_{k=0}^n a_k h^k(v)
+  = \sum_{k=0}^n a_k \lambda^k v
+  = p(\lambda) v \,.
+\]
+Gilt insbesondere $p(h) = 0$, so muss jeder Eigenwert $\lambda$ von $h$ eine Nullstelle von $p$ sein. 
+Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Es gilt $f^2 = \id_V$, also $f^2 - \id_V = 0$, und somit $p(f) = 0$ für das Polynom $p \defined t^2 - 1 = (t-1)(t+1)$.
+      Also sind $1$ und $-1$ die einzigen möglichen Eigenwerte von $f$.
+      Dass beide Werte auch tatsächlich auftreten können, folgt durch Betrachtung des Beispiels $V = K^2$ und
+      \[
+                  f
+        \defined  \begin{pmatrix}
+                    1 &     \\
+                      & -1
+                  \end{pmatrix} \,.
+      \]
+    \item
+      Es gilt $g^2 = g$, also $g^2 - cg = 0$, und somit $p(g) = 0$ für $p \defined X^2 - cX = X(X-c)$.
+      Also sind $0$, $c$ die einzigen möglichen Eigenwerte von $g$.
+      Dass beide Werte auch tatsächlich auftreten können, folgt durch Betrachtung des Beispiels $V = K^2$ und
+      \[
+                  g
+        \defined  \begin{pmatrix}
+                    0 &   \\
+                      & c
+                  \end{pmatrix} \,.
+      \]
+    \item
+      Ist $h \colon V \to V$ ein nilpotenter Endomorphismus, so gibt es ein $N \geq 1$ mit $g^N = 0$.
+      Für das Polynom $p \defined X^N$ gilt dann $p(h) = 0$.
+      Deshalb ist $0$ der einzige mögliche Eigenwert von $h$.
+  \end{enumerate}
+\end{example}
+
+
+
+
+
+\subsection{}
+
+Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeinern:
+
+\begin{lemma}
+  \label{lemma: diagonalizable via polynomials}
+  Es sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f \colon V \to V$ ein Endomorphismus.
+  Es sei $p \in K[X]$ ein Polynom mit $p(f) = 0$, das in paarweise verschiedene Linearfaktoren
+  \[
+    p = (X - \lambda_1) \dotsm (X - \lambda_n)
+  \]
+  zerfällt.
+  Dann ist $f$ diagonalisierbar mit möglichen Eigenwerten $\lambda_1, \dotsc, \lambda_n$.
+\end{lemma}
+
+\begin{proof}
+  Es folgt aus $p(f) = 0$, dass $\mu_f \divides p$.
+  Das Minimalpolynom $\mu_f$ ist deshalb von der Form
+  \[
+      \mu_f
+    = (X - \lambda_{i_1}) \dotsm (X - \lambda_{i_m})
+  \]
+  mit $1 \leq i_1 < i_2 < \dotsb < i_m \leq n$.
+  Also zerfällt $\mu_f$ in die paarweise verschiedenen Linearfaktoren $X - \lambda_{i_1}, \dotsc, X - \lambda_{i_m}$.
+  Deshalb ist $f$ diagonalisierbar mit Eigenwerten $\lambda_{i_1}, \dotsc, \lambda_{i_m}$.
+\end{proof}
+
+\begin{example}
+  \label{example: diagonalizable via polynomials}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Es gelte $f^2 = \id_V$, also $p(f) = 0$ für das Polynom
+      \[
+                  p
+        \defined  X^2 - 1
+        =         (X - 1)(X + 2)
+        \in       K[X] \,.
+      \]
+      Gilt $1 \neq -1$, also $\ringchar{K} \neq 2$, so ist also $f$ diagonalisierbar mit möglichen Eigenwerten $1, -1$.
+    \item
+      Es sei allgemeiner $V$ ein endlichdimensionaler $\mathbb{C}$-Vektorraum und $g \colon V \to V$ ein Endomorphismus mit $g^n = \id_V$ für ein $n \geq 1$.
+      Dann gilt $p(g) = 0$ für das Polynom $p \defined X^n - 1$.
+      Die Nullstellen des Polynoms $p$ sind die $n$-ten Einheitswurzeln, d.h.\ es gilt
+      \[
+        p = (X - \omega_0) \dotsm (X - \omega_{n-1})
+        \quad\text{mit}\quad
+        \omega_k \defined e^{2 \pi i k / n} \,.
+      \]
+      Dabei sind die Einheitswurzeln $\omega_0, \dotsc, \omega_{n-1}$ sind paarweise verschieden.
+      Also ist $g$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
+    \item
+      Ist $G \subseteq \GL{V}$ eine endliche Untergruppe mit $n \defined \card{G}$, ergibt sich aus grundlegender Gruppentheorie, dass $g^n = 1_G = \id_V$ für alle $g \in G$ gilt (wir werden dies hier nicht zeigen).
+      Nach dem obigen Beispiel ist deshalb jedes Gruppenelement $g \in G$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
+    \item
+      Es gelte $g^2 = cg$ für einen Skalar $c \in K$, also $p(g) = 0$ für das Polynom
+      \[
+                  p
+        \defined  X^2 - cX
+        =         X(X-c)
+        \in       K[X] \,.
+      \]
+      Gilt $c \neq 0$, also $c \in \unitgroup{K}$, so ist $g$ diagonalisierbar mit möglichen Eigenwerten $0, c$.
+    \item
+      Das obige Beispiel hat einen wichtigen Sonderfall:
+      Es sei $e \colon V \to V$ ein Endomorphismus mit $e^2 = e$.
+      Dann gilt $p(e) = 0$ für das Polynom
+      \[
+                  p
+        \defined  X^2 - X
+        =         x(X-1) \,.
+      \]
+      Also ist $e$ diagonalisierbar mit möglichen Eigenwerten $0$, $1$.
+      Es gilt somit
+      \[
+        V = \eigenspace{e}{1} \oplus \eigenspace{e}{0} \,.
+      \]
+      Zerlegt man $v \in V$ als $v = v_1 + v_0$ mit $v_1 \in \eigenspace{e}{1} \definedas U_1$ und $v_0 \in \eigenspace{e}{0} \eqqcolon U_0$, so gilt
+      \[
+          e(v)
+        = e(v_1 + v_0)
+        = e(v_1) + e(v_0)
+        = 1 \cdot v_1 + 0 \cdot v_0
+        = v_1 \,.
+      \]
+      Man bezeichnet $e$ deshalb als die \emph{Projektion auf $U_1$ entlang $U_0$}.
+      Man bemerke, dass $\im(e) = U_1$ und $\ker(e) = U_0$ gilt.
+  \end{enumerate}
+\end{example}
+
+\begin{remark}
+  Lemma~\ref{lemma: diagonalizable via polynomials} gilt auch falls $V$ unendlichdimensional ist.
+  Dann muss allerdings anders argumentiert werden, oder über Minimalpolynome im Unendlichdimensionalen gesprochen werden.
+\end{remark}
+
+
+
+
+
+
+

@@ -21,16 +21,19 @@
 
 \newtheorem{lemma}[everything]{Lemma}
 \newtheorem{corollary}[everything]{Korollar}
+\newtheorem{proposition}[everything]{Proposition}
 \newtheorem{theorem}[everything]{Satz}
 
 \theoremstyle{definition}
 \newtheorem*{claim*}{Behauptung}
+\newtheorem{example}[everything]{Beispiel}
 \newtheorem{remark}[everything]{Bemerkung}
 
 \renewcommand{\thesection}{Hausaufgabe H\arabic{section}}
 \renewcommand{\thesubsection}{(\roman{subsection})}
 
 \newcommand{\defined}{\coloneqq}
+\newcommand{\definedas}{\eqqcolon}
 \newcommand{\divides}{\mathrel{|}}
 \newcommand{\notdivides}{\mathrel{\nmid}}
 
@@ -38,6 +41,11 @@
   \IfBooleanTF{#1}
     {\,\middle|\,}
     {\,|\,}       
+}
+\NewDocumentCommand{\restrict}{smmO{}}{
+  \IfBooleanTF{#1}
+    {\left. {#2} \right|_{#3}^{#4}}
+    {{#2}|_{#3}^{#4}}
 }
 
 \newcommand{\Natural}{\mathbb{N}}
@@ -47,8 +55,21 @@
 \newcommand{\Complex}{\mathbb{C}}
 \newcommand{\Finite}{\mathbb{F}}
 
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Lin}{\operatorname{Lin}}
+\newcommand{\unitgroup}[1]{#1^\times}
+
+\newcommand{\GL}[1]{\operatorname{GL}(#1)}
+\newcommand{\diagonalgroup}[2]{\operatorname{D}_{#1}(#2)}
 \newcommand{\eigenspace}[2]{\operatorname{Eig}(#1, #2)}
 \newcommand{\matrices}[2]{#2^{#1, #1}}
 \newcommand{\mnatrices}[3]{#3^{#1, #2}}
 
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ringchar}{\operatorname{char}}
 \newcommand{\sign}{\operatorname{sgn}}
+
+\newcommand{\charpoly}[1]{\chi_{#1}}
+
+\newcommand{\columnvector}[1]{ \begin{pmatrix} #1 \end{pmatrix} }

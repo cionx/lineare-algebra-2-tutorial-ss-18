@@ -1,1 +1,59 @@
-\addtocounter{section}{1}
+\section{}
+
+Diese Aufgabe lässt sich wie folgt verallgemeinern:
+
+Es sei allgemeiner $(a_n)_{n \geq 0}$ eine Folge, die durch Startwerte $a_0, \dotsc, a_{d-1} \in K$ und die Rekursionsvorschrift
+\[
+    a_{n+d}
+  = c_{d-1} a_{n+d-1} + \dotsb + c_1 a_{n+1} + c_0 a_{n}
+\]
+definiert wird.
+Für die Matrix
+\[
+            A
+  \coloneqq \begin{pmatrix}
+              c_{d-1} & \cdots  & c_1 & c_0     \\
+              1       &         &     & 0       \\
+                      & \ddots  &     & \vdots  \\
+                      &         & 1   & 0
+            \end{pmatrix}
+  \in       \matrices{d}{K}
+\]
+gilt dann
+\[
+    A \columnvector{a_{n+d-1} \\ \vdots \\ a_n}
+  =   \columnvector{a_{n+d} \\ \vdots \\ a_{n+1}}
+\]
+für alle $n \geq 0$.
+Das charakteristische Polynom der Matrix $A$ ist durch
+\[
+              \charpoly{A}
+  =           X^d - c_{d-1} X^{d-1} - \dotsb - c_1 X - c_0
+  \definedas  p
+\]
+gegeben.
+Sofern sich $A$ diagonalisieren lässt (falls etwa $p$ in paarweise verschiedene Linearfaktoren zerfällt), lässt sich nun eine explizite Formel für die Folge $(a_n)_{n \geq 0}$ finden.
+
+\begin{remark}
+  Die Matrix $A$ lässt sich als eine Art von Begleitmatrix für das Polynom $p$ auffasen.
+  Anstelle von $A$ könnte man auch die Matrix
+  \[
+              A'
+    \coloneqq \begin{pmatrix}
+                0       & 1       &         &         \\
+                \vdots  &         & \ddots  &         \\
+                0       &         &         & 1       \\
+                c_0     & c_{d-2} & \cdots  & c_{d-1}
+              \end{pmatrix}
+  \]
+  betrachten, für die
+  \[
+      A' \columnvector{a_n \\ \vdots \\ a_{n+d-1}}
+    =    \columnvector{a_{n+1} \\ \vdots \\ a_{n+d}}
+  \]
+  gilt.
+  Dann ist $A'$ die Transponierte der Begleitmatrix von $p$, wodurch sich sofort ergibt, dass $\chi_{A'} = p$ gilt.
+  In dieser Aufgaben wurde allerdings die Konvention für $A$ genutzt, und nicht die Konvention für $A'$.
+\end{remark}
+
+

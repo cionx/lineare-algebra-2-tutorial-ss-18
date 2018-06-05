@@ -1,1 +1,76 @@
-\addtocounter{section}{1}
+\section{}
+
+Für alle $\lambda, \mu \in K$ lässt sich
+\[
+    \eigenspace{ \restrict{g}{\eigenspace{f}{\lambda}} }{\mu}
+  = \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}
+\]
+als der \emph{gemeinsame Eigenraum} von $f, g$ zu den Eigenwerten $\lambda, \mu$ bezeichnen;
+die Vektoren $v \in \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}$ mit $v \neq 0$ sind \emph{gemeinsame Eigenvektoren} von $f$ und $g$.
+Wir haben in dieser Aufgabe gezeigt, dass unter den gegebenen Bedingungen die Zerlegung
+\[
+    V
+  = \bigoplus_{\lambda \in K} \eigenspace{f}{\lambda}
+  = \bigoplus_{\lambda \in K} \bigoplus_{\mu \in K} \eigenspace{ \restrict{g}{\eigenspace{f}{\lambda}} }{\mu}
+  = \bigoplus_{\lambda, \mu \in K} \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \bigr]
+\]
+gilt, dass also $V$ in die gemeinsamen Eigenräume von $f$ und $g$ zerfällt.
+
+Ist $h \colon V \to V$ ein weiterer Endomorphismus der mit $f$ und $g$ kommutiert, so gilt
+\[
+            h( \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}  )
+  \subseteq h(\eigenspace{f}{\lambda}) \cap h(\eigenspace{g}{\mu})
+  \subseteq \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \,.
+\]
+Ist $h$ ebenfalls diagonalisierbar, so ergibt sich dann, dass
+\begin{align*}
+      V
+   =  \bigoplus_{\lambda, \mu \in K} \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \bigr]
+  &=  \bigoplus_{\lambda, \mu \in K}
+      \bigoplus_{\kappa \in K}
+      \eigenspace{ \restrict{h}{ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} } }{\kappa} \\
+  &=  \bigoplus_{\lambda, \mu, \kappa \in K}
+      \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \cap \eigenspace{h}{\kappa} \bigr] \,.
+\end{align*}
+
+Induktiv lässt sich damit die folgende Aussage zeigen:
+
+\begin{proposition}
+  \label{proposition: equivalent conditions for simultaneously diagonalizable}
+  Für Endomorphismus $f_1, \dotsc, f_n \colon V \to V$ sind die folgenden Bedingungen äquivalent:
+  \begin{enumerate}
+    \item
+      Es gibt eine Basis von $V$, die aus gemeinsamen Eigenvektoren von $f_1, \dotsc, f_n$ besteht.
+    \item
+      Die Endomorphismen $f_1, \dotsc, f_n$ sind diagonalisierbar und paarweise kommutierend.
+    \item
+      Es gilt die Zerlegung
+      \[
+          V
+        = \bigoplus_{\lambda_1, \dotsc, \lambda_n \in K}
+          \bigl[ \eigenspace{f_1}{\lambda_1} \cap \dotsb \cap \eigenspace{f_n}{\lambda_n} \bigr]
+      \]
+      in die gemeinsame Eigenräume der Endomorphismen $f_1, \dotsc, f_n$.
+  \end{enumerate}
+\end{proposition}
+
+Man bezeichnet Endomorphismen $f_1, \dotsc, f_n \colon V \to V$ die eine (und damit alle) der Bedinungen aus Proposition~\ref{proposition: equivalent conditions for simultaneously diagonalizable} erfüllen, als \emph{simultan diagonalisierbar}.
+Simultane Diagonalisierbarkeit spielt eine wichtige Rolle in der Darstellungstheorie, sowie in der Quantenmechanik.
+
+\begin{example}
+  Es sei $V$ ein endlichdimensionaler $\mathbb{C}$-Vektorraum und $G \subseteq \GL{V}$ eine endliche Untergruppe.
+  Wir haben in Beispiel~\ref{example: diagonalizable via polynomials} gesehen, dass für $n \defined \card{G}$ jedes $g \in G$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$ ist.
+  
+  Ist $G$ abelsch, so folgt aus der obigen Argumentation, dass $G$ simultan diagonalisierbar ist.
+  Es gibt dann eine Basis $B$ von $V$, so dass $c_{B,B}(g)$ für jedes $g \in G$ eine Diagonalmatrix mit möglichen Diagonaleinträgen $\omega_0, \dotsc, \omega_{n-1}$ ist.
+  Hieraus ergeben sich beispielsweise die folgenden beiden Resultate:
+  \begin{enumerate}
+    \item
+      Jede endliche abelsche Untergruppe von $\GL(V)$ ist isomorph zu einer Untergruppe von $\diagonalgroup{n}{K}$ (die Gruppe der invertieren $(n \times n)$-Diagonalmatrizen über $K$).
+    \item
+      Der Vektorraum $V$ lässt sich als $V = V_1 \oplus \dotsb \oplus V_d$ zerlegen, wobei $V_i \subseteq V$ für jedes $i = 1, \dotsc, V_d$ ein eindimensionaler Untervektorraum ist, der $g$-invariant für jedes $g \in G$ (also $G$-invariant) ist.
+      (Gilt $B = (b_1, \dotsc, b_d)$, so wähle man $V_i = \Lin(b_i)$.)
+      
+      In der Sprache der Darstellungstheorie endlicher Gruppen bedeutet dies, dass die Darstellung $V$ von $G$ in eindimensionale Unterdarstellungen zerfällt.
+  \end{enumerate}
+\end{example}
