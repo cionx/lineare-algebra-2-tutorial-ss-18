@@ -19,9 +19,9 @@ Es sei
 \[
             U
   \defined  \Lin(v, f(v), f^2(v), \dotsc)
-  =         \Lin( \{ f^k(v) \suchthat n \geq 0 \} )
+  =         \Lin( \{ f^k(v) \suchthat k \geq 0 \} )
 \]
-der von $v$ erzeugte invariante Untervektorraum;
+der von $v$ erzeugte $f$-invariante Untervektorraum;
 der Untervektorraum $U \subseteq V$ ist $f$-invariant, da $f(f^k(v)) = f^{k+1}(v) \in U$ für alle $k \geq 0$ gilt.
 Für alle $k \geq 0$ gilt
 \[
@@ -30,7 +30,7 @@ Für alle $k \geq 0$ gilt
   = f^k( 0 )
   = 0 \,,
 \]
-und deshalb $\restrict{p(f)}{U} = 0$.
+und deshalb gilt $\restrict{p(f)}{U} = 0$.
 Es gilt deshalb $\minpoly{\restrict{f}{U}} \divides p$.
 Andererseits gilt auch
 \[
@@ -50,7 +50,8 @@ Also ist $\minpoly{\restrict{f}{U}}$ der gesuchte gemeinsame Teiler von $p$ und 
 
 \subsection{}
 
-Wir geben noch einen zweiten Beweis:
+Wir geben noch eine alternative Lösung für diesen Aufgabenteil an.
+Entscheidend ist hierfür die folgende Beobachtung:
 
 \begin{lemma}
   Ist $U \subseteq V$ ein $f$-invarianter Untervektorraum, so gilt $\charpoly{\restrict{f}{U}} \divides \charpoly{f}$.
@@ -69,7 +70,7 @@ Wir geben noch einen zweiten Beweis:
               \end{pmatrix}
     \in       \matrices{n}{K}
   \]
-  mit $A_1 = c_{B',B'} \in \matrices{m}{K}$.
+  mit $A_1 = c_{B',B'} \in \matrices{m}{K}$ und $A_2 \in \matrices{n-m}{K}$.
   Es gilt somit, dass
   \[
               \charpoly{\restrict{f}{U}}
@@ -90,19 +91,18 @@ Für alle $1 \leq k < n-1$ gilt $f(f^k(v)) = f^{k+1}(v) \in U$, und nach dem Sat
 \[
     0
   = \charpoly{f}(f)(v)
-  = f^n(v) + a_{n-1} f^{n-1}(v) + \dotsb + f(v) + v \,,
+  = f^n(v) + a_{n-1} f^{n-1}(v) + \dotsb + a_1 f(v) + a_0 v \,,
 \]
 und deshalb auch
 \[
-    f(f^{k-1}(v))
-  = f^k(v)
+    f(f^{n-1}(v))
+  = f^n(v)
   = - a_{n-1} f^{n-1}(v) - a_{n-2} f^{n-2}(v) - \dotsb - a_1 f(v) - a_0 v
   \in U \,.
 \]
 Wir erhalten somit, dass $U = 0$ oder $U = V$ gilt.
 Der Fall $U = 0$ kann nicht eintreten, da $v \in U$ mit $v \neq 0$ gilt, also gilt $U = V$.
-Deshalb ist die $n$-elementige Familie $(v, \dotsc, f^{n-1}(v))$ ein Erzeugendensystem des $n$-dimensionalen Vektorraums $V$;
-es muss sich deshalb bereits um eine Basis handeln.
+Deshalb ist die $n$-elementige Familie $(v, \dotsc, f^{n-1}(v))$ ein Erzeugendensystem des $n$-dimensionalen Vektorraums $V$, und es muss sich bereits um eine Basis handeln.
 
 
 
