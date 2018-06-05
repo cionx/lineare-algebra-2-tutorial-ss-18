@@ -1,0 +1,34 @@
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+Für alle $m \geq 1$ gilt
+\[
+    (X E_n - A)(X^{m-1} E_n + X^{m-2} A + \dotsb + X A^{m-2} + A^{m-1})
+  = X^m E_n - A^m
+\]
+und somit
+\[
+            \charpoly{A}
+  =         \det(X E_n - A)
+  \divides  \det(X^m E_n - A^m) \,.
+\]
+Für $m = N$ mit $A^N = 0$ ergibt sich, dass
+\[
+            \charpoly{A}
+  \divides  \det\left( X^N E_n - A^N \right)
+  =         \det\left( X^N E_n \right)
+  =         X^{nN} \,.
+\]
+Also ist das charakteristische Polynom $\charpoly{A}$ von der Form $\charpoly{A} = X^k$ mit $1 \leq k \leq nN$.
+Dabei gilt $\deg(\charpoly{A}) = n$ und somit $\charpoly{A} = X^n$.

@@ -29,7 +29,7 @@
 \newtheorem{example}[everything]{Beispiel}
 \newtheorem{remark}[everything]{Bemerkung}
 
-\renewcommand{\thesection}{Hausaufgabe H\arabic{section}}
+\renewcommand{\thesection}{Aufgabe H\arabic{section}}
 \renewcommand{\thesubsection}{(\roman{subsection})}
 
 \newcommand{\defined}{\coloneqq}
@@ -55,6 +55,7 @@
 \newcommand{\Complex}{\mathbb{C}}
 \newcommand{\Finite}{\mathbb{F}}
 
+\DeclarePairedDelimiterX{\cyclic}[1]{[}{]}{#1}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\Lin}{\operatorname{Lin}}
 \newcommand{\unitgroup}[1]{#1^\times}
@@ -71,5 +72,6 @@
 \newcommand{\sign}{\operatorname{sgn}}
 
 \newcommand{\charpoly}[1]{\chi_{#1}}
+\newcommand{\minpoly}[1]{\mu_{#1}}
 
 \newcommand{\columnvector}[1]{ \begin{pmatrix} #1 \end{pmatrix} }

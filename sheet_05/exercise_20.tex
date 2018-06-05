@@ -1,0 +1,109 @@
+\section{}
+
+
+
+
+
+\subsection{}
+
+Wir konstruieren explizit einen gemeinsamen Teiler von $p$ und $\chi_f$:
+
+Würde bereits $p(f)(u) = 0$ für alle $u \in V$ gelten, so würde $\minpoly{f} \divides p$ gelten.
+Da nach dem Satz von Cayley-Hamilton auch $\minpoly{f} \divides \charpoly{f}$ gilt, wäre dann $\minpoly{f}$ ein gemeinsamer Teiler von $p$ und $\chi_f$.
+Dabei gilt $\deg(\minpoly{f}) \geq 1$, da $V \neq 0$ gilt.
+Damit wäre dann $\minpoly{f}$ der gewünschte gemeinsame Teiler von $p$ und $\charpoly{f}$.
+
+Das Problem, dass nicht notwendigerweise $p(f)(u) = 0$ für alle $u \in V$ gilt, lösen wir im Folgenden dadurch, dass wir $V$ durch einen passenden $f$-invarianten Untervektorraum $U \subseteq V$ ersetzten:
+
+Es sei
+\[
+            U
+  \defined  \Lin(v, f(v), f^2(v), \dotsc)
+  =         \Lin( \{ f^k(v) \suchthat n \geq 0 \} )
+\]
+der von $v$ erzeugte invariante Untervektorraum;
+der Untervektorraum $U \subseteq V$ ist $f$-invariant, da $f(f^k(v)) = f^{k+1}(v) \in U$ für alle $k \geq 0$ gilt.
+Für alle $k \geq 0$ gilt
+\[
+    p(f)( f^k(v) )
+  = f^k( p(f)(v) )
+  = f^k( 0 )
+  = 0 \,,
+\]
+und deshalb $\restrict{p(f)}{U} = 0$.
+Es gilt deshalb $\minpoly{\restrict{f}{U}} \divides p$.
+Andererseits gilt auch
+\[
+    \charpoly{f}(\restrict{f}{U})
+  = \restrict{\charpoly{f}(f)}{U}
+  = \restrict{0}{U}
+  = 0
+\]
+und somit $\minpoly{\restrict{f}{U}} \divides \charpoly{f}$.
+Also ist $\minpoly{\restrict{f}{U}}$ ein gemeinsamer Teiler von $p$ und $\charpoly{f}$.
+Wegen $v \neq 0$ gilt dabei $U \neq 0$ und somit $\deg( \minpoly{\restrict{f}{U}} ) \geq 1$.
+Also ist $\minpoly{\restrict{f}{U}}$ der gesuchte gemeinsame Teiler von $p$ und $\charpoly{f}$.
+
+
+
+
+
+\subsection{}
+
+Wir geben noch einen zweiten Beweis:
+
+\begin{lemma}
+  Ist $U \subseteq V$ ein $f$-invarianter Untervektorraum, so gilt $\charpoly{\restrict{f}{U}} \divides \charpoly{f}$.
+\end{lemma}
+
+\begin{proof}
+  Es sei $B' = (b_1, \dotsc, b_m)$ eine Basis von $U$.
+  Durch Basisergänzung ergibt sich eine Basis $B = (b_1, \dotsc, b_m, b_{m+1}, \dotsc, b_n)$ von $V$.
+  Dann gilt
+  \[
+              A
+    \defined  c_{B,B}(f)
+    =         \begin{pmatrix}
+                A_1 & *   \\
+                    & A_2
+              \end{pmatrix}
+    \in       \matrices{n}{K}
+  \]
+  mit $A_1 = c_{B',B'} \in \matrices{m}{K}$.
+  Es gilt somit, dass
+  \[
+              \charpoly{\restrict{f}{U}}
+    =         \det(X E_m - A_1)
+    \divides  \det(X E_m - A_1) \det(X E_{n-m} A_2)
+    =         \det(X E_n - A)
+    =         \charpoly{f} \,.
+  \]
+\end{proof}
+
+Für jeden $m$-dimensionalen $f$-invarianten Untervektorraum $U \subseteq V$ ist also $\charpoly{\restrict{f}{U}}$ ein Teiler des irreduziblen Polynoms $\charpoly{f}$.
+Also gilt entweder $\charpoly{\restrict{f}{U}} = 1$, und somit $m = \deg(\charpoly{\restrict{f}{U}}) = 0$ und deshalb $U = 0$, oder $\charpoly{\restrict{f}{U}} = \charpoly{f}$, und somit $m = \deg(\charpoly{\restrict{f}{U}}) = n$ und deshalb $U = V$.
+Das zeigt, dass $0$ und $V$ die einzigen $f$-invarianten Untervektorräume von $V$ sind.
+
+Es sei nun $U \defined \Lin(v, f(v), \dotsc, f^{n-1}(v))$.
+Dann ist $U$ ein $f$-invarianter Untervektorraum von $V$:
+Für alle $1 \leq k < n-1$ gilt $f(f^k(v)) = f^{k+1}(v) \in U$, und nach dem Satz von Cayley-Hamilton gilt für $\chi_f = X^n + \sum_{k=0}^{n-1} a_k X^k$, dass
+\[
+    0
+  = \charpoly{f}(f)(v)
+  = f^n(v) + a_{n-1} f^{n-1}(v) + \dotsb + f(v) + v \,,
+\]
+und deshalb auch
+\[
+    f(f^{k-1}(v))
+  = f^k(v)
+  = - a_{n-1} f^{n-1}(v) - a_{n-2} f^{n-2}(v) - \dotsb - a_1 f(v) - a_0 v
+  \in U \,.
+\]
+Wir erhalten somit, dass $U = 0$ oder $U = V$ gilt.
+Der Fall $U = 0$ kann nicht eintreten, da $v \in U$ mit $v \neq 0$ gilt, also gilt $U = V$.
+Deshalb ist die $n$-elementige Familie $(v, \dotsc, f^{n-1}(v))$ ein Erzeugendensystem des $n$-dimensionalen Vektorraums $V$;
+es muss sich deshalb bereits um eine Basis handeln.
+
+
+
+
