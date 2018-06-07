@@ -8,14 +8,14 @@
 
 Ist allgemeiner $h \colon V \to V$ ein Endomorphismus und $v \in V$, $v \neq 0$ ein Eigenvektor von $h$ zum Eigenwert $\lambda \in K$, dann ist der Vektor $v$ für jedes Polynom $p \in K[X]$ auch ein Eigenvektor von $p(h)$ zum Eigenwert $p(\lambda)$:
 Aus $h(v) = \lambda v$ ergibt sich nämlich induktiv, dass $h^k(v) = \lambda^k v$ für alle $k \geq 0$ gilt;
-für $p = \sum_{k=0}^n a_k X^k$ ergibt sich somit, dass
+für $p = \sum_{k=0}^n a_k X^k$ ergibt sich dann, dass
 \[
     p(h)(v)
   = \sum_{k=0}^n a_k h^k(v)
   = \sum_{k=0}^n a_k \lambda^k v
   = p(\lambda) v \,.
 \]
-Gilt insbesondere $p(h) = 0$, so muss jeder Eigenwert $\lambda$ von $h$ eine Nullstelle von $p$ sein. 
+Gilt dabei $p(h) = 0$, so muss jeder Eigenwert $\lambda$ von $h$ eine Nullstelle von $p$ sein. 
 Hieraus ergeben sich nun insbesondere die möglichen Eigenwerte von $f$ und $g$:
 
 \begin{example}
@@ -60,7 +60,7 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
 
 \begin{lemma}
   \label{lemma: diagonalizable via polynomials}
-  Es sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f \colon V \to V$ ein Endomorphismus.
+  Es sei $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vektorraums $V$.
   Es sei $p \in K[X]$ ein Polynom mit $p(f) = 0$, das in paarweise verschiedene Linearfaktoren
   \[
     p = (X - \lambda_1) \dotsm (X - \lambda_n)
@@ -106,7 +106,7 @@ Die hier zu zeigenden Diagonalisierbarkeiten lassen sich wie folgt verallgemeine
       Dabei sind die Einheitswurzeln $\omega_0, \dotsc, \omega_{n-1}$ paarweise verschieden.
       Also ist $g$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
     \item
-      Ist $G \subseteq \GL{}{V}$ eine endliche mit $n \defined \card{G}$, so ergibt sich aus grundlegender Gruppentheorie, dass $g^n = 1$ für alle $g \in G$ gilt (wir werden dies hier nicht zeigen).
+      Ist $G$ eine endliche Gruppe mit $n \defined \card{G}$, so ergibt sich aus grundlegender Gruppentheorie, dass $g^n = 1$ für alle $g \in G$ gilt (wir werden dies hier nicht zeigen).
       Ist also $G \subseteq \GL{}{V}$ eine endliche Untergruppe, so gilt für $n \defined \card{G}$, das $g^n = \id_V$ für alle $g \in G$ gilt.
       Nach dem obigen Beispiel ist deshalb jedes Gruppenelement $g \in G$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$.
     \item

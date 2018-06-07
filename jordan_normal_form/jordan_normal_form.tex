@@ -18,9 +18,9 @@
 
 
 
-\section*{Kochrezept}
+\section*{Kochrezept für die Jordan-Normalform}
 
-Ist $A \in \matrices{n}{K}$, so dass das charakteristische Polynom $\charpol{A}$ in Linearfaktoren zerfällt, so lässt sich die Jordan-Normalform von $A$ sowie anschließend auch eine zugehörige Jordanbasis nach dem folgenden \emph{Kochrezept} berechnen:
+Ist $A \in \matrices{n}{K}$ eine Matrix, deren charakteristisches Polynom $\charpol{A}$ in Linearfaktoren zerfällt, so lässt sich die Jordan-Normalform von $A$ sowie anschließend auch eine zugehörige Jordanbasis nach dem folgenden \emph{Kochrezept} berechnen:
 
 \begin{itemize}
   \item
@@ -32,30 +32,31 @@ Ist $A \in \matrices{n}{K}$, so dass das charakteristische Polynom $\charpol{A}$
       \item
         Man berechne die verallgemeinerten Eigenräume
         \[
-          \ker (A - \lambda E_n),\,
-          \ker (A - \lambda E_n)^2,\,
-          \dotsc,\,
+          \ker (A - \lambda E_n)\,,\,
+          \ker (A - \lambda E_n)^2\,,\,
+          \dotsc\,,\,
           \ker (A - \lambda E_n)^m
         \]
         bis zu dem Punkt, an dem eine der folgenden äquivalenten Bedingungen erfüllt sind:
         \begin{itemize}
           \item
-            Die Dimension von $\ker (A - \lambda E_n)^m$ ist gleich der algebraische Vielfachheit von $\lambda$ in $\charpol{A}$.
+            Die Dimension von $\ker (A - \lambda E_n)^m$ ist gleich der algebraische Vielfachheit des Eigenwerts $\lambda$ in $\charpol{A}$.
           \item
             Es gilt $\ker (A - \lambda E_n)^m = \ker (A - \lambda E_n)^{m+1}$.
         \end{itemize}
       \item
         Man bestimme Anhand der Zahlen $d_k(\lambda) \defined \dim \ker (A - \lambda E_n)^k$ die Anzahl der auftretenden Jordanblöcke zu $\lambda$ von Größe $k$ als
         \[
-          b_k(\lambda) \defined 2 d_k(\lambda) - d_{k-1}(\lambda) - d_{k+1}(\lambda).
+                    b_k(\lambda)
+          \defined  2 d_k(\lambda) - d_{k-1}(\lambda) - d_{k+1}(\lambda) \,.
         \]
     \end{itemize}
 \end{itemize}
 
-Aus den Eigenwerten $\lambda_1, \lambda_2, \dotsc$ von $A$ und den Zahlen $b_k(\lambda_i)$ erhalten wir bereits, wieviele Blöcke es zu welchen Eigenwert von welcher Größe gibt, d.h.\ wie die Jordan-Normalform von $A$ (bis auf Permutation der Blöcke) aussehen wird.
+Aus den Eigenwerten $\lambda_1, \lambda_2, \dotsc$ von $A$ und den Zahlen $b_k(\lambda_i)$ erhalten wir bereits, wieviele Jordanblöcke von welcher Größe zu welchen Eigenwerten in der Jordan-Normalform auftauchen d.h.\ wie die Jordan-Normalform von $A$ (bis auf Permutation der Blöcke) aussehen wird.
 Inbesondere ist $d_1(\lambda) = \dim \ker (A - \lambda E_n)$ die Gesamtzahl der Jordanblöcke zu $\lambda$ und die entsprechende Potenz $m$ die maximale auftretende Blöckgröße zu $\lambda$.
 
-Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
+Zur Berechnung einer Jordanbasis für $A$ kann man weiterhin wie folgt vorgehen:
 
 \begin{itemize}[resume]
   \item
@@ -66,16 +67,16 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
         \[
                     \ker (A - \lambda E_n)^m
           =         \ker (A - \lambda E_n)^{m-1}
-            \oplus  \Lin(v_1, \dotsc, v_{b_m}).
+            \oplus  \Lin(v_1, \dotsc, v_{b_m}) \,.
         \]
         (Zur konkreten Berechnung ergänze man eine Basis $\ker (A - \lambda E_n)^{m-1}$ zu einer Basis von $\ker (A - \lambda E_n)^m$; dann kann man $v_1, \dotsc, v_{b_m}$ als die neu hinzugekommenen Basisvektoren wählen.)
       \item
         Hierdurch ergeben sich für $B_\lambda$ die ersten paar Basisvektoren
         \begin{align*}
-          (A - \lambda E_n)^{m-1} v_1,\,      &\dotsc,\,  (A - \lambda E_n) v_1,\,      v_1,      \\
-          (A - \lambda E_n)^{m-1} v_2,\,      &\dotsc,\,  (A - \lambda E_n) v_2,\,      v_2,      \\
-                                              &\dotsc,                                            \\
-          (A - \lambda E_n)^{m-1} v_{b_m},\,  &\dotsc,\,  (A - \lambda E_n) v_{b_m},\,  v_{b_m}.
+          (A - \lambda E_n)^{m-1} v_1\,,\,      &\dotsc,\,  (A - \lambda E_n) v_1\,,\,      v_1\,,      \\
+          (A - \lambda E_n)^{m-1} v_2\,,\,      &\dotsc,\,  (A - \lambda E_n) v_2\,,\,      v_2\,,      \\
+                                                &\dotsc\,,                                              \\
+          (A - \lambda E_n)^{m-1} v_{b_m}\,,\,  &\dotsc,\,  (A - \lambda E_n) v_{b_m}\,,\,  v_{b_m}\,.
         \end{align*}
         Dabei bilden die Basisvektoren aus derselben Zeile jeweils eine Jordankette zum Eigenwert $\lambda$ von Länge $m$.
       \item
@@ -91,12 +92,21 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
       \item
         Hierdurch erhält man für $B_\lambda$ die weitere Basisvektoren
         \begin{align*}
-          (A - \lambda E_n)^{m-2} v'_1,\,     &\dotsc,\,  (A - \lambda E_n) v'_1,\,             v'_1,     \\
-          (A - \lambda E_n)^{m-2} v'_2,\,     &\dotsc,\,  (A - \lambda E_n) v'_2,\,             v'_2,     \\
-                                              &\dotsc,                                                    \\
-          (A - \lambda E_n)^{m-2} v'_{b_{m-1}},\, &\dotsc,\,  (A - \lambda E_n) v'_{b_{m-1}},\, v'_{b_{m-1}}.
+          (A - \lambda E_n)^{m-2} v'_1\,,\,         &\dotsc,\,  (A - \lambda E_n) v'_1\,,\,         v'_1\,,     \\
+          (A - \lambda E_n)^{m-2} v'_2\,,\,         &\dotsc,\,  (A - \lambda E_n) v'_2\,,\,         v'_2\,,     \\
+                                                    &\dotsc,                                                    \\
+          (A - \lambda E_n)^{m-2} v'_{b_{m-1}}\,,\, &\dotsc,\,  (A - \lambda E_n) v'_{b_{m-1}}\,,\, v'_{b_{m-1}}\,.
         \end{align*}
         Hierbei bilden die Basisvektoren aus derselben Zeile jeweils eine Jordankette zum Eigenwert $\lambda$ von Länge $m-1$.
+        (Hierfür wähle man etwa eine Basis $u_1, \dotsc, u_k$ von $\ker (A - \lambda E_n)^{m-2}$ und ergänze die Familie
+        \[
+          \bigl(
+            u_1 \,,\, \dotsc \,,\, u_k \,,\,
+            (A - \lambda E_n) v_1 \,,\, \dotsc \,,\, (A - \lambda E_n) v_{b_m}
+          \bigr)
+        \]
+        zu einer Basis von $\ker (A - \lambda E_n)^{m-1}$.
+        Dann lassen sich $v'_1, \dotsc, v'_{b_{m-1}}$ als die neu hinzugekommenen Basisvektoren wählen.)
       \item
         Man wähle nun $v''_1, \dotsc, v''_{b_{m-2}} \in \ker (A - \lambda E_n)^{m-2}$, so dass
         \begin{align*}
@@ -109,13 +119,36 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
                 \oplus  \Lin( v''_1, \dotsc, v''_{b_{m-2}}  )
         \end{align*}
         gilt.
+        (Hierfür wähle man etwa eine Basis $u_1, \dotsc, u_k$ von $\ker (A - \lambda E_n)^{m-3}$ und ergänze die Familie
+        \begin{align*}
+          \bigl(
+            u_1 \,,\, &\dotsc \,,\, u_k \,,
+            \\
+            (A - \lambda E_n)^2 v_1 \,,\, &\dotsc \,,\, (A - \lambda E_n)^2 v_{b_m} \,,
+            \\
+            (A - \lambda E_n) v'_1 \,,\, &\dotsc \,,\, (A - \lambda E_n) v'_{b_{m-1}}
+          \bigr)
+        \end{align*}
+        zu einer Basis von $\ker (A - \lambda E_n)^{m-2}$.
+        Dann lassen sich $v''_1, \dotsc, v''_{b_{m-2}}$ als die neu hinzugekommenen Basisvektoren wählen.)
       \item
         Hierdurch erhält man für $B_\lambda$ die weitere Basisvektoren
         \begin{align*}
-          (A - \lambda E_n)^{m-3} v''_1,\,          &\dotsc,\,  (A - \lambda E_n) v''_1,\,          v''_1,      \\
-          (A - \lambda E_n)^{m-3} v''_2,\,          &\dotsc,\,  (A - \lambda E_n) v''_2,\,          v''_2,      \\
-                                                    &\dotsc,                                                    \\
-          (A - \lambda E_n)^{m-3} v''_{b_{m-2}},\,  &\dotsc,\,  (A - \lambda E_n) v''_{b_{m-2}},\,  v''_{b_{m-2}}.
+          (A - \lambda E_n)^{m-3} v''_1\,,\,
+          &\dotsc\,,\,  (A - \lambda E_n) v''_1\,,\,
+          v''_1\,,
+          \\
+          (A - \lambda E_n)^{m-3} v''_2\,,\,
+          &\dotsc\,,\,
+          (A - \lambda E_n) v''_2\,,\,
+          v''_2\,,
+          \\
+          &\dotsc\,,
+          \\
+          (A - \lambda E_n)^{m-3} v''_{b_{m-2}}\,,\,
+          &\dotsc\,,\,
+          (A - \lambda E_n) v''_{b_{m-2}}\,,\,
+          v''_{b_{m-2}} \,.
         \end{align*}
         Hierbei bilden die Basisvektoren aus derselben Zeile jeweils eine Jordankette zum Eigenwert $\lambda$ von Länge $m-2$.
     \end{itemize}
@@ -127,8 +160,8 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
  
   \item
     Die Basis $B$ ist eine Jordanbasis von $A$.
-    Indem man die Basisvektoren von $B$ als Spalten in eine Matrix $S \in \matrices{n}{K}$ einträgt, erhält man schließlich $S \in \GL{n}{K}$, so dass $S^{-1} A S$ in Jordan-Normalform ist.
-    Dabei sind die Blöcke zunächst nach den Eigenwerten $\lambda_1, \dotsc, \lambda_t$ in der zuvor gewählten Reihenfolge sortiert, und die Blöcke zum gleichen Eigenwert $\lambda_i$ sind jeweils nach absteigender Größe sortiert.
+    Indem man die Basisvektoren von $B$ als Spalten in eine Matrix $S \in \matrices{n}{K}$ einträgt, erhält man schließlich eine invertierbare Matrix $S \in \GL{n}{K}$, so dass $S^{-1} A S$ in Jordan-Normalform ist.
+    Dabei sind die Blöcke zunächst nach den Eigenwerten $\lambda_1, \dotsc, \lambda_t$ in der zuvor gewählten Reihenfolge sortiert, und die Blöcke zum gleichen Eigenwert $\lambda_i$ sind jeweils in absteigender Größe sortiert.
 \end{itemize}
 
 \begin{example}
@@ -192,7 +225,13 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
         = \Lin( (A - 2 E_n) v_1 ) \oplus \Lin(v_2)
         = \Lin\left( \columnrvector{1 \\ 1 \\ -1} \right) \oplus \Lin(v_2).
       \]
-      Hierfür lässt sich etwa
+      Es gilt
+      \[
+          \ker (A - 2 E_n)
+        = \Lin\left( \columnrvector{1 \\ 0 \\ -1}, \columnvector{0 \\ 1 \\ 0} \right)
+        = \Lin\left( \columnrvector{1 \\ 1 \\ -1}, \columnvector{0 \\ 1 \\ 0} \right) \,,
+      \]
+      also lässt sich
       \[
                   v_2
         \defined \columnvector{0 \\ 1 \\ 0}
@@ -209,7 +248,7 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
               \right)
   \]
   von $\Complex^3$.
-  Für die entsprechende Matrix
+  Für die entsprechende invertierbare Matrix
   \[
               S
     \defined \begin{pmatrix*}[r]
@@ -232,8 +271,50 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
 
 \begin{example}
   Es sei $V$ ein $K$-Vektorraum mit Basis $B = (v_1, \dotsc, v_7)$ und $f \colon V \to V$ der eindeutige Endomorphismus mit $f(v_1) = f(v_2) = v_5$, $f(v_3) = f(v_4) = v_6$, $f(v_5) = f(v_6) = v_7$ und $f(v_7) = 0$.
+  \[
+    \begin{tikzcd}
+        v_1
+        \arrow{dr}
+      & {}
+      & v_2
+        \arrow{dl}
+      & {}
+      & v_3
+        \arrow{dr}
+      & {}
+      & v_4
+        \arrow{dl}
+      \\
+        {}
+      & v_5
+        \arrow{drr}
+      & {}
+      & {}
+      & {}
+      & v_6
+        \arrow{dll}
+      & {}
+      \\
+        {}
+      & {}
+      & {}
+      & v_7
+        \arrow{d}
+      & {}
+      & {}
+      & {}
+      \\
+        {}
+      & {}
+      & {}
+      & 0
+      & {}
+      & {}
+      & {}
+    \end{tikzcd}
+  \]
   Es gilt $f^3(v_i) = 0$ für alle $i = 1, \dotsc, 7$, und deshalb $f^3 = 0$.
-  Also ist $f$ nilpotent, und besitzt somit eine Jordan-Normalform;
+  Also ist der Endomorphismus $f$ nilpotent, und besitzt somit eine Jordan-Normalform;
   dabei ist $0$ der einzige auftretende Eigenwert.
   
   Für die darstellende Matrix
@@ -242,11 +323,11 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
     \defined \repmatrixendo{f}{B}
     =         \begin{pmatrix}
                 0 &   &   &   &   &   &   \\
-                0 & 0 &   &   &   &   &   \\
-                0 & 0 & 0 &   &   &   &   \\
-                0 & 0 & 0 & 0 &   &   &   \\
-                1 & 1 & 0 & 0 & 0 &   &   \\
-                0 & 0 & 1 & 1 & 0 & 0 &   \\
+                  & 0 &   &   &   &   &   \\
+                  &   & 0 &   &   &   &   \\
+                  &   &   & 0 &   &   &   \\
+                1 & 1 &   &   & 0 &   &   \\
+                0 & 0 & 1 & 1 &   & 0 &   \\
                 0 & 0 & 0 & 0 & 1 & 1 & 0
               \end{pmatrix}
   \shortintertext{gilt}
@@ -260,7 +341,7 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
           &   &   &   &   & 0 &   \\
         1 & 1 & 1 & 1 & 0 & 0 & 0
       \end{pmatrix}
-    \quad\text{und}\quad
+    \qquad\text{und}\qquad
       A^3
     = 0.
   \end{gather*}
@@ -275,8 +356,20 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
         \ker A^3
     &=  K^7.
   \end{align*}
-  Mit $d_1 = \dim \ker A = 4$, $d_2 = \dim \ker A^2 = 6$ und $d_k = \ker \ker A^k = 7$ für $k \geq 3$ erhalten wir, dass $b_1 = 2 d_1 - d_2 = 2$, $b_2 = 2 d_2 - d_3 - d_1 = 1$, $b_3 = 2 d_3 - d_4 - d_2 = 1$ und $b_k = 0$ für $k \geq 4$ gilt.
-  
+  Die maximale auftretende Blöckgröße ist also $m = 3$.
+  Mit
+  \begin{align*}
+    d_1 &= \dim \ker A^{\phantom{1}} = 4\,,   \\
+    d_2 &= \dim \ker A^2 = 6\,, \\
+    d_3 &= \dim \ker A^3 = 7
+  \end{align*}
+  erhalten wir für $b_k$, die Anzahl der Jordanblöcke von Größe $k$, dass
+  \begin{align*}
+    b_1 &= 2 d_1 - d_2 = 2 \,,        \\
+    b_2 &= 2 d_2 - d_3 - d_1 = 1 \,,  \\
+    b_3 &= 2 d_3 - d_4 - d_2 = 1
+  \end{align*}
+  gilt.
   Die Jordan-Normalform von $A$ (und damit von $f$) besteht also aus zwei Blöcken der Größe $1$, einem Block der Größe $2$ und einem Block der Größe $3$ (jeweils zum Eigenwert $0$);
   sie ist also
   \[
@@ -290,7 +383,6 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
         &   &   &   &   &   & 0
     \end{pmatrix}.
   \]
-
   Wir bestimmen nun eine entsprechende Jordanbasis:
   \begin{itemize}
     \item
@@ -299,12 +391,12 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
       Wir wählen $w_1 \defined e_1$.
       Dann erhalten wir auch die weiteren Basisvektoren $A w_1 = e_5$ und $A^2 w_1 = e_7$, und insgesamt die Jordankette $(A^2 w_1, A w_1, w_1) = (e_7, e_5, e_1)$.
     \item
-      Als nächstes benötigen wir einen Vektor $w_2 \in \ker A^2$ mit
+      Als Nächstes benötigen wir einen Vektor $w_2 \in \ker A^2$ mit
       \begin{align*}
             \ker A^2
         &=          \ker A
             \oplus  \Lin(A w_1)
-            \oplus  \Lin(w_1) \\
+            \oplus  \Lin(w_2) \\
         &=          \Lin(e_1 - e_2, e_3 - e_4, e_5 - e_6, e_7)
             \oplus  \Lin(e_5)
             \oplus  \Lin(w_2).
@@ -352,7 +444,7 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
               \end{pmatrix*}
     \in       \GL{7}{K} \,,
   \]
-  und es gilt
+  bezüglich der
   \[
       \repmatrixendo{f}{C}
     = S^{-1} A S
@@ -364,8 +456,9 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
           &   &   &   & 0 &   &   \\
           &   &   &   &   & 0 &   \\
           &   &   &   &   &   & 0
-      \end{pmatrix}.
+      \end{pmatrix}
   \]
+  gilt.
 \end{example}
 
 
@@ -375,16 +468,18 @@ Zur Berechnung einer Jordanbasis von $A$ kann man weiterhin wie folgt vorgehen:
 \section*{Implizites Bestimmen der Jordan-Normaform}
 
 Es sei $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vektorraums $V$, der eine Jordan-Normalform $J \in \matrices{n}{K}$ besitzt.
+Wir fassen im Folgenden einige Eigenschaften zusammen, die man über $J$ aus Informationen über $f$ erhalten kann:
 \begin{itemize}
   \item
     Für das charakteristische Polynom $\charpol{f}$ gilt $\deg \charpol{f} = n$.
   \item
-    Für das charakteristische Polynom $\charpol{f} = \charpol{J} = (X - \lambda_1)^{n_1} \dotsm (X - \lambda_s)^{n_s}$ mit $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt
+    Für das charakteristische Polynom $\charpol{f} = \charpol{J} = (X - \lambda_1)^{n_1} \dotsm (X - \lambda_t)^{n_t}$ mit $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt
     \[
         n_i
       = \dim \hauptspace{f}{\lambda_i}
       = \text{wie oft $\lambda_i$ auf der Diagonalen von $J$ steht}.
     \]
+    Insbesondere sind $\lambda_1, \dotsc, \lambda_t$ die Diagonaleinträge von $J$ (bis auf Vielfachheit).
   \item
     Für alle $\lambda \in K$, $k \geq 0$ sei $d_k(\lambda) \defined \dim \ker(f - \lambda \id_V)^k$, und es sei $d_{-1}(\lambda) = 0$.
     Dann gilt
@@ -396,23 +491,23 @@ Es sei $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vekt
     Für alle $\lambda \in K$ gilt
     \[
         \text{Anzahl der Jordanblöcke zu $\lambda$ in $J$}
-      = \dim \ker (f - \lambda \id_V)
-      = n - \rank (f - \lambda \id_V).
+      = \dim \underbrace{ \ker (f - \lambda \id_V) }_{= \eigenspace{f}{\lambda}}
+      = n - \rank (f - \lambda \id_V) \,.
     \]
   \item
-    Für das Minimalpolynom $\minpol{f} = \minpol{J} = (X - \lambda_1)^{m_1} \dotsm (X - \lambda_s)^{m_s}$ mit $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt
+    Für das Minimalpolynom $\minpol{f} = \minpol{J} = (X - \lambda_1)^{m_1} \dotsm (X - \lambda_t)^{m_t}$ mit $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt
     \[
         m_i
       = \text{maximale auftretende Größe eines Jordanblockes zu $\lambda_i$ in $J$}.
     \]
   \item
-    Es sei allgemeiner $p \in K[X]$, $p \neq 0$ ein Polymom mit $p = (X - \lambda_1)^{m'_1} \dotsm (X - \lambda_s)^{m'_s}$, wobei $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt.
+    Es sei allgemeiner $p \in K[X]$, $p \neq 0$ ein Polymom mit $p = (X - \lambda_1)^{m'_t} \dotsm (X - \lambda_t)^{m'_t}$, wobei $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt.
     Dann gilt $\minpol{f} \divides p$, wodurch sich die folgenden beiden Restriktionen an $J$ ergeben:
     \begin{enumerate}
       \item
-        Jeder Diagonaleintrag von $J$ kommt in $\lambda_1, \dotsc, \lambda_s$ vor.
+        Jeder Diagonaleintrag von $J$ kommt in $\lambda_1, \dotsc, \lambda_t$ vor.
       \item
-        Die Jordanblöcke zu $\lambda_i$ in $J$ jeweils höchstens $m'_i$ groß.
+        Die Jordanblöcke zu $\lambda_i$ in $J$ sind jeweils höchstens $m'_i$ groß.
     \end{enumerate}
   \item
     Für $\charpol{f} = (X - \lambda_1) \dotsm (X - \lambda_n)$ gilt
@@ -420,7 +515,7 @@ Es sei $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vekt
       \tr(f)  &=  \lambda_1 + \dotsb + \lambda_n \,,  \\
       \det(f) &=  \lambda_1 \dotsm \lambda_n \,.
     \end{align*}
-
+    Die Spur ist also die Summe, und die Determinante der Eigenwerte (also der Diagonaleinträge von $J$).
 \end{itemize}
 
 Hierdurch kann man für (ausreichend) kleine Matrizen bereits Aussagen über die Jordan-Nor\-mal\-form treffen, ohne die Matrix selbst zu kennen.
@@ -432,9 +527,9 @@ Hierdurch kann man für (ausreichend) kleine Matrizen bereits Aussagen über die
     \item
       Die möglichen Eigenwerte von $A$ sind die Nullstellen des Polynoms $(X-2)^2 (X-3)$, also $2$ und $3$.
     \item
-      Aus $\tr A = 14$ erhält man dann, dass $2$ mit algebraischer Vielfachheit $4$ vorkommt, und $3$ mit algebraischer Vielfachheit $2$.
+      Sind $\lambda_1, \dotsc, \lambda_n \in \{2, 3\}$ die Diagonaleinträge von der Jordan-Normalform (also die Eigenwerte von $A$), so ergibt sich aus $14 = \tr A = \lambda_1 + \dotsb + \lambda_n$, dass $2$ viermal auf der Diagonale vorkommt, und $3$ zweimal.
     \item
-      Außerdem folgt aus $(A - 2E_n)^2 (A - 3E_n) = 0$, dass die Jordanblöcke zu $2$ höchstens $2$ groß sind, und die Jordanblöcke zu $3$ alle Größe $1$ haben.
+      Außerdem folgt aus $(A - 2E_n)^2 (A - 3E_n) = 0$, dass die Jordanblöcke zu $2$ höchstens Größe $2$ haben, und die Jordanblöcke zu $3$ alle Größe $1$ haben.
   \end{itemize}
   Damit ergeben sich bis auf Permutation der Jordanblöcke die folgenden drei möglichen Jordan-Normalformen:
   \[

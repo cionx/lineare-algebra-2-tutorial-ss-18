@@ -7,7 +7,7 @@ Für alle $\lambda, \mu \in K$ lässt sich
 \]
 als der \emph{gemeinsame Eigenraum} von $f, g$ zu den Eigenwerten $\lambda, \mu$ bezeichnen;
 die Vektoren $v \in \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu}$ mit $v \neq 0$ sind \emph{gemeinsame Eigenvektoren} von $f$ und $g$.
-Wir haben im Tutorium gesehen, dass
+Mithilfe von Proposition~14.27 aus der Vorlesung haben wir im Tutorium gesehen, dass
 \[
     V
   = \bigoplus_{\lambda \in K} \eigenspace{f}{\lambda}
@@ -22,7 +22,7 @@ Ist $h \colon V \to V$ ein weiterer Endomorphismus, der mit $f$ und $g$ kommutie
   \subseteq h(\eigenspace{f}{\lambda}) \cap h(\eigenspace{g}{\mu})
   \subseteq \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \,.
 \]
-Ist $h$ ebenfalls diagonalisierbar, so ergibt sich dann, dass
+Ist $h$ ebenfalls diagonalisierbar, so ergibt sich aus Proposition~14.27 aus der Vorlesung, dass
 \begin{align*}
       V
    =  \bigoplus_{\lambda, \mu \in K} \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \bigr]
@@ -32,7 +32,7 @@ Ist $h$ ebenfalls diagonalisierbar, so ergibt sich dann, dass
   &=  \bigoplus_{\lambda, \mu, \kappa \in K}
       \bigl[ \eigenspace{f}{\lambda} \cap \eigenspace{g}{\mu} \cap \eigenspace{h}{\kappa} \bigr] \,.
 \end{align*}
-Induktiv lässt sich damit die folgende Aussage zeigen:
+Induktiv lässt sich auf diese Weise die folgende Aussage zeigen:
 
 \begin{proposition}
   \label{proposition: equivalent conditions for simultaneously diagonalizable}
@@ -54,10 +54,10 @@ Induktiv lässt sich damit die folgende Aussage zeigen:
 \end{proposition}
 
 Man bezeichnet Endomorphismen $f_1, \dotsc, f_n \colon V \to V$, die eine (und damit alle) der Bedinungen aus Proposition~\ref{proposition: equivalent conditions for simultaneously diagonalizable} erfüllen, als \emph{simultan diagonalisierbar}.
-Simultane Diagonalisierbarkeit spielt eine wichtige Rolle in der Darstellungstheorie, sowie in der Quantenmechanik.
+Simultane Diagonalisierbarkeit spielt etwa in der Darstellungstheorie, sowie in der Quantenmechanik eine wichtige Rolle.
 
 \begin{example}
-  Es sei $V$ ein endlichdimensionaler $\mathbb{C}$-Vektorraum und $G \subseteq \GL{V}$ eine endliche Untergruppe.
+  Es sei $V$ ein endlichdimensionaler $\mathbb{C}$-Vektorraum und $G \subseteq \GL{}{V}$ eine endliche Untergruppe.
   Wir haben in Beispiel~\ref{example: diagonalizable via polynomials} gesehen, dass für $n \defined \card{G}$ jedes $g \in G$ diagonalisierbar mit möglichen Eigenwerten $\omega_0, \dotsc, \omega_{n-1}$ ist.
   
   Ist $G$ abelsch, so folgt aus der obigen Argumentation, dass $G$ simultan diagonalisierbar ist.
@@ -65,9 +65,9 @@ Simultane Diagonalisierbarkeit spielt eine wichtige Rolle in der Darstellungsthe
   Hieraus ergeben sich beispielsweise die folgenden beiden Resultate:
   \begin{enumerate}
     \item
-      Jede endliche abelsche Untergruppe von $\GL{V}$ ist isomorph zu einer Untergruppe von $\diagonalgroup{n}{\Complex}$ (die Gruppe der invertieren $(n \times n)$-Diagonalmatrizen über $\Complex$).
+      Jede endliche abelsche Untergruppe von $\GL{}{V}$ ist isomorph zu einer Untergruppe von $\diagonalgroup{n}{\Complex}$ (die Gruppe der invertieren $(n \times n)$-Diagonalmatrizen über $\Complex$).
     \item
-      Der Vektorraum $V$ lässt sich als $V = V_1 \oplus \dotsb \oplus V_d$ zerlegen, wobei $V_i \subseteq V$ für jedes $i = 1, \dotsc, d$ ein eindimensionaler Untervektorraum ist, der $g$-invariant für jedes $g \in G$ ist (also $G$-invariant).
+      Der Vektorraum $V$ lässt sich als $V = V_1 \oplus \dotsb \oplus V_d$ zerlegen, wobei $V_i \subseteq V$ für jedes $i = 1, \dotsc, d$ ein eindimensionaler Untervektorraum ist, der $g$-invariant für jedes $g \in G$ ist (also insgesamt $G$-invariant).
       (Gilt $B = (b_1, \dotsc, b_d)$, so wähle man $V_i = \Lin(b_i)$.)
       
       In der Sprache der Darstellungstheorie endlicher Gruppen bedeutet dies, dass die Darstellung $V$ von $G$ in eindimensionale Unterdarstellungen zerfällt, bzw.\ dass jede irreduzible komplexe Darstellung einer endlichen abelschen Gruppe bereits eindimensional ist.

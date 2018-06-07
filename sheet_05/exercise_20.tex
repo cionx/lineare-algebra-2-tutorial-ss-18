@@ -13,7 +13,7 @@ Da nach dem Satz von Cayley-Hamilton auch $\minpol{f} \divides \charpol{f}$ gilt
 Dabei gilt $\deg(\minpol{f}) \geq 1$, da $V \neq 0$ gilt.
 Damit wäre dann $\minpol{f}$ der gewünschte gemeinsame Teiler von $p$ und $\charpol{f}$.
 
-Das Problem, dass nicht notwendigerweise $p(f)(u) = 0$ für alle $u \in V$ gilt, lösen wir im Folgenden dadurch, dass wir $V$ durch einen passenden $f$-invarianten Untervektorraum $U \subseteq V$ ersetzten:
+Das Problem, dass nicht notwendigerweise $p(f)(u) = 0$ für alle $u \in V$ gilt, lösen wir nun dadurch, dass wir $V$ durch einen passenden $f$-invarianten Untervektorraum $U \subseteq V$ ersetzten:
 
 Es sei
 \[
@@ -71,7 +71,7 @@ Entscheidend ist hierfür die folgende Beobachtung:
     \in       \matrices{n}{K}
   \]
   mit $A_1 = \repmatrixendo{\restrict{f}{U}}{B'} \in \matrices{m}{K}$ und $A_2 \in \matrices{n-m}{K}$.
-  Es gilt somit, dass
+  Es gilt deshalb
   \[
               \charpol{\restrict{f}{U}}
     =         \det(X E_m - A_1)
@@ -81,13 +81,14 @@ Entscheidend ist hierfür die folgende Beobachtung:
   \]
 \end{proof}
 
-Für jeden $m$-dimensionalen $f$-invarianten Untervektorraum $U \subseteq V$ ist also $\charpol{\restrict{f}{U}}$ ein Teiler des irreduziblen Polynoms $\charpol{f}$.
+Für jeden $m$-dimensionalen $f$-invarianten Untervektorraum $U \subseteq V$ ist das normierte Polynom $\charpol{\restrict{f}{U}}$ also ein Teiler des irreduziblen Polynoms $\charpol{f}$.
 Also gilt entweder $\charpol{\restrict{f}{U}} = 1$, und somit $m = \deg(\charpol{\restrict{f}{U}}) = 0$ und deshalb $U = 0$, oder $\charpol{\restrict{f}{U}} = \charpol{f}$, und somit $m = \deg(\charpol{\restrict{f}{U}}) = n$ und deshalb $U = V$.
 Das zeigt, dass $0$ und $V$ die einzigen $f$-invarianten Untervektorräume von $V$ sind.
 
 Es sei nun $U \defined \Lin(v, f(v), \dotsc, f^{n-1}(v))$.
 Dann ist $U$ ein $f$-invarianter Untervektorraum von $V$:
-Für alle $1 \leq k < n-1$ gilt $f(f^k(v)) = f^{k+1}(v) \in U$, und nach dem Satz von Cayley-Hamilton gilt für $\chi_f = X^n + \sum_{k=0}^{n-1} a_k X^k$, dass
+Zum einen gilt $f(f^k(v)) = f^{k+1}(v) \in U$ für alle $1 \leq k < n-1$;
+zum anderen gilt nach dem Satz von Cayley-Hamilton für $\chi_f = X^n + \sum_{k=0}^{n-1} a_k X^k$, dass
 \[
     0
   = \charpol{f}(f)(v)
@@ -100,9 +101,10 @@ und deshalb auch
   = - a_{n-1} f^{n-1}(v) - a_{n-2} f^{n-2}(v) - \dotsb - a_1 f(v) - a_0 v
   \in U \,.
 \]
-Wir erhalten somit, dass $U = 0$ oder $U = V$ gilt.
-Der Fall $U = 0$ kann nicht eintreten, da $v \in U$ mit $v \neq 0$ gilt, also gilt $U = V$.
-Deshalb ist die $n$-elementige Familie $(v, \dotsc, f^{n-1}(v))$ ein Erzeugendensystem des $n$-dimensionalen Vektorraums $V$, und es muss sich bereits um eine Basis handeln.
+Aus der $f$-Invarianz von $U$ erhalten wir nun, dass $U = 0$ oder $U = V$ gilt.
+Dabei kann der Fall $U = 0$ nicht eintreten, da $v \in U$ mit $v \neq 0$ gilt.
+Also gilt $U = V$.
+Deshalb ist die $n$-elementige Familie $(v, \dotsc, f^{n-1}(v))$ ein Erzeugendensystem des $n$-dimensionalen Vektorraums $V$, und aus Kardinalitäts-, bzw.\ Dimensionsgründen muss es sich bereits um eine Basis handeln.
 
 
 
