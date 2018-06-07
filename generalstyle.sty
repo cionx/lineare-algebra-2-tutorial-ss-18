@@ -60,18 +60,24 @@
 \newcommand{\Lin}{\operatorname{Lin}}
 \newcommand{\unitgroup}[1]{#1^\times}
 
-\newcommand{\GL}[1]{\operatorname{GL}(#1)}
+\newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 \newcommand{\diagonalgroup}[2]{\operatorname{D}_{#1}(#2)}
 \newcommand{\eigenspace}[2]{\operatorname{Eig}(#1, #2)}
+\newcommand{\hauptspace}[2]{\operatorname{Haupt}(#1, #2)}
 \newcommand{\matrices}[2]{#2^{#1, #1}}
 \newcommand{\mnatrices}[3]{#3^{#1, #2}}
 
 \DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
 \newcommand{\id}{\operatorname{id}}
+\newcommand{\rank}{\operatorname{rg}}
 \newcommand{\ringchar}{\operatorname{char}}
 \newcommand{\sign}{\operatorname{sgn}}
+\DeclareMathOperator{\tr}{Spur}
 
-\newcommand{\charpoly}[1]{\chi_{#1}}
-\newcommand{\minpoly}[1]{\mu_{#1}}
+\newcommand{\repmatrixendo}[2]{c_{#2, #2}(#1)}
+
+\newcommand{\charpol}[1]{\chi_{#1}}
+\newcommand{\minpol}[1]{\mu_{#1}}
 
 \newcommand{\columnvector}[1]{ \begin{pmatrix} #1 \end{pmatrix} }
+\newcommand{\columnrvector}[1]{ \begin{pmatrix*}[r] #1 \end{pmatrix*} }

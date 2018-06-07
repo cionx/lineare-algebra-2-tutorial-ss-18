@@ -8,10 +8,10 @@
 
 Wir konstruieren explizit einen gemeinsamen Teiler von $p$ und $\chi_f$:
 
-Würde bereits $p(f)(u) = 0$ für alle $u \in V$ gelten, so würde $\minpoly{f} \divides p$ gelten.
-Da nach dem Satz von Cayley-Hamilton auch $\minpoly{f} \divides \charpoly{f}$ gilt, wäre dann $\minpoly{f}$ ein gemeinsamer Teiler von $p$ und $\chi_f$.
-Dabei gilt $\deg(\minpoly{f}) \geq 1$, da $V \neq 0$ gilt.
-Damit wäre dann $\minpoly{f}$ der gewünschte gemeinsame Teiler von $p$ und $\charpoly{f}$.
+Würde bereits $p(f)(u) = 0$ für alle $u \in V$ gelten, so würde $\minpol{f} \divides p$ gelten.
+Da nach dem Satz von Cayley-Hamilton auch $\minpol{f} \divides \charpol{f}$ gilt, wäre dann $\minpol{f}$ ein gemeinsamer Teiler von $p$ und $\chi_f$.
+Dabei gilt $\deg(\minpol{f}) \geq 1$, da $V \neq 0$ gilt.
+Damit wäre dann $\minpol{f}$ der gewünschte gemeinsame Teiler von $p$ und $\charpol{f}$.
 
 Das Problem, dass nicht notwendigerweise $p(f)(u) = 0$ für alle $u \in V$ gilt, lösen wir im Folgenden dadurch, dass wir $V$ durch einen passenden $f$-invarianten Untervektorraum $U \subseteq V$ ersetzten:
 
@@ -31,18 +31,18 @@ Für alle $k \geq 0$ gilt
   = 0 \,,
 \]
 und deshalb gilt $\restrict{p(f)}{U} = 0$.
-Es gilt deshalb $\minpoly{\restrict{f}{U}} \divides p$.
+Es gilt deshalb $\minpol{\restrict{f}{U}} \divides p$.
 Andererseits gilt auch
 \[
-    \charpoly{f}(\restrict{f}{U})
-  = \restrict{\charpoly{f}(f)}{U}
+    \charpol{f}(\restrict{f}{U})
+  = \restrict{\charpol{f}(f)}{U}
   = \restrict{0}{U}
   = 0
 \]
-und somit $\minpoly{\restrict{f}{U}} \divides \charpoly{f}$.
-Also ist $\minpoly{\restrict{f}{U}}$ ein gemeinsamer Teiler von $p$ und $\charpoly{f}$.
-Wegen $v \neq 0$ gilt dabei $U \neq 0$ und somit $\deg( \minpoly{\restrict{f}{U}} ) \geq 1$.
-Also ist $\minpoly{\restrict{f}{U}}$ der gesuchte gemeinsame Teiler von $p$ und $\charpoly{f}$.
+und somit $\minpol{\restrict{f}{U}} \divides \charpol{f}$.
+Also ist $\minpol{\restrict{f}{U}}$ ein gemeinsamer Teiler von $p$ und $\charpol{f}$.
+Wegen $v \neq 0$ gilt dabei $U \neq 0$ und somit $\deg( \minpol{\restrict{f}{U}} ) \geq 1$.
+Also ist $\minpol{\restrict{f}{U}}$ der gesuchte gemeinsame Teiler von $p$ und $\charpol{f}$.
 
 
 
@@ -54,7 +54,7 @@ Wir geben noch eine alternative Lösung für diesen Aufgabenteil an.
 Entscheidend ist hierfür die folgende Beobachtung:
 
 \begin{lemma}
-  Ist $U \subseteq V$ ein $f$-invarianter Untervektorraum, so gilt $\charpoly{\restrict{f}{U}} \divides \charpoly{f}$.
+  Ist $U \subseteq V$ ein $f$-invarianter Untervektorraum, so gilt $\charpol{\restrict{f}{U}} \divides \charpol{f}$.
 \end{lemma}
 
 \begin{proof}
@@ -63,26 +63,26 @@ Entscheidend ist hierfür die folgende Beobachtung:
   Dann gilt
   \[
               A
-    \defined  c_{B,B}(f)
+    \defined  \repmatrixendo{f}{B}
     =         \begin{pmatrix}
                 A_1 & *   \\
                     & A_2
               \end{pmatrix}
     \in       \matrices{n}{K}
   \]
-  mit $A_1 = c_{B',B'} \in \matrices{m}{K}$ und $A_2 \in \matrices{n-m}{K}$.
+  mit $A_1 = \repmatrixendo{\restrict{f}{U}}{B'} \in \matrices{m}{K}$ und $A_2 \in \matrices{n-m}{K}$.
   Es gilt somit, dass
   \[
-              \charpoly{\restrict{f}{U}}
+              \charpol{\restrict{f}{U}}
     =         \det(X E_m - A_1)
     \divides  \det(X E_m - A_1) \det(X E_{n-m} A_2)
     =         \det(X E_n - A)
-    =         \charpoly{f} \,.
+    =         \charpol{f} \,.
   \]
 \end{proof}
 
-Für jeden $m$-dimensionalen $f$-invarianten Untervektorraum $U \subseteq V$ ist also $\charpoly{\restrict{f}{U}}$ ein Teiler des irreduziblen Polynoms $\charpoly{f}$.
-Also gilt entweder $\charpoly{\restrict{f}{U}} = 1$, und somit $m = \deg(\charpoly{\restrict{f}{U}}) = 0$ und deshalb $U = 0$, oder $\charpoly{\restrict{f}{U}} = \charpoly{f}$, und somit $m = \deg(\charpoly{\restrict{f}{U}}) = n$ und deshalb $U = V$.
+Für jeden $m$-dimensionalen $f$-invarianten Untervektorraum $U \subseteq V$ ist also $\charpol{\restrict{f}{U}}$ ein Teiler des irreduziblen Polynoms $\charpol{f}$.
+Also gilt entweder $\charpol{\restrict{f}{U}} = 1$, und somit $m = \deg(\charpol{\restrict{f}{U}}) = 0$ und deshalb $U = 0$, oder $\charpol{\restrict{f}{U}} = \charpol{f}$, und somit $m = \deg(\charpol{\restrict{f}{U}}) = n$ und deshalb $U = V$.
 Das zeigt, dass $0$ und $V$ die einzigen $f$-invarianten Untervektorräume von $V$ sind.
 
 Es sei nun $U \defined \Lin(v, f(v), \dotsc, f^{n-1}(v))$.
@@ -90,7 +90,7 @@ Dann ist $U$ ein $f$-invarianter Untervektorraum von $V$:
 Für alle $1 \leq k < n-1$ gilt $f(f^k(v)) = f^{k+1}(v) \in U$, und nach dem Satz von Cayley-Hamilton gilt für $\chi_f = X^n + \sum_{k=0}^{n-1} a_k X^k$, dass
 \[
     0
-  = \charpoly{f}(f)(v)
+  = \charpol{f}(f)(v)
   = f^n(v) + a_{n-1} f^{n-1}(v) + \dotsb + a_1 f(v) + a_0 v \,,
 \]
 und deshalb auch
