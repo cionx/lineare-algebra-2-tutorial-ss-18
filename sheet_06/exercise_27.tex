@@ -1,1 +1,127 @@
-\addtocounter{section}{1}
+\section{}
+
+% Es sei $S = (s_{ij})_{i,j=1,\dotsc,n}$ und es sei $B \in \matrices{n}{K[X]}$ mit Einträgen $B = (b_{ij})_{i,j=1,\dotsc,n}$.
+% Die Matrix $C \defined SB \in \matrices{n}{K[X]}$ ist dann durch die Einträge
+% \[
+%     c_{ij}
+%   = \sum_{t=1}^n s_{it} b_{tj}
+% \]
+% gegeben.
+% Wir fixieren Zeilenindizes $1 \leq i_1 < \dotsb < i_k < n$ sowie Spaltenindizes $1 \leq j_1 < \dotsb < j_k < n$ gegeben.
+% Der entsprechende $(k \times k)$-Minor von $C$ ist dann durch die Teilmatrix
+% \[
+%   \begin{pmatrix}
+%     c_{i_1, j_1}  & \cdots  & c_{i_k, j_1}  \\
+%     \vdots        & \ddots  & \vdots        \\
+%     c_{i_k, j_1}  & \cdots  & c_{i_k, j_k}
+%   \end{pmatrix}
+%   \in
+%   \matrices{k}{K[X]}
+% \]
+% gegeben.
+
+Für einen Zeilenvektor $z = (x_1, \dotsc, x_n)$ mit Einträgen $x_i \in K[X]$ und Spaltenindizes $1 \leq j_1 < \dotsb < j_k \leq n$ schreiben wir im Folgenden abkürzend
+\[
+            z^{j_1, \dotsc, j_k}
+  \defined  (x_{j_1}, \dotsc, x_{j_k}) \,.
+\]
+Dabei ist $z^{j_1, \dotsc, j_k}$ $K$-linear in $z$:
+Sind $z_1 = (x_1, \dotsc, x_n)$ und $z_2 = (y_1, \dotsc, y_n)$ zwei Zeilenvektoren mit Einträgen $x_i, y_i \in K[X]$, so gilt
+\[
+    (\lambda z_1 + z_2)^{j_1, \dotsc, j_k}
+  = \lambda z_1^{j_1, \dotsc, j_k} + z_2^{j_1, \dotsc, j_k} \,. 
+\]
+für alle $\lambda \in K$.
+
+Es sei nun $S = (s_{ij}) \in \matrices{n}{K}$ und es sei $B = (b_{ij}) \in \matrices{n}{K[X]}$.
+Es seien $z_1, \dotsc, z_n$ mit $z_i = (b_{i1}, \dotsc, b_{in})$ die Zeilen von $B$, d.h. es gelte
+\[
+    B 
+  = \begin{pmatrix}
+      z_1     \\
+      \vdots  \\
+      z_n
+    \end{pmatrix}.
+\]
+Dann gilt
+\[
+    S B
+  = \begin{pmatrix}
+      s_{11} z_1 + \dotsb + s_{1n} z_n \\
+      \vdots                                        \\
+      s_{n1} z_1 + \dotsb + s_{nn} z_n
+    \end{pmatrix}.
+\]
+Die Zeilen von $SB$ sind also $K$-Linearkombinationen der Zeilen von $B$, und die Koeffzienten sind genau die Einträge von $S$.
+
+Wir fixieren im Folgenden Zeilenindizes $1 \leq i_1 < \dotsb < i_k \leq n$ sowie Spaltenindizes $1 \leq j_1 < \dotsb < j_k \leq n$.
+Die entsprechende $(k \times k)$-Teilmatrix von $SB$ ist nun durch die Teilmatrix
+\[
+    \begin{pmatrix}
+      (s_{i_1 1} z_1 + \dotsb + s_{i_1 n} z_n)^{j_1, \dotsc, j_k} \\
+      \vdots                                                      \\
+      (s_{i_k 1} z_1 + \dotsb + s_{i_k n} z_n)^{j_1, \dotsc, j_k}
+    \end{pmatrix}
+  = \begin{pmatrix}
+      s_{i_1 1} z_1^{j_1, \dotsc, j_k} + \dotsb + s_{i_1 n} z_n^{j_1, \dotsc, j_k}  \\
+      \vdots                                                                        \\
+      s_{i_k n} z_1^{j_1, \dotsc, j_k} + \dotsb + s_{i_k n} z_n^{j_1, \dotsc, j_k}
+    \end{pmatrix}
+\]
+gegeben.
+Aus der Zeilen-Linearität der Determinante folgt für den entsprechenden $(k \times k)$-Minor, dass
+\[
+    \det
+    \begin{pmatrix}
+      s_{i_1 1} z_1^{j_1, \dotsc, j_k} + \dotsb + s_{i_1 n} z_n^{j_1, \dotsc, j_k}  \\
+      \vdots                                                                        \\
+      s_{i_k n} z_1^{j_1, \dotsc, j_k} + \dotsb + s_{i_k n} z_n^{j_1, \dotsc, j_k}
+    \end{pmatrix}
+  = \sum_{1 \leq \ell_1, \dotsc, \ell_k \leq n}
+    s_{i_1 \ell_1} \dotsm s_{i_k \ell_k}
+    \det
+    \begin{pmatrix}
+      z_{\ell_1}^{j_1, \dotsc, j_k} \\
+      \vdots                        \\
+      z_{\ell_k}^{j_1, \dotsc, j_k}
+    \end{pmatrix}
+\]
+Es genügt nun zu zeigen, dass für alle $1 \leq \ell_1, \dotsc, \ell_k \leq n$ die Determinante
+\[
+  \det
+  \begin{pmatrix}
+    z_{\ell_1}^{j_1, \dotsc, j_k} \\
+    \vdots                        \\
+    z_{\ell_k}^{j_1, \dotsc, j_k}
+  \end{pmatrix}
+\]
+eine $K$-Linearkombination der $(k \times k)$-Minoren von $B$ ist.
+Wir unterscheiden hierfür zwischen zwei Fällen:
+Sind $\ell_1, \dotsc, \ell_k$ paarweise verschieden, so ist
+\begin{equation}
+  \label{equation: quasi submatrix}
+  \begin{pmatrix}
+    z_{\ell_1}^{j_1, \dotsc, j_k} \\
+    \vdots                        \\
+    z_{\ell_k}^{j_1, \dotsc, j_k}
+  \end{pmatrix}
+\end{equation}
+bis auf Permutation der Zeilen eine $(k \times k)$-Teilmatrix von $B$, und die Determinante von \eqref{equation: quasi submatrix} somit bis auf Vorzeichen ein $(k \times k)$-Minor von $B$.
+Sind $\ell_1, \dotsc, \ell_k$ nicht paarweise verschieden, so hat die Matrix \eqref{equation: quasi submatrix} zwei gleiche Zeilen, und somit Determinante $0$.
+In beiden Fällen gilt dies gewünschte Aussage.
+
+\begin{remark}
+  In der obigen Argumentation lässt sich auch $K$ jeweils durch $K[X]$ ersetzen:
+  Ist $S \in \matrices{n}{K[X]}$, so gilt für jede andere Matrix $A \in \matrices{n}{K}$, dass die $(k \times k)$-Minoren von $SA$ bereits $K[X]$-Linearkombinationen der $(k \times k)$-Minoren von $A$ sind.
+  Analoges gilt für $AS$.
+  
+  Inbesondere ergibt sich für $S \in \GL{n}{K[X]}$, dass die $(k \times k)$-Minoren von $SA$ und $AS$ jeweils $K[X]$-Linearkombinationen der $(k \times k)$-Minoren von $A$ sind, und vice versa.
+  Es folgt daraus, dass $SA$ und $AS$ die gleichen Determinantenteiler haben.
+  Das zeigt, dass äquivalente Matrizen $A, B \in \matrices{n}{K}$ die gleichen Determinantenteiler $d_k(A) = d_k(B)$ haben, und somit auch die gleichen Invariantenteiler $c_k(A) = c_k(B)$.
+  
+  Ist $C \in \matrices{n}{K[X]}$ eine Smith-Normalform von $A \in \matrices{n}{K[X]}$, so sind $A$ und $C$ äquivalent;
+  nach dem obigen Resultat haben $A$ und $C$ somit die gleichen Invariantenteiler $c_k(A) = c_k(C)$.
+  Da die Smith-Normalform $C$ durch die Invariantenteiler $c_k(C)$ bereits eindeutig bestimmt ist, zeigt dies die Eindeutigkeit der Smith-Normalform.
+\end{remark}
+
+
