@@ -1,1 +1,172 @@
-% \section*{Beispiel zu Quotientenräumen}
+\section*{Ein Beispiel zu Quotientenräumen}
+
+Es sei $I = [0,1]$ das abgeschlossene Einheitsintervall, und es sei
+\[
+            R
+  \defined  \{
+              f \colon I \to \Real
+            \suchthat
+              \text{$f$ ist Riemann-integrierbar}
+            \}
+\]
+der $\Real$-Vektorraum der Riemann-integrierbaren reellwertigen Funktionen auf $I$.
+Für jede Riemann-integrierbare Funktion $f \colon I \to \Real$ ist auch $\abs{f} \colon I \to \Real$ Riemann-integrierbar, weshalb
+\[
+            \norm{f}_0
+  \defined  \int_0^1 \abs{f(x)} \,\text{d}x
+\]
+wohldefiniert ist.
+Wir hätten gerne, dass $\norm{\cdot}_0$ eine Norm auf $R$ definiert.
+Es gelten $\norm{0}_0 = 0$, 
+\[
+    \norm{\lambda f}_0
+  = \int_0^1 \abs{\lambda f(x)}  \,\text{d}x
+  = \int_0^1 \abs{\lambda} \abs{f(x)} \,\text{d}x
+  = \abs{\lambda} \int_0^1 \abs{f(x)} \,\text{d}x
+  = \abs{\lambda} \norm{f}_0
+\]
+für alle $\lambda \in \Real$ und $f \in R$, sowie
+\begin{align*}
+        \norm{f + g}_0
+  =     \int_0^1 \abs{f(x) + g(x)} \,\text{d}x
+  &\leq \int_0^1 \abs{f(x)} + \abs{g(x)} \,\text{d}x  \\
+  &=    \int_0^1 \abs{f(x)} \,\text{d}x + \int_0^1 \abs{g(x)} \,\text{d}x
+  =     \norm{f}_0 + \norm{g}_0
+\end{align*}
+für alle $f, g \in R$.
+Für $f \in R$ mit $\norm{f}_0 = 0$ muss allerdings noch nicht $f = 0$ gelten:
+Man betrachte etwa die Riemann-integrierbare Funktion
+\[
+          f
+  \colon  I
+  \to     \Real,
+  \quad   x
+  \mapsto \begin{cases}
+            1 & \text{falls $x = 1/2$}, \\
+            0 & \text{sonst}.
+          \end{cases}
+\]
+Deshalb ist $\norm{\cdot}_0$ leider keine Norm auf $R$.
+Dieses Problem lässt sich allerdings wie folgt lösen:
+
+Man betrachte
+\[
+            N
+  \defined  \left\{
+              f \in R
+            \suchthat
+              \norm{f}_0 = 0
+            \right\} \,.
+\]
+Es handelt sich um einen Untervektorraum von $R$:
+Es gilt $0 \in N$, für alle $f \in N$ und $\lambda \in \Real$ gilt
+\[
+    \norm{\lambda f}_0
+  = \abs{\lambda} \norm{f}_0
+  = \abs{\lambda} \cdot 0
+  = 0
+\]
+und deshalb auch $\lambda f \in N$, und für alle $f, g \in N$ gilt
+\[
+        \norm{f + g}_0
+  \leq  \norm{f}_0 + \norm{g}_0
+  =     0 + 0
+  =     0
+\]
+und deshalb auch $f + g \in N$.
+
+Wir können nun den Quotientenvektorraum $L \defined R/N$ betrachten.
+Für je zwei Funktionen $f, g \in R$ mit $f - g \in N$ gilt
+\[
+        \norm{f}_0
+  =     \norm{g + f-g}_0
+  \leq  \norm{g}_0 + \norm{f-g}_0
+  =     \norm{g}_0
+\]
+sowie analog auch $\norm{g}_0 \leq \norm{f}_0$, und somit $\norm{f}_0 = \norm{g}_0$.
+Wir erhalten deshalb eine Wohldefinierte Abbildung $\norm{\cdot} \colon L \to \Real$ mit
+\[
+            \norm{[f]}
+  \defined  \norm{f}_0
+\]
+für alle $[f] \in L$.
+Es gilt weiterhin $\norm{[0]} = \norm{0}_0 = 0$, für alle $\lambda \in \Real$ und $[f] \in L$ gilt
+\[
+    \norm{\lambda [f]}
+  = \norm{[\lambda f]}
+  = \norm{\lambda f}_0
+  = \abs{\lambda} \norm{f}_0
+  = \abs{\lambda} \norm{[f]} \,,
+\]
+und für alle $[f], [g] \in L$ gilt
+\[
+        \norm{[f] + [g]}
+  =     \norm{[f + g]}
+  =     \norm{f + g}_0
+  \leq  \norm{f}_0 + \norm{g}_0
+  =     \norm{[f]} + \norm{[g]} \,.
+\]
+Allerdings hat $\norm{\cdot}$ einen entscheidenden Vorteil gegenüber $\norm{\cdot}_0$:
+Für $[f] \in L$ mit $\norm{[f]} = 0$ gilt $\norm{f}_0 = 0$, also $f \in N$ und somit $[f] = 0$.
+Bei $\norm{\cdot}$ handelt es sich also um eine Norm!
+
+\begin{remark}
+  Ist allgemeiner $\Korper \in \{\Real, \Complex\}$ und $V$ ein $\Korper$-Vektorraum, so ist eine Abbildung $\norm{\cdot}_0 \colon V \to \Korper$ eine \emph{Seminorm}, wenn
+  \begin{enumerate}
+    \item
+      $\norm{0}_0 = 0$ gilt,
+    \item
+      $\norm{\lambda x}_0 = \abs{\lambda} \norm{x}_0$ für alle $x \in V$ gilt, und
+    \item
+      $\norm{x + y}_0 \leq \norm{x}_0 + \norm{y}_0$ für alle $x, y \in V$ gilt.
+  \end{enumerate}
+  Im Gegensatz zu einer Norm muss eine Seminorm also nicht reflexiv sein:
+  Es kann Elemente $x \in V$ mit $x \neq 0$ aber $\norm{x}_0 = 0$ geben.
+  (Die erste Bedingung, dass $\norm{0}_0 = 0$ gilt, ist redundant, denn es gilt $\norm{0}_0 = \norm{0 \cdot 0}_0 = 0 \cdot \norm{0}_0 = 0$.)
+  Dann ist $N = \{x \in V \suchthat \norm{x}_0 = 0\}$ ein Untervektorraum von $V$, und auf dem Quotientenvektorraum $V/N$ ergibt sich durch $\norm{[x]} \defined \norm{x}_0$ eine wohldefinierte Norm.
+\end{remark}
+
+Der Vektorraum $L$ besteht nicht mehr Funktionen, sondern nur noch aus Äquivalenzklassen von Funktionen.
+Insbesondere hängt für $[f] \in L$ und $x \in I$ der Wert $f(x)$ von der Wahl des Repräsentanten $f$ ab;
+die Elemente von $L$ haben deshalb keine wohldefinierten Funktionswerte mehr.
+
+Für $f, g \in R$ mit $f - g \in N$ gilt allerdings
+\begin{align*}
+        \abs*{ \int_0^1 f(x) \,\text{d}x - \int_0^1 g(x) \,\text{d}x }
+  &=    \abs*{ \int_0^1 f(x) - g(x) \,\text{d}x } \\
+  &\leq \int_0^1 \abs{f(x) - g(x)} \,\text{d}x
+  =     \norm{f - g}_0
+  =     0 \,,
+\end{align*}
+und deshalb
+\[
+    \int_0^1 f(x) \,\text{d}x
+  = \int_0^1 g(x) \,\text{d}x \,.
+\]
+Die lineare Abbildung
+\[
+          R
+  \to     \Real,
+  \quad   f
+  \mapsto \int_0^1 f(x) \,\text{d}x
+\]
+induzierte deshalb eine wohldefinierte lineare Abbildung
+\[
+          L
+  \to     \Real,
+  \quad   [f]
+  \mapsto \int_0^1 f(x) \,\text{d}x \,.
+\]
+
+Die Elemente $[f] \in L$ haben zwar keine wohldefinierten Funktionswerte mehr, lassen sich aber trotzdem noch integrieren.
+In der Analysis ist dies häufig noch gut genug.
+
+
+
+
+
+
+
+
+
+
