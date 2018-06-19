@@ -1,1 +1,318 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+\subsection{}
+
+Es seien
+\[
+            A
+  \defined  \begin{pmatrix*}[r]
+               2  &  0  & 0 &  0  \\
+              -1  &  1  & 0 &  0  \\
+               0  & -1  & 0 & -1  \\
+               1  &  1  & 1 &  2
+            \end{pmatrix*},
+  \quad\text{und}\quad
+            B
+  \defined  \begin{pmatrix*}[r]
+              0 & 3 & 1 \\
+              1 & 0 & 0 \\
+              0 & 2 & 0
+            \end{pmatrix*},
+\]
+Wir erhalten die Smith-Normalform von $A$ durch
+\begin{align*}
+    M_X(A)
+  =&\,
+    \begin{pmatrix}
+      X-2 &   0 &   0 &   0 \\
+        1 & X-1 &   0 &   0 \\
+        0 &   1 & X   &   1 \\
+       -1 &  -1 &  -1 & X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_1 \leftrightarrow Z_2}&\,
+    \begin{pmatrix}
+        1 & X-1 &   0 &   0 \\
+      X-2 &   0 &   0 &   0 \\
+        0 &   1 & X   &   1 \\
+       -1 &  -1 &  -1 & X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{\substack{Z_2 \to Z_2 - (X-2) Z_1 \\ Z_3 \to Z_3 + Z_1}}&\,
+    \begin{pmatrix}
+      1 &         X-1 &   0 &   0 \\
+      0 & -(X-2)(X-1) &   0 &   0 \\
+      0 &           1 & X   &   1 \\
+      0 &         X-2 &  -1 & X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_2 \to S_2 - (X-1) S_1}&\,
+    \begin{pmatrix}
+      1 &           0 &   0 &   0 \\
+      0 & -(X-2)(X-1) &   0 &   0 \\
+      0 &           1 & X   &   1 \\
+      0 &         X-2 &  -1 & X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_2 \leftrightarrow Z_3}&\,
+    \begin{pmatrix}
+      1 &           0 &   0 &   0 \\
+      0 &           1 & X   &   1 \\
+      0 & -(X-2)(X-1) &   0 &   0 \\
+      0 &         X-2 &  -1 & X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{\substack{Z_2 \to Z_2 + (X-2)(X-1)Z_2 \\ Z_3 \to Z_3 - (X-2) Z_1}}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           X &          1  \\
+      0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
+      0 & 0 &   -X(X-2)-1 &          0
+    \end{pmatrix}
+  \\
+  \xrightarrow{\substack{S_3 \to S_3 - X S_2 \\ S_4 \to S_4 - S_2}}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
+      0 & 0 &   -X(X-2)-1 &          0
+    \end{pmatrix}
+  \\
+  =&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
+      0 & 0 &    -(X-1)^2 &          0
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_4 \to -Z_4}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
+      0 & 0 &     (X-1)^2 &          0
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_3 \leftrightarrow Z_4}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 &     (X-1)^2 &          0  \\
+      0 & 0 & X(X-2)(X-1) & (X-2)(X-1)
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_3 \to S_3 - X S_4}&\,
+    \begin{pmatrix}
+      1 & 0 &       0 &          0  \\
+      0 & 1 &       0 &          0  \\
+      0 & 0 & (X-1)^2 &          0  \\
+      0 & 0 &       0 & (X-2)(X-1)
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_3 \to S_3 + S_4}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 &     (X-1)^2 &          0  \\
+      0 & 0 &  (X-2)(X-1) & (X-2)(X-1)
+    \end{pmatrix}
+  \\
+  =&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 &  (X-1)(X-1) &          0  \\
+      0 & 0 &  (X-2)(X-1) & (X-2)(X-1)
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_3 \to Z_3 - Z_4}&\,
+    \begin{pmatrix}
+      1 & 0 &           0 &          0  \\
+      0 & 1 &           0 &          0  \\
+      0 & 0 &       (X-1) & -(X-2)(X-1) \\
+      0 & 0 &  (X-2)(X-1) &  (X-2)(X-1)
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_4 \to Z_4 - (X-2) Z_3}&\,
+    \begin{pmatrix}
+      1 & 0 &     0 &                             0 \\
+      0 & 1 &     0 &                             0 \\
+      0 & 0 & (X-1) &                   -(X-2)(X-1) \\
+      0 & 0 &     0 &  (X-2)(X-1) + (X-2)(X-2)(X-1)
+    \end{pmatrix}
+  \\
+  =&\,
+    \begin{pmatrix}
+      1 & 0 &     0 &               0 \\
+      0 & 1 &     0 &               0 \\
+      0 & 0 & (X-1) &     -(X-2)(X-1) \\
+      0 & 0 &     0 & (X-1)(X-2)(X-1)
+    \end{pmatrix}
+  \\
+  =&\,
+    \begin{pmatrix}
+      1 & 0 &     0 &             0 \\
+      0 & 1 &     0 &             0 \\
+      0 & 0 & (X-1) &   -(X-2)(X-1) \\
+      0 & 0 &     0 & (X-1)^2 (X-2)
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_4 \to S_4 + (X-2) S_3}&\,
+    \begin{pmatrix}
+      1 & 0 &     0 &             0 \\
+      0 & 1 &     0 &             0 \\
+      0 & 0 & (X-1) &             0 \\
+      0 & 0 &     0 & (X-1)^2 (X-2)
+    \end{pmatrix}
+\end{align*}
+
+Die Frobenius-Normalform von $A$ ist nun
+\begin{align*}
+   &\,  \begin{pmatrix}
+          B(X-1)  &                               \\
+                  & B\left( (X-1)^2 (X-2) \right)
+        \end{pmatrix}
+  \\
+  =&\,  \begin{pmatrix}
+          B(X-1)  &                                     \\
+                  & B\left( X^3 - 4X^2 + 5X - 2 \right)
+        \end{pmatrix}
+  =     \begin{pmatrix*}[r]
+          1 &   &   &     \\
+            & 0 & 0 &  2  \\
+            & 1 & 0 & -5  \\
+            & 0 & 1 &  4
+        \end{pmatrix*} \,,
+\end{align*}
+und die Weierstraß-Normalform von $A$ ist
+\begin{align*}
+        &\,   \begin{pmatrix}
+                B(X-1)  &                         &         \\
+                        & B\left( (X-1)^2 \right) &         \\
+                        &                         & B(X-2)
+              \end{pmatrix}
+  \\
+  \approx&\,  \begin{pmatrix}
+                B\left( (X-1)^2 \right) &         &         \\
+                                        & B(X-1)  &         \\
+                                        &         & B(X-2)
+              \end{pmatrix}
+  \\
+  =&\,        \begin{pmatrix}
+                B\left( X^2 - 2X + 1 \right)  &         &         \\
+                                              & B(X-1)  &         \\
+                                              &         & B(X-2)
+              \end{pmatrix}
+  =           \begin{pmatrix*}[r]
+                0 & -1 &   &    \\
+                1 &  2 &   &    \\
+                  &    & 1 &    \\
+                  &    &   & 2
+              \end{pmatrix*}.
+\end{align*}
+
+Wir erhalten die Smith-Normalform von $B$ durch
+\begin{align*}
+    M_X(B)
+  =&\,
+    \begin{pmatrix}
+       X & -3 & -1  \\
+      -1 &  X &  0  \\
+       0 & -2 &  X
+    \end{pmatrix}
+  \xrightarrow{Z_1 \leftrightarrow Z_2}
+    \begin{pmatrix}
+      -1 &  X &  0  \\
+       X & -3 & -1  \\
+       0 & -2 &  X
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_1 \leftrightarrow -Z_1}&\,
+    \begin{pmatrix}
+      1 &  -X &  0  \\
+      X &  -3 & -1  \\
+      0 &  -2 &  X
+    \end{pmatrix}
+  \xrightarrow{Z_2 \to Z_2 - X Z_1}
+    \begin{pmatrix}
+      1 &    -X &  0  \\
+      0 & X^2-3 & -1  \\
+      0 &    -2 &  X
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_2 \to S_2 + X S_1}&\,
+    \begin{pmatrix}
+      1 &     0 &  0  \\
+      0 & X^2-3 & -1  \\
+      0 &    -2 &  X
+    \end{pmatrix}
+  \xrightarrow{S_2 \leftrightarrow S_3}
+    \begin{pmatrix}
+      1 &  0  &     0 \\
+      0 & -1  & X^2-3 \\
+      0 &  X  &    -2
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_2 \to -Z_2}&\,
+    \begin{pmatrix}
+      1 & 0 &      0  \\
+      0 & 1 & -X^2+3  \\
+      0 & X &     -2
+    \end{pmatrix}
+  \xrightarrow{Z_3 \to Z_3 - X Z_2}
+    \begin{pmatrix}
+      1 & 0 &        0  \\
+      0 & 1 &   -X^2+3  \\
+      0 & 0 & X^3-3X-2
+    \end{pmatrix}
+  \\
+  \xrightarrow{S_3 \to S_3 - (-X^2+3) S_2}&\,
+    \begin{pmatrix}
+      1 & 0 &        0  \\
+      0 & 1 &        0  \\
+      0 & 0 & X^3-3X-2
+    \end{pmatrix}
+  =
+    \begin{pmatrix}
+      1 & 0 &            0  \\
+      0 & 1 &            0  \\
+      0 & 0 & (X-2)(X+1)^2
+    \end{pmatrix} \,.
+\end{align*}
+Die Frobenius-Normalform von $A$ ist dementsprechend
+\[
+    B\left( X^3 - 3X - 2 \right)
+  = \begin{pmatrix}
+      0 & 0 & 2 \\
+      1 & 0 & 3 \\
+      0 & 1 & 0
+    \end{pmatrix} \,,
+\]
+udn die Weierstraß-Normalform von $A$ ist
+\[
+    \begin{pmatrix}
+      B(X-2)  &                         \\
+              & B\left( (X+1)^2 \right)
+    \end{pmatrix}
+  = \begin{pmatrix}
+      B(X-2)  &                         \\
+              & B\left( X^2 + 2X + 1 \right)
+    \end{pmatrix}
+  = \begin{pmatrix*}[r]
+      2 &   &     \\
+        & 0 & -1  \\
+        & 1 & -2
+    \end{pmatrix*} \,.
+\]
+
+
+
+
+
