@@ -70,3 +70,16 @@ Die letzte Matrix befindet sich also in Smith-Normalform.
 
 Man beachte, dass die obige Rechnung über jedem Körper gültig ist.
 Für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3$ gilt $X^2 - X - 2 = X^2 + 2X + 1 = (X+1)^2$.
+
+\begin{remark}
+  Die Existenz und Eindeutigkeit der Smith-Normalform gilt für beliebige $(m \times n)$-Matrizen mit Einträgen in einem Ring $R$, in dem ein \enquote{Teilen mit Rest} möglich ist (sogenannte \emph{euklidische Ringe}\,\footnote{
+  Ein euklidischer Ring ist ein Integritätsbereich $R$ zusammen mit einer \emph{Gradabbildung} $\delta \colon R \smallsetminus \{0\} \to \Natural$, so dass es für alle $f, g \in R$, $g \neq 0$ Elemente $q , r \in R$ mit $f = qg + r$ gibt, so dass entweder $r = 0$ oder $\delta(r) < \delta(g)$ gilt.
+  Beispiele sind $R = K[X]$ für einen Körper $K$ mit $\delta = \deg$, sowie $R = \Integer$ mit $\delta = |\cdot|$.}).
+  Neben $R = K[X]$ gilt dies also insbesondere für $R = \Integer$.
+  Der in der Vorlesung angegebene Algorithmus zur Berechnung der Smith-Nomalform funktioniert dabei auch weiterhin.
+  (Anstelle von $\unitgroup{K[X]} = \unitgroup{K}$ muss $\unitgroup{\Integer} = \{1, -1\}$ genutzt werden.)
+  
+  Das Berechnen der Smith-Normalform lässt sich deshalb auch mit $\Integer$-wertigen Matrizen üben.
+  Dies hat den Vorteil, dass das Teilen mit Rest in $\Integer$ häufig einfacher durchzuführen ist als in $K[X]$.
+\end{remark}
+
