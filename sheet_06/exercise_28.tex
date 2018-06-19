@@ -1,1 +1,72 @@
-\addtocounter{section}{1}
+\section{}
+
+Es gilt
+\[
+    M_X(A)
+  = \begin{pmatrix}
+       X  & -1  & -1  \\
+      -1  &  X  & -1  \\
+      -1  & -1  &  X
+    \end{pmatrix}.
+\]
+Durch Vertauschen der ersten beiden Zeilen erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    -1  &  X  & -1  \\
+     X  & -1  & -1  \\
+    -1  & -1  &  X
+  \end{pmatrix}.
+\]
+Durch Multiplikation der ersten Zeile mit $-1$ erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+     1  & -X  &  1  \\
+     X  & -1  & -1  \\
+    -1  & -1  &  X
+  \end{pmatrix}.
+\]
+Durch Subtrakten des $X$-fachen der ersten Zeile von der zweiten Zeile, sowie Addition der ersten Zeile auf die zweite Zeile erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    1 &    -X   &    1  \\
+    0 & X^2  -1 & -X-1  \\
+    0 &    -X-1 &  X+1
+  \end{pmatrix}.
+\]
+Durch Addition des $X$-fachen der ersten Spalte auf die zweite Spalte, sowie Subtraktion der ersten Spalte von der dritten Spalte erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    1 &       0 &    0  \\
+    0 & X^2  -1 & -X-1  \\
+    0 &    -X-1 &  X+1
+  \end{pmatrix}.
+\]
+Durch Vertauschen der zweiten und dritten Zeile, sowie Vertauschen der zweiten und dritten Spalte erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    1 &    0  &        0  \\
+    0 &  X+1  &     -X-1  \\
+    0 & -X-1  &  X^2  -1
+  \end{pmatrix}.
+\]
+Durch Addition der zweiten Zeile auf die dritte Zeile erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    1 &    0  &        0  \\
+    0 &  X+1  &     -X-1  \\
+    0 &    0  &  X^2-X-2
+  \end{pmatrix}.
+\]
+Durch Addition der zweiten Spalte auf die dritte Spalte erhalten wir die Matrix
+\[
+  \begin{pmatrix}
+    1 &    0  &        0  \\
+    0 &  X+1  &        0  \\
+    0 &    0  &  X^2-X-2
+  \end{pmatrix}.
+\]
+Es gilt $X^2 - X - 2 = (X + 1)(X - 2)$ und somit $(X + 1) \mid (X^2 - X - 2)$.
+Die letzte Matrix befindet sich also in Smith-Normalform.
+
+Man beachte, dass die obige Rechnung über jedem Körper gültig ist.
+Für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3$ gilt $X^2 - X - 2 = X^2 + 2X + 1 = (X+1)^2$.
