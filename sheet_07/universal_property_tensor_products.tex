@@ -1,2 +1,186 @@
-% \section*{Zu Universellen Eigenschaften \& Tensorprodukten}
+\section*{Zu Universellen Eigenschaften \& Tensorprodukten}
+
+Es sei $K$ ein Körper und es seien $V$ und $W$ zwei $K$-Vektorräume.
+In der Vorlesung haben wir die universelle Eigenschaft des Tensorprodukts $V \otimes W$ kennengelernt.
+Es gibt in der Mathematik eine Vielzahl an Objekten und Konstruktionen, die eine sogenannt universelle Eigenschaft haben.
+Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine \enquote{universelle Eigenschaft} ist, nützlich ist aber die folgende ???
+ 
+\begin{idea}
+  Es sei $X$ ein mathematisches Objekt eines bestimmten Typs ($K$-Vektorraum, Gruppe, Ring, metrischer Raum, topologischer Raum, usw.).
+  Eine \emph{universelle Eigenschaft} von $X$ beschreibt entweder, wie für jedes andere andere Objekt $Y$ vom gleichen Typ die Homomorphismen $X \to Y$ aussehen, oder wie für jedes Objekt $Y$ vom gleichen Typ die Homomorphismen $Y \to X$ aussehen.
+\end{idea}
+
+Im Falle des Tensorprodukts $V \otimes W$ erklärt die universelle Eigeschaft, wie für jeden anderen $K$-Vektorraum $U$ die Homomorphismen $V \otimes W \to U$ aussehen:
+Ist $f \colon V \otimes W \to U$ eine lineare Abbildung, so ist die Abbildung
+\[
+          f^\circ
+  \colon  V \times W
+  \to     U,
+  \quad   (v,w)
+  \mapsto f(v \otimes w)
+\]
+$K$-bilinear, und umgekert für jede $K$-bilineare Abbildung $\beta \colon V \times W \to U$ gibt es eine eindeutige lineare Abbildung $\induced{\beta} \colon V \otimes W \to U$ mit
+\[
+    \induced{\beta}(v \otimes w)
+  = \beta(v,w)
+\]
+für alle $v \in V$, $w \in W$.
+Damit ergibt sich eine Bijektion
+\begin{align*}
+                    \Hom_K(V,W)
+  &\longrightarrow  \{ \text{bilineare Abbildungen $\beta \colon V \times W \to U$} \} \,,  \\
+                    f
+  &\longmapsto      f^\circ \,, \\
+                    \induced{\beta}
+  &\longmapsfrom    \beta \,.
+\end{align*}
+In diesem Sinne sind lineare Abbildungen $V \otimes W \to U$ \enquote{das gleiche} wie bilineare Abbildungen $V \times W \to U$.
+
+Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren, so müssen wir hierfür an das folgende Backrezept halten:
+
+\begin{itemize}
+  \item
+    Wir müssen uns zunächst überlegen, worauf die Elementartensoren $v \otimes w$ mit $v \in V$, $w \in W$ abgebildet werden sollen, d.h.\ für welche Elemente $u_{v,w} \in U$ später $f(v \otimes w) = u_{v,w}$ gelten soll.
+  \item
+    Wir definieren nun die Abbildung
+    \[
+              \beta
+      \colon  V \times W
+      \to     U,
+      \quad   (v,w)
+      \mapsto u_{v,w} \,.
+    \]
+  \item
+    Wir müssen nachrechnen, dass die Abbildung $\beta$ bilinear ist.
+  \item
+    Aus der universellen Eigenschaft des Tensorprodukts $V \otimes W$ folgt schließlich, dass es eine eindeutige lineare Abbildung $f \colon V \otimes W \to U$ gibt, so dass
+    \[
+        f(v \otimes w)
+      = \beta(v,w)
+      = u_{v,w}
+    \]
+    für alle $v \in V$, $w \in W$ gilt.
+    Dies ist genau die gewünschte lineare Abbildung.
+\end{itemize}
+
+\begin{example}
+  Es seien $V$ und $W$ zwei $K$-Vektorräume.
+  \begin{itemize}
+    \item
+      Wir zeigen, dass es eine eindeutige lineare Abbildung $e \colon V^* \otimes V \to K$ mit
+      \[
+          e(\varphi \otimes v)
+        = \varphi(v)
+      \]
+      für alle $\varphi \in V^*$, $v \in V$ gibt:
+      
+      Die Abbildung
+      \[
+                \tilde{e}
+        \colon  V^* \times V
+        \to     K,
+        \quad   (\varphi, v)
+        \mapsto \varphi(v)
+      \]
+      ist $K$-bilinear, denn für alle $\varphi, \varphi_1, \varphi_2 \in V^*$, $v, v_1, v_2 \in V$ und $\lambda \in K$ gilt
+      \begin{gather*}
+                \tilde{e}(\varphi_1 + \varphi_2, v)
+        = (\varphi_1 + \varphi_2)(v)
+        = \varphi_1(v) + \varphi_2(v)
+        = \tilde{e}(\varphi_1, v) + \tilde{e}(\varphi_2, v) \,,
+        \\
+          \tilde{e}(\varphi, v_1 + v_2)
+        = \varphi(v_1 + v_2)
+        = \varphi(v_1) + \varphi(v_2)
+        = \tilde{e}(\varphi, v_1) + \tilde{e}(\varphi, v_2) \,,
+        \\
+          \tilde{e}(\lambda \varphi, v)
+        = (\lambda \varphi)(v)
+        = \lambda \varphi(v)
+        = \lambda \tilde{e}(\varphi, v) \,,
+        \\
+          \tilde{e}(\varphi, \lambda v)
+        = \varphi(\lambda v)
+        = \lambda \varphi(v)
+        = \lambda \tilde{e}(\varphi, v) \,.
+      \end{gather*}
+      Nach der universellen Eigenschaft des Tensorprodukts induziert die bilineare Abbildung $\tilde{e}$ eine eindeutige lineare Abbildung $e \colon V \otimes V^* \to K$ mit
+      \[
+          e(\varphi \otimes v)
+        = \tilde{e}(\varphi, v)
+        = \varphi(v)
+      \]
+      für alle $\varphi \in V^*$, $v \in V$.
+    \item
+      Wir zeigen, dass es eine eindeutige lineare Abbildung $\sigma \colon V \otimes W \to W \otimes V$ mit
+      \[
+          \sigma(v \otimes w)
+        = w \otimes v
+      \]
+      für alle $v \in V$, $w \in W$ gibt:
+      
+      Die Abbildung
+      \[
+                \tilde{\sigma}
+        \colon  V \times W
+        \to     W \otimes V
+        \quad   (v,w)
+        \mapsto w \otimes v
+      \]
+      ist $K$-bilinear, denn für alle $v, v_1, v_2 \in V$, $w, w_1, w_2 \in W$, $\lambda \in K$ gilt
+      \begin{gather*}
+          \tilde{\sigma}(v_1 + v_2, w)
+        = w \otimes (v_1 + v_2)
+        = w \otimes v_1 + w \otimes v_2
+        = \tilde{\sigma}(v_1, w) + \tilde{\sigma}(v_2, w) \,,
+        \\
+          \tilde{\sigma}(v, w_1 + w_2)
+        = (w_1 + w_2) \otimes v
+        = w_1 \otimes v + w_2 \otimes v
+        = \tilde{\sigma}(v, w_1) + \tilde{\sigma}(v, w_2) \,,
+        \\
+          \tilde{\sigma}(\lambda v, w)
+        = w \otimes (\lambda v)
+        = \lambda (w \otimes v)
+        = \lambda \tilde{\sigma}(v, w) \,,
+        \\
+          \tilde{\sigma}(v, \lambda w)
+        = (\lambda w) \otimes v
+        = \lambda (w \otimes v)
+        = \lambda \tilde{\sigma}(v, w) \,.
+      \end{gather*}
+      Nach der universellen Eigenschaft des Tensorprodukts induziert die bilineare Abbildung $\tilde{\sigma} \colon V \times W \to W \otimes V$ eine eindeutige lineare Abbildung $\sigma \colon V \otimes W \to W \otimes V$ mit
+      \[
+          \sigma(v \otimes w)
+        = \tilde{\sigma}(v, w)
+        = w \otimes v
+      \]
+      für alle $v \in V$, $w \in W$.
+      
+      Die lineare Abbildung $\sigma$ ist tatsächlich schon ein Isomorphismus:
+      Für die eindeutige lineare Abbildung $\tau \colon W \otimes V \to V \otimes W$ mit
+      \[
+          \tau(w \otimes v)
+        = v \otimes w
+      \]
+      für alle $w \in W$, $v \in V$ (deren Existenz wir oben gezeigt haben) gilt
+      \[
+          (\tau \circ \sigma)(v \otimes w)
+        = \tau(\sigma(v \otimes w))
+        = \tau(w \otimes v)
+        = v \otimes w
+      \]
+      für alle $v \in V$, $w \in W$.
+      Da $V \otimes W$ als $K$-Vektorraum von den Elementartensoren $v \otimes w$ mit $v \in V$, $w \in W$ erzeugt wird, folgt hieraus, dass bereits
+      \[
+          (\tau \circ \sigma)(x)
+        = x
+      \]
+      für alle $x \in V \otimes W$ gilt, und somit $\tau \circ \sigma = \id_{V \otimes W}$.
+      Durch Vertauschen der Rollen von $V$ und $W$ ergibt sich, dass auch $\sigma \circ \tau = \id_{W \otimes V}$ gilt.
+  \end{itemize}
+\end{example}
+
+
+
 

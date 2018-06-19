@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{stmaryrd}
 \usepackage{tikz-cd}
 \usepackage{enumitem}
 \usepackage{csquotes}
@@ -28,6 +29,7 @@
 \theoremstyle{definition}
 \newtheorem*{claim*}{Behauptung}
 \newtheorem{example}[everything]{Beispiel}
+\newtheorem{idea}[everything]{Idee}
 \newtheorem{remark}[everything]{Bemerkung}
 \newtheorem*{theorem*}{Satz}
 
@@ -63,6 +65,7 @@
 \newcommand{\unitgroup}[1]{#1^\times}
 
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
+\newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\diagonalgroup}[2]{\operatorname{D}_{#1}(#2)}
 \newcommand{\eigenspace}[2]{\operatorname{Eig}(#1, #2)}
 \newcommand{\hauptspace}[2]{\operatorname{Haupt}(#1, #2)}
@@ -83,3 +86,5 @@
 
 \newcommand{\columnvector}[1]{ \begin{pmatrix} #1 \end{pmatrix} }
 \newcommand{\columnrvector}[1]{ \begin{pmatrix*}[r] #1 \end{pmatrix*} }
+
+\newcommand{\induced}[1]{\overline{#1}}
