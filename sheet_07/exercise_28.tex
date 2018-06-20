@@ -75,11 +75,30 @@ Für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3
   Die Existenz und Eindeutigkeit der Smith-Normalform gilt für beliebige $(m \times n)$-Matrizen mit Einträgen in einem Ring $R$, in dem ein \enquote{Teilen mit Rest} möglich ist (sogenannte \emph{euklidische Ringe}\,\footnote{
   Ein euklidischer Ring ist ein Integritätsbereich $R$ zusammen mit einer \emph{Gradabbildung} $\delta \colon R \smallsetminus \{0\} \to \Natural$, so dass es für alle $f, g \in R$, $g \neq 0$ Elemente $q , r \in R$ mit $f = qg + r$ gibt, so dass entweder $r = 0$ oder $\delta(r) < \delta(g)$ gilt.
   Beispiele sind $R = K[X]$ für einen Körper $K$ mit $\delta = \deg$, sowie $R = \Integer$ mit $\delta = |\cdot|$.}).
-  Neben $R = K[X]$ gilt dies also insbesondere für $R = \Integer$.
-  Der in der Vorlesung angegebene Algorithmus zur Berechnung der Smith-Nomalform funktioniert dabei auch weiterhin.
-  (Anstelle von $\unitgroup{K[X]} = \unitgroup{K}$ muss $\unitgroup{\Integer} = \{1, -1\}$ genutzt werden.)
+  Neben $R = K[X]$ gilt dies also insbesondere für $R = \Integer$:
+  
+  \begin{theorem}
+    Es sei $A \in \mnatrices{m}{n}{\Integer}$.
+    Dann lässt sich die Matrix $A$ durch elementare Zeilen- und Spaltenumformungen in die Form
+    \[
+      \begin{pmatrix}
+        c_1     &         &         & 0       & \cdots  & 0       \\
+                & \ddots  &         & \vdots  &         & \vdots  \\
+                &         & c_t     & \vdots  &         & \vdots  \\
+        0       & \cdots  & \cdots  & 0       &         & \vdots  \\
+        \vdots  &         &         &         & \ddots  & \vdots  \\
+        0       & \cdots  & \cdots  & \cdots  & \cdots  & 0
+      \end{pmatrix}
+    \]
+    bringen, so dass $c_i \divides c_{i+1}$ für alle $1 \leq i < t$ gilt.
+    Die Einträge $c_1, \dotsc, c_t$ sind dabei jeweils bis auf Vorzeichen eindeutig bestimmt.
+  \end{theorem}
+  
+  Der in der Vorlesung angegebene Algorithmus zur Berechnung der Smith-Nomalform funktioniert dabei ebenfalls für $R = \Integer$.
+  (Anstelle von $\unitgroup{K[X]} = \unitgroup{K}$ muss dabei $\unitgroup{\Integer} = \{1, -1\}$ genutzt werden.
+  Als elementare Zeilen- und Spaltenumformungen vom Typ~(II) darf also nur mit den Skalaren $\pm 1$ multipliziert werden.)
   
   Das Berechnen der Smith-Normalform lässt sich deshalb auch mit $\Integer$-wertigen Matrizen üben.
-  Dies hat den Vorteil, dass das Teilen mit Rest in $\Integer$ häufig einfacher durchzuführen ist als in $K[X]$.
+  Dies hat den Vorteil, dass das Teilen mit Rest in $\Integer$ im Allgemeinen einfacher durchzuführen ist als in $K[X]$.
 \end{remark}
 
