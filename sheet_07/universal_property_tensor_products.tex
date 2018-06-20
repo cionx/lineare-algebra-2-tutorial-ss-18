@@ -3,7 +3,7 @@
 Es sei $K$ ein Körper und es seien $V$ und $W$ zwei $K$-Vektorräume.
 In der Vorlesung haben wir die universelle Eigenschaft des Tensorprodukts $V \otimes W$ kennengelernt.
 Es gibt in der Mathematik eine Vielzahl an Objekten und Konstruktionen, die eine sogenannt universelle Eigenschaft haben.
-Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine \enquote{universelle Eigenschaft} ist, nützlich ist aber die folgende ???
+Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine \enquote{universelle Eigenschaft} ist, nützlich ist aber die folgende informelle Beschreibung:
  
 \begin{idea}
   Es sei $X$ ein mathematisches Objekt eines bestimmten Typs ($K$-Vektorraum, Gruppe, Ring, metrischer Raum, topologischer Raum, usw.).
@@ -181,6 +181,20 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
   \end{itemize}
 \end{example}
 
-
+\begin{remark}
+  Auch andere Konstruktionen, die wir bereits kennengelernt haben, besitzen universelle Eigenschaften, die wir bisher allerdings noch nicht kennen gelernt haben:
+  \begin{enumerate}
+    \item
+      Für jede Familie $V_i$, $i \in I$ von $K$-Vektorräumen $V_i$ besitzt die direkte Summe $\bigoplus_{i \in I} V_i$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $W$ die linearen Abbildungen $\bigoplus_{i \in I} V_i \to W$ beschrieben werden.
+    \item
+      Für jede Familie $V_i$, $i \in I$ von $K$-Vektorräumen $V_i$ besitzt das Produkt $\prod_{i \in I} V_i$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to \prod_{i \in I} V_i$ beschrieben werden.
+    \item
+      Für jede lineare Abbildung $f \colon V \to W$ zwischen $K$-Vektorräumen $V$ und $W$ besitzt der Kern $\ker(f)$ eine universelle Eigenschaft, durch den für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to \ker(f)$ beschrieben werden.
+    \item
+      Für jeden $K$-Vektorraum $V$ und Untervektorraum $U \subseteq V$ besitzt der Quotientenvektorraum $V/U$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $W$ die linearen Abbildungen $V/U \to W$ beschrieben werden.
+    \item
+      Für jeden $K$-Vektorraum $V$ besitzt der Dualraum $V^*$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to V^*$ beschrieben werden.
+  \end{enumerate}
+\end{remark}
 
 
