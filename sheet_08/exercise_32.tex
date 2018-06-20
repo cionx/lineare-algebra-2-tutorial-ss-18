@@ -1,1 +1,380 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+\subsubsection*{(a) $\implies$ (c)}
+Gilt $v + U = w + U$, so gilt $(v + U) \cap (w + U) = v + U \neq \emptyset$, denn wegen $U \neq \emptyset$ gilt auch $v + U \neq \emptyset$.
+
+\subsubsection*{(c) $\implies$ (b)}
+Gilt $(v + U) \cap (w + U) \neq \emptyset$, so gibt es $u_1, u_2 \in U$ mit $v + u_1 = w + u_2$.
+Dann gilt $v - w = u_2 - u_1 \in U$.
+
+\subsubsection*{(b) $\implies$ (c)}
+Gilt $v - w \in U$, so gilt $(v - w) + U = U$ und deshalb $v + U = w + (v-w) + U = w + U$.
+
+
+
+
+
+\subsection{}
+
+Mithilfe der Charakterisierung (a) ergibt sich wie folgt, dass $\sim$ eine Äquivalenzrelation ist:
+
+\begin{itemize}
+  \item
+    Für alle $v \in V$ gilt $v + U = v + U$ und deshalb $v \sim v$.
+  \item
+    Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v + U = v' + U$, also auch $v + U = v' + U$ und somit $v \sim v'$.
+  \item
+    Für alle $v, v', v'' \in V$ mit $v \sim v'$ und $v'' \sim v'''$ gelten $v + U = v' + U$ und $v' + U = v'' + U$, also auch $v + U = v'' + U$ und somit $v \sim v''$.
+\end{itemize}
+
+\begin{remark}
+  Ist allgemein $f \colon X \to Y$ eine Abbildung zwischen zwei Mengen $X$ und $Y$, so wird durch
+  \[
+          x \sim x'
+    \iff  f(x) = f(x')
+  \]
+  eine Äquivalenzrelation auf $X$ definiert.
+  Mit $X = V$, der Potenzmenge $Y = \mathcal{P}(V)$ und der Funktion $f(v) = v + U$ ergibt sich die obige Äquivalenzrelation.
+\end{remark}
+
+Anstelle der Charakterisierung (a) lässt sich auch die Charakterisierung (b) nutzen, um zu zeigen, dass $\sim$ eine Äquivalenzrelation ist:
+
+\begin{itemize}
+  \item
+    Für alle $v \in V$ gilt $v - v \in 0$ und deshalb $v \sim v$.
+  \item
+    Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v - v' \in U$, also auch $v' - v = -(v - v') \in U$ und somit $v' \sim v$.
+  \item
+    Für alle $v, v', v'' \in V$ mit $v \sim v'$ und $v' \sim v''$ gilt $v - v', v' - v'' \in U$, und deshalb auch $v - v'' = (v - v') + (v' - v'') \in U$, also $v \sim v''$.
+\end{itemize}
+
+Für jedes $v \in V$ gilt nun, dass
+\[
+    \class{v}
+  = \{ w \in V \suchthat w \sim v \}
+  = \{ w \in V \suchthat w - v \in U \}
+  = \{ w \in V \suchthat w \in v + U \}
+  = v + U \,.
+\]
+
+\begin{remark}
+  Man hätte die obigen beiden Aufgabenteile auch in anderen Reihenfolge durchgehen können:
+  Man zeigt zunächst, dass durch $v \sim w \iff v - w \in U$ eine Äquivalenzrelation auf $V$ definiert wird.
+  Dann erhält man, dass $\class{v} = v + U$ für alle $v \in V$ gilt.
+  Der erste Aufgabenteil ergibt sich dann daraus, dass
+  \[
+          \class{v} = \class{w}
+    \iff  v \sim w
+    \iff  \class{v} \cap \class{w} = \emptyset \,.
+  \]
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Wir zeigen zunächst die Wohldefiniertheit der Addition und Skalarmultiplikation:
+
+\begin{itemize}
+  \item
+    Für alle $v, v', w, w' \in V$ mit $v \sim v'$ und $w \sim w'$ gilt $v - v', w - w' \in U$.
+    Deshalb gilt auch
+    \[
+          (v + w) - (v' + w')
+      =   (v - v') + (w - w')
+      \in U \,,
+    \]
+    und somit $(v + w) \sim (v' + w')$.
+  \item
+    Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v - v' \in U$, für alle $\lambda \in K$ deshalb auch
+    \[
+          \lambda v - \lambda v'
+      =   \lambda (v - v')
+      \in U 
+    \]
+    und somit $(\lambda v) \sim (\lambda v')$.
+\end{itemize}
+
+Die Vektorraum-Axiome lassen sich nun repräsentantenweise Nachrechnen:
+
+\begin{itemize}
+  \item
+    Für alle $\class{v}, \class{v'}, \class{v''} \in V\!/U$ gilt
+    \[
+        (\class{v} + \class{v'}) + \class{v''}
+      = \class{v + v'} + \class{v''}
+      = \class{v + v' + v''}
+      = \class{v} + \class{v' + v''}
+      = \class{v} + (\class{v'} + \class{v''}) \,.
+    \]
+    Das zeigt die Assoziativität der Addition von $V\!/U$.
+  \item
+    Für alle $\class{v}, \class{v'} \in V\!/U$ gilt
+    \[
+        \class{v} + \class{v'}
+      = \class{v + v'}
+      = \class{v' + v}
+      = \class{v'} + \class{v} \,.
+    \]
+    Das zeigt die Kommutativität der Addition von $V\!/U$.
+  \item
+    Für alle $\class{v} \in V\!/U$ gilt
+    \[
+        \class{v} + \class{0}
+      = \class{v + 0}
+      = \class{v} \,.
+    \]
+    Das zeigt, dass $\class{0}$ ein neutrales Element bezüglich der Additon von $V\!/U$ ist.
+  \item
+    Für alle $\class{v} \in V\!/U$ gilt
+    \[
+        \class{v} + \class{-v}
+      = \class{v + (-v)}
+      = \class{0}
+      = 0_{V\!/U} \,.
+    \]
+    Das zeigt, dass $\class{-v}$ additiv inverse zu $\class{v}$ ist, dass also $-\class{v} = \class{-v}$ gilt.
+  \item
+    Für alle $\class{v} \in V\!/U$ gilt
+    \[
+        1 \cdot \class{v}
+      = \class{1 \cdot v}
+      = \class{v} \,.
+    \]
+  \item
+    Für alle $\lambda, \mu \in K$ und $\class{v} \in V\!/U$ gilt
+    \[
+        \lambda (\mu \class{v})
+      = \lambda \class{\mu v}
+      = \class{\lambda \mu v}
+      = (\lambda \mu) \class{v} \,.
+    \]
+  \item
+    Für alle $\lambda \in K$ und $\class{v}, \class{v'} \in V\!/U$ gilt
+    \[
+        \lambda (\class{v} + \class{v'})
+      = \lambda \class{v + v'}
+      = \class{\lambda (v + v')}
+      = \class{\lambda v + \lambda v'}
+      = \class{\lambda v} + \class{\lambda v'}
+      = \lambda \class{v} + \lambda \class{v'} \,.
+    \]
+  \item
+    Für alle $\lambda, \mu \in K$ und $\class{v} \in V\!/U$ gilt
+    \[
+        (\lambda + \mu) \class{v}
+      = \class{(\lambda + \mu) v}
+      = \class{\lambda v + \mu v}
+      = \class{\lambda v} + \class{\mu v}
+      = \lambda \class{v} + \mu \class{v} \,.
+    \]
+\end{itemize}
+
+
+
+
+
+\subsection{}
+
+Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v - v' \in \ker(f)$, also
+\[
+    f(v) - f(v')
+  = f(v - v')
+  = 0
+\]
+und deshalb $f(v) = f(v')$.
+Es folgt, dass $f$ eine wohldefinierte Abbildung
+\[
+          \induced{f}
+  \colon  V\!/U
+  \to     \im(f) \,,
+  \quad   \class{v}
+  \mapsto f(v)
+\]
+induziert.
+Für alle $v, v' \in V$ gilt
+\[
+    \induced{f}(\class{v} + \class{v'})
+  = \induced{f}(\class{v + v'})
+  = f(v + v')
+  = f(v) + f(v')
+  = \induced{f}(\class{v}) + \induced{f}(\class{v'}) \,,
+\]
+und für alle $\lambda \in K$, $v \in V$ gilt
+\[
+    \induced{f}(\lambda \class{v})
+  = \induced{f}(\class{\lambda v})
+  = f(\lambda v)
+  = \lambda f(v)
+  = \lambda \induced{f}(\class{v}) \,.
+\]
+Das zeigt, dass $\induced{f}$ linear ist.
+Die Abbildung $\induced{f}$ ist surjektiv, denn es gilt
+\[
+    \im(\induced{f})
+  = \{ \induced{f}(\class{v}) \suchthat \class{v} \in V\!/U \}
+  = \{ f(v) \suchthat v \in V \}
+  = \im(f) \,.
+\]
+Die Abbildung $\induced{f}$ ist injektiv, denn für alle $\class{v}, \class{v'} \in V\!/U$ gilt
+\[
+        \induced{f}(\class{v})  = \induced{f}(\class{v'})
+  \iff  f(v)  = f(v')
+  \iff  v - v' \in \ker(f)
+  \iff  \class{v} = \class{v'} \,;
+\]
+alternativ ergibt sich die Injektivität von $\induced{f}$ dadurch, dass
+\[
+        \induced{f}(\class{v}) = 0
+  \iff  f(v) = 0
+  \iff  v \in \ker(f)
+  \iff  \class{v} = 0 \,.
+\]
+
+\begin{remark}
+  Die kanonische Projection $p \colon V \to V\!/U$, $v \mapsto \class{v}$ ist ein Epimorphismus, die kanonische Inklusion $i \colon \im(f) \to W$ ist ein Monomorphismus, und es gilt $f = i \circ \induced{f} \circ p$.
+  Wir können also jede lineare Abbildung in die Komposition eines Epimorphismus, Isomorphismus und Monomorphismus zerlegen.
+  Dies lässt sich mit dem folgenden kommutativen Diagramm darstellen:
+  \[
+    \begin{tikzcd}[sep = large]
+        V
+        \arrow{r}[above]{f}
+        \arrow[twoheadrightarrow]{d}[left]{p}
+      & W
+      \\
+        V\!/U
+        \arrow{r}[above]{\sim}[below]{\induced{f}}
+      & \im(f)
+        \arrow[hook]{u}[right]{i}
+    \end{tikzcd}
+  \]
+\end{remark}
+
+
+\begin{remark}
+  Ist allgemeiner $U \subseteq V$ ein Untervektorraum und $f \colon V \to W$ eine lineare Abbildung, so induziert $f$ genau dann eine wohldefinierte Abbildung
+  \[
+            \induced{f}
+    \colon  V\!/U
+    \to     W \,,
+    \quad   \class{v}
+    \to     f(v) \,,
+  \]
+  wenn $U \subseteq \ker(f)$ gilt, wenn also $\restrict{f}{U} = 0$ gilt.
+  \[
+    \begin{tikzcd}[sep = large]
+        V
+        \arrow{r}[above]{f}
+        \arrow{d}[left]{v \mapsto \class{v}}
+      & W
+      \\
+        V\!/U
+        \arrow[dashed]{ru}[below right]{\induced{f}}
+      & {}
+    \end{tikzcd}
+  \]
+  Es gilt dann $\im(\induced{f}) = \im(f)$ und $\ker(\induced{f}) = \ker(f)/U$.
+  Ist umgekehrt $g \colon V \to W$ eine lineare Abbildung, so ist $\hat{g} \colon V \to W$ mit $\hat{g}(v) = g(\class{v})$ eine lineare Abbildung mit $U \subseteq \ker(g)$.
+  Dies liefert eine Bijektion
+  \begin{align*}
+                      \Hom_K(V/U,W)
+    &\longrightarrow  \{ \text{lineare Abbildungen $f \colon V \to W$ mit $\restrict{f}{U}= 0$} \} \,,
+    \\
+                      g
+    &\longmapsto      \hat{g} \,,
+    \\
+                      f
+    &\longmapsfrom    \induced{f} \,.
+  \end{align*}
+
+  Man bezeichnet dies als den \emph{Homomorphiesatz}, bzw.\ die \emph{universelle Eigenschaft des Quotientenvektorraums}.
+  Die universelle Eigenschaft des Quotientenvektorraums erklärt uns also, wie für jeden anderen $K$-Vektorraum die linearen Abbildungen $V\!/U \to W$ aussehen (man vergleiche mit Idee~\ref{idea: universal properties}).
+\end{remark}
+
+\begin{remark}
+  Wir wollen hier an die analogen Aussagen über Äquivalenzrelationen auf Mengen erinnern:
+  
+  Ist $\sim$ eine Äquivalenzrelation auf einer Menge $X$, so induziert eine Abbildung $f \colon X \to Y$ genau dann eine wohldefinierte Funktion
+  \[
+            \induced{f}
+    \colon  (X/{\sim})
+    \to     Y,
+    \quad   \class{x}
+    \mapsto f(x) \,,
+  \]
+  wenn $x \sim x' \implies f(x) = f(x')$ für alle $x, x' \in X$ gilt.
+  Dabei gilt dann $\im(\induced{f}) = \im(f)$, und für alle $\class{x}, \class{x'} \in X/{\sim}$ gilt genau dann $\induced{f}(x) = \induced{f}(x')$, wenn $f(x) = f(x')$ gilt.
+  
+  Ist $\sim$ die Äquivalenzrelation, die durch $x \sim x' \iff f(x) = f(x')$ gegeben ist, so ist die induziert Funktion $\induced{f} \colon (X/{\sim}) \to Y$ injektiv, und schränkt sich zu einer Bijektion $(X/{\sim}) \to \im(f)$ ein.
+  
+  Jede Funktion $f \colon X \to Y$ zwischen Mengen $X$ und $Y$ lässt sich für die Äquivalenzrelation $\sim$ auf $X$ mit $x \sim x' \iff f(x) = f(x')$ als $f = i \circ \induced{f} \circ p$ zerlegen, wobei $p \colon X \to X/{\sim}$, $x \to \class{x}$ die kanonische Projektion ist, und $i \colon \im(f) \to Y$, $y \to y$ die kanonische Inklusion.
+  Es lässt sich also jede Funktion in die Komposition einer Surjektion, Bijektion und Injektion zerlegen:
+  \[
+    \begin{tikzcd}[sep = large]
+        X
+        \arrow{r}[above]{f}
+        \arrow[twoheadrightarrow]{d}[left]{p}
+      & Y
+      \\
+        X/{\sim}
+        \arrow{r}[above]{\sim}[below]{\induced{f}}
+      & \im(f)
+        \arrow[hook]{u}[right]{i}
+    \end{tikzcd}
+  \]
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Da $V = U \oplus U'$ gilt, lässt sich jedes $v \in V$ eindeutig als $v = u + u'$ mit $u \in U$ und $u' \in U'$ schreiben;
+mit $f(v) \defined u'$ erhalten wir deshalb eine wohldefinierte Funktion $f \colon V \to U'$.
+
+Die Funktion $f$ ist linear:
+Haben $v_1, v_2 \in V$ die Zerlegungen $v_1 = u_1 + u'_1$ und $v_2 = u_2 + u'_2$ mit $u_1, u_2 \in U$ und $u'_1, u'_2 \in U'$, so gilt
+\begin{gather*}
+    v_1 + v_2
+  = (u_1 + u'_1) + (u_2 + u'_2)
+  = \underbrace{(u_1 + u_2)}_{\in U} + \underbrace{(u'_1 + u'_2)}_{\in U'}
+\shortintertext{und deshalb}
+    f(v_1 + v_2)
+  = u'_1 + u'_2
+  = f(v_1) + f(v_2) \,.
+\end{gather*}
+Hat $v \in V$ die Zerlegung $v = u + u'$ mit $u \in U$, $u' \in U'$, so gilt für alle $\lambda \in K$, dass
+\begin{gather*}
+    \lambda v
+  = \lambda (u + u')
+  = \lambda u + \lambda u'
+\shortintertext{und deshalb}
+    f(\lambda v)
+  = \lambda u'
+  = \lambda f(u') \,.
+\end{gather*}
+
+Für alle $u' \in U$ gilt $f(u') = f(0 + u') = u'$, und somit gilt $\im(f) = U'$.
+Hat $v \in V$ die Zerlegung $v = u + u'$ mit $u \in U$, $u' \in U'$, so gilt genau dann $v \in \ker(f)$, wenn $u' = f(v) = 0$, wenn also $v = u \in U$.
+Deshalb gilt $\ker(f) = U$.
+
+Mit den obigen Beobachtungen erhalten wir aus dem vorherigen Aufgabenteil, dass die lineare Abbildung $f \colon V \to U'$ einen Isomorphismus $V\!/U \to U'$ induziert.
+
+
+
+
+
+
+
+
+
+

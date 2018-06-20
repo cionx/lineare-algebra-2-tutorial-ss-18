@@ -6,6 +6,7 @@ Es gibt in der Mathematik eine Vielzahl an Objekten und Konstruktionen, die eine
 Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine \enquote{universelle Eigenschaft} ist, nützlich ist aber die folgende informelle Beschreibung:
  
 \begin{idea}
+  \label{idea: universal properties}
   Es sei $X$ ein mathematisches Objekt eines bestimmten Typs ($K$-Vektorraum, Gruppe, Ring, metrischer Raum, topologischer Raum, usw.).
   Eine \emph{universelle Eigenschaft} von $X$ beschreibt entweder, wie für jedes andere andere Objekt $Y$ vom gleichen Typ die Homomorphismen $X \to Y$ aussehen, oder wie für jedes Objekt $Y$ vom gleichen Typ die Homomorphismen $Y \to X$ aussehen.
 \end{idea}
@@ -28,9 +29,11 @@ für alle $v \in V$, $w \in W$.
 Damit ergibt sich eine Bijektion
 \begin{align*}
                     \Hom_K(V,W)
-  &\longrightarrow  \{ \text{bilineare Abbildungen $\beta \colon V \times W \to U$} \} \,,  \\
+  &\longrightarrow  \{ \text{bilineare Abbildungen $V \times W \to U$} \} \,,
+  \\
                     f
-  &\longmapsto      f^\circ \,, \\
+  &\longmapsto      f^\circ \,,
+  \\
                     \induced{\beta}
   &\longmapsfrom    \beta \,.
 \end{align*}
