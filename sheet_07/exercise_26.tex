@@ -11,42 +11,55 @@ Ingesamt sind somit für $f$ die folgenden Bedingungen äquivalent:
   \item
     Es gilt die Hauptraumzerlegung $V = \bigoplus_{\lambda \in K} \hauptspace{f}{\lambda}$.
   \item
+    Der Endomorphismus $f$ besitzt eine Jordan-Chevalley-Zerlegung.
+  \item
     Der Endomorphismus $f$ besitzt eine Jordan-Normalform.
   \item
-    Der Endomorphismus $f$ besitzt eine Jordan-Chevalley-Zerlegung.
+    Der Endomorphismus $f$ ist trigonalisierbar.
 \end{enumerate}
 
 Die Jordan-Chevalley-Zerlegung hat einige Vorteile gegenüber der üblichen Jordan-Normalform:
 
 
 
+
+
 \subsection*{Koordinatenfreiheit}
 
 Die Jordan-Chevalley-Zerlegung lässt sich als eine koordinatenfreie Version der Jordan-Normalform verstehen:
-Um die Jordan-Normalform von $f$ zu betrachten und zu definieren, müssen wir eine Basis $B$ von $V$ wählen, um $\repmatrixendo{f}{B}$ zu betrachten.
+Um die Jordan-Normalform von $f$ zu betrachten, und zu definieren, müssen wir eine Basis $B$ von $V$ wählen, um die darstellende Matrix $\repmatrixendo{f}{B}$ benutzen zu können.
 Die Jordan-Chevalley-Zerlegung hat diese Einschränkung nicht.
 
 
 
-\subsection*{Polynomielle Abhängigkeit von $f_d$ und $f_n$}
+
+
+\subsection*{Polynomielle Abhängigkeit von $f_d$ und $f_n$ von $f$}
 
 Existiert die Jordan-Chevalley-Zerlegung $f = f_d + f_n$, so gibt es Polynome $p, q \in K[X]$ mit $f_d = p(f)$ und $f_n = q(f)$.
+(Wir haben dies nicht bewiesen, und werden dies hier auch nicht tun.)
 Der diagonalisierbare sowie nilpotente Anteil von $f$ ist also ein Polynom in $f$.
-Dies hat in der Praxis nützliche Konsequenzen:
+Dies hat in der nützliche Konsequenzen:
 So kommutiert etwa ein Endomorphismus $g \colon V \to V$ genau dann mit $f$, wenn er mit $f_d$ und $f_n$ kommutiert.
 
 (Dies wird häufig benutzt, um die Eindeutigkeit der Jordan-Chevalley-Zerlegung zu zeigen:
-Ist $f = f'_d + f'_n$ eine weitere Zerlegung mit $f'_d$ diagonalisierbar, $f'_n$ nilpotent und $f'_d, f'_n$ kommutierend, so kommutieren $f'_n$ und $f'_d$ mit $f$, und somit auch mit $f_d$ und $f_n$.
+
+Ist $f = f'_d + f'_n$ eine weitere Zerlegung mit $f'_d$ diagonalisierbar, $f'_n$ nilpotent und $f'_d, f'_n$ kommutierend, so kommutieren $f'_n$ und $f'_d$ mit $f$, und nach dem obigen Argument somit auch mit $f_d$ und $f_n$.
 Dann sind $f_d$ und $f'_d$ simultan diagonalisierbar, und somit ist auch $f_d - f'_d$ diagonalisierbar.
 Außerdem ist dann auch $f'_n - f_n$ nilpotent.
-Der Endomorphismus $f_d - f'_d = f'_n - f_n$ ist also sowohl diagonalisierbar als auch nilpotent.
-Es muss deshalb $f_d - f'_d = f'_n - f_n = 0$ gelten, und somit $f_d = f'_d$ und $f_n = f'_n$.)
+
+Der Endomorphismus $g \defined f_d - f'_d = f'_n - f_n$ ist also sowohl diagonalisierbar als auch nilpotent.
+Es gilt deshalb $g = 0$, und somit $f_d = f'_d$ und $f_n = f'_n$.)
 
 
 
-\subsection*{Verallgemeinerung auf mehr Endomorphismen}
 
-Ein $f$-invarianter Untervektorraum $U \subseteq V$ heißt $f$-\emph{irreduzibel}, bzw.\ $f$-\emph{einfach}, wenn $U \neq 0$ gilt, und $0$ und $U$ die einzigen $f$-invarianten Untervektorräume von $U$ sind.
+
+\subsection*{Verallgemeinerung auf perfekte Körper}
+
+Ein $f$-invarianter Untervektorraum $U \subseteq V$ heißt $f$-\emph{irreduzibel}, bzw.\ $f$-\emph{einfach}, wenn $U \neq 0$ gilt, und $0$ und $U$ die einzigen $f$-invarianten Untervektorräume von $U$ sind\footnote{
+Wir haben in H20 gesehen, dass $U$ irreduzibel ist, falls $\charpol{\restrict{f}{U}}$ irreduzibel ist.
+Es gilt tatsächlich auch die Umkehrung, d.h.\ $U$ ist genau dann irreduzibel, wenn $\charpol{\restrict{f}{U}}$ irreduzibel ist.}.
 Es lässt sich zeigen, dass für $f$ die folgenden Bedingungen äquivalent sind:
 
 \begin{enumerate}
@@ -56,21 +69,22 @@ Es lässt sich zeigen, dass für $f$ die folgenden Bedingungen äquivalent sind:
     Es gilt $V = U_1 + \dotsb + U_n$ für $f$-invariante, $f$-irreduzible Untervektorräume $U_i \subseteq V$.
   \item
     Für jeden $f$-invarianten Untervektorraum $U \subseteq V$ gibt es einen $f$-invarianten Untervektorraum $W \subseteq V$ mit $V = U \oplus W$.
+  \item
+    Im Minimalpolynom $\minpol{f}$ kommt kein Linearfaktor mehrfach vor.
 \end{enumerate}
 
 Erfüllt $f$ eine (und somit alle) der obigen Bedingungen, so heißt $f$ \emph{halbeinfach}.
 Zerfällt $\charpol{f}$ in Linearfaktoren, so ist $f$ genau dann halbeinfach, wenn $f$ diagonalisierbar ist;
 diese Äquivalenz gilt inbesondere dann, wenn $K$ algebraisch abgeschlossen ist.
-(Allgemeiner ist $f$ genau dann halbeinfach, wenn kein Primfaktor des Minimalpolyoms $\minpol{f}$ mehrfach vorkommt.
-Zerfällt $\charpol{f}$, und somit auch $\minpol{f}$, in Linearfaktoren, so gilt dies genau dann, wenn $\minpol{f}$ in \emph{paarweise verschiedene} Linearfaktoren zerfällt, wenn also $f$ diagonalisierbar ist.)
 
-Für bestimmte Arten von Körpern lässt sich die Jordan-Chevalley-Zerlegung nun passend Verallgemeinern, indem man \emph{diagonalisierbar} durch \emph{halbeinfach} ersetzt:
+Für bestimmte Arten von Körpern lässt sich die Jordan-Chevalley-Zerlegung nun verallgemeinern, indem man \emph{diagonalisierbar} durch \emph{halbeinfach} ersetzt:
 
-\begin{theorem}[Jordan-Chevalley-Zerlegung]
+\begin{theorem}[Verallgemeinerte Jordan-Chevalley-Zerlegung]
+  \label{theorem: general Jordan-Chevalley decomposition}
   Ist $K$ ein perfekter Körper\footnote{
-  Ein Körper $K$ ist \emph{perfekt}, wenn die irreduziblen Polynom aus $K[X]$ über dem algebraische Abschluss $\overline{K}$ keine mehrfachen Nullstellen haben. 
-  Diese Bedingung erlaubt es, diese Verallgemeinerne Jordan-Chevalley-Zerlegung auf den bereits bekannten Sonderfall zurückzuführen.}
-  und $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vektorraums, so gibt es eindeutige Endomorphismes $f_h, f_n \colon V \to V$ so dass
+  Ein Körper $K$ ist \emph{perfekt}, bzw.\ \emph{vollkommen}, wenn die irreduziblen Polynom aus $K[X]$ über dem algebraische Abschluss $\overline{K}$ keine mehrfachen Nullstellen haben. 
+  Diese Bedingung erlaubt es, diese Verallgemeinerne Jordan-Chevalley-Zerlegung auf den bereits gezeigten Sonderfall zurückzuführen.}
+  und $f \colon V \to V$ ein Endomorphismus eines endlichdimensionalen $K$-Vektorraums, so gibt es eindeutige Endomorphismes $f_h, f_n \colon V \to V$, so dass
   \begin{enumerate}
     \item
       $f = f_h + f_n$ gilt,
@@ -83,17 +97,21 @@ Für bestimmte Arten von Körpern lässt sich die Jordan-Chevalley-Zerlegung nun
 
 
 
-\subsection*{Verallemeinerung auf halbeinfache Lie-Algebren}
+
+
+\subsection*{Verallgemeinerung auf halbeinfache Lie-Algebren}
 
 Ist $\mathfrak{g}$ eine endlichdimensionale, halbeinfache, komplexe Lie-Algebra, so gibt es \emph{halbeinfache} Element $s \in \mathfrak{g}$ und \emph{nilpotente} Elemente $n \in \mathfrak{g}$.
 Für jedes $x \in \mathfrak{g}$ gibt es dann eindeutige $s, n \in \mathfrak{g}$, so dass $x = s + n$ gilt, $s$ halbeinfach und $n$ nilpotent ist, und $s$ und $n$ kommutieren.
 
+Diese Verallgemeinerung der Jordan-Chevalley-Zerlegung spielt etwa in der Darstellungstheorie halbeinfacher Lie-Algebren eine wichtige Rolle.
 
 
-\subsection*{Verallgemeinerung auf $\GL{n}{K}$}
+
+\subsection*{Die Multiplikative Jordan-Chevalley-Zerlegung}
 
 Ein Endomorphismus $u \colon V \to V$ heißt \emph{unipotent}, wenn $u - \id_V$ nilpotent ist\footnote{
-Ein Endomorphismus $g \colon V \to V$ heißt \emph{$\lambda$-potent} für $\lambda \in K$ wenn $g - \lambda \id_V$ nilpotent ist.
+Allgemeiner wird ein Endomorphismus $g \colon V \to V$ für $\lambda \in K$ als \emph{$\lambda$-potent} bezeichnet wenn $g - \lambda \id_V$ nilpotent ist.
 Inbesondere ist \enquote{$0$-potent} genau \enquote{nilpotent}, und \enquote{$1$-potent} genau \enquote{unipotent}.}.
 Die bisher bekannte \emph{additive Jordan-Chevalley-Zerlegung} führt zur \emph{multiplikativen Jordan-Chevalley-Zerlegeng}:
 
@@ -117,4 +135,10 @@ Hat $f \in \GL{}{V}$ die additive Jordan-Chevalley-Zerlegung $f = f_d + f_n$ und
   f'_u = 1 + f_d^{-1} f_n
 \]
 zusammen.
-Die multiplikative Jordan-Zerlegungen ist etwa im Kontext linearer algebraischer Gruppen von Bedeutung.
+Die multiplikative Jordan-Chevalley-Zerlegung lässt sich auf perfekte Körper verallgemeinern, indem man \emph{diagonalisierbar} durch \emph{halbeinfach} ersetzt.
+
+Die multiplikative Jordan-Zerlegung spielt etwa in der Theorie algebraischer Gruppen eine wichtige Rolle.
+
+
+
+

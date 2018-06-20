@@ -1,78 +1,74 @@
 \section{}
 
 Es gilt
-\[
+Die Smith-Normalform von $A$ ergibt sich durch
+\begin{align*}
     M_X(A)
-  = \begin{pmatrix}
-       X  & -1  & -1  \\
+  =&\,
+    \begin{pmatrix}
+      X  & -1  & -1  \\
       -1  &  X  & -1  \\
       -1  & -1  &  X
-    \end{pmatrix}.
-\]
-Durch Vertauschen der ersten beiden Zeilen erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    -1  &  X  & -1  \\
-     X  & -1  & -1  \\
-    -1  & -1  &  X
-  \end{pmatrix}.
-\]
-Durch Multiplikation der ersten Zeile mit $-1$ erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-     1  & -X  &  1  \\
-     X  & -1  & -1  \\
-    -1  & -1  &  X
-  \end{pmatrix}.
-\]
-Durch Subtrakten des $X$-fachen der ersten Zeile von der zweiten Zeile, sowie Addition der ersten Zeile auf die zweite Zeile erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    1 &    -X   &    1  \\
-    0 & X^2  -1 & -X-1  \\
-    0 &    -X-1 &  X+1
-  \end{pmatrix}.
-\]
-Durch Addition des $X$-fachen der ersten Spalte auf die zweite Spalte, sowie Subtraktion der ersten Spalte von der dritten Spalte erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    1 &       0 &    0  \\
-    0 & X^2  -1 & -X-1  \\
-    0 &    -X-1 &  X+1
-  \end{pmatrix}.
-\]
-Durch Vertauschen der zweiten und dritten Zeile, sowie Vertauschen der zweiten und dritten Spalte erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    1 &    0  &        0  \\
-    0 &  X+1  &     -X-1  \\
-    0 & -X-1  &  X^2  -1
-  \end{pmatrix}.
-\]
-Durch Addition der zweiten Zeile auf die dritte Zeile erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    1 &    0  &        0  \\
-    0 &  X+1  &     -X-1  \\
-    0 &    0  &  X^2-X-2
-  \end{pmatrix}.
-\]
-Durch Addition der zweiten Spalte auf die dritte Spalte erhalten wir die Matrix
-\[
-  \begin{pmatrix}
-    1 &    0  &        0  \\
-    0 &  X+1  &        0  \\
-    0 &    0  &  X^2-X-2
-  \end{pmatrix}.
-\]
-Es gilt $X^2 - X - 2 = (X + 1)(X - 2)$ und somit $(X + 1) \mid (X^2 - X - 2)$.
-Die letzte Matrix befindet sich also in Smith-Normalform.
-
-Man beachte, dass die obige Rechnung über jedem Körper gültig ist.
-Für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3$ gilt $X^2 - X - 2 = X^2 + 2X + 1 = (X+1)^2$.
+    \end{pmatrix}
+  \xrightarrow{Z_1 \leftrightarrow Z_2}\,
+    \begin{pmatrix}
+      -1  &  X  & -1  \\
+       X  & -1  & -1  \\
+      -1  & -1  &  X
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_1 \to -Z_1}&\,
+    \begin{pmatrix}
+       1  & -X  &  1  \\
+       X  & -1  & -1  \\
+      -1  & -1  &  X
+    \end{pmatrix}
+  \xrightarrow{\substack{Z_2 \to Z_2 - X Z_1 \\ Z_3 \to Z_3 + Z_1}}\,
+    \begin{pmatrix}
+      1 &    -X   &    1  \\
+      0 & X^2  -1 & -X-1  \\
+      0 &    -X-1 &  X+1
+    \end{pmatrix}
+  \\
+  \xrightarrow{\substack{S_2 \to S_2 + X S_1 \\ S_3 \to S_3 - S_1}}&\,
+    \begin{pmatrix}
+      1 &       0 &    0  \\
+      0 & X^2  -1 & -X-1  \\
+      0 &    -X-1 &  X+1
+    \end{pmatrix}
+  \xrightarrow{Z_2 \leftrightarrow Z_3}\,
+    \begin{pmatrix}
+      1 &    0  &        0  \\
+      0 &  X+1  &     -X-1  \\
+      0 & -X-1  &  X^2  -1
+    \end{pmatrix}
+  \\
+  \xrightarrow{Z_3 \to Z_3 + Z_2}&\,
+    \begin{pmatrix}
+      1 &    0  &        0  \\
+      0 &  X+1  &     -X-1  \\
+      0 &    0  &  X^2-X-2
+    \end{pmatrix}
+  \xrightarrow{S_3 \to S_3 + S_2}\,
+    \begin{pmatrix}
+      1 &    0  &        0  \\
+      0 &  X+1  &        0  \\
+      0 &    0  &  X^2-X-2
+    \end{pmatrix}
+  \\
+  =&\,
+    \begin{pmatrix}
+      1 &    0  &              0  \\
+      0 &  X+1  &              0  \\
+      0 &    0  &  (X + 1)(X - 2)
+    \end{pmatrix}
+\end{align*}
+Die letzte Matrix befindet sich in Smith-Normalform, da $(X + 1) \divides (X + 1)(X - 2)$ gilt.
+Man beachte, dass die obige Rechnung über jedem Körper gültig ist;
+für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3$ gilt $X^2 - X - 2 = X^2 + 2X + 1 = (X+1)^2$.
 
 \begin{remark}
-  Die Existenz und Eindeutigkeit der Smith-Normalform gilt für beliebige $(m \times n)$-Matrizen mit Einträgen in einem Ring $R$, in dem ein \enquote{Teilen mit Rest} möglich ist (sogenannte \emph{euklidische Ringe}\,\footnote{
+  Die Existenz und Eindeutigkeit der Smith-Normalform gilt für beliebige $(m \times n)$-Matrizen mit Einträgen in einem Ring $R$, in dem ein \enquote{Teilen mit Rest} möglich ist (einen sogenannten \emph{euklidischen Ring}\,\footnote{
   Ein euklidischer Ring ist ein Integritätsbereich $R$ zusammen mit einer \emph{Gradabbildung} $\delta \colon R \smallsetminus \{0\} \to \Natural$, so dass es für alle $f, g \in R$, $g \neq 0$ Elemente $q , r \in R$ mit $f = qg + r$ gibt, so dass entweder $r = 0$ oder $\delta(r) < \delta(g)$ gilt.
   Beispiele sind $R = K[X]$ für einen Körper $K$ mit $\delta = \deg$, sowie $R = \Integer$ mit $\delta = |\cdot|$.}).
   Neben $R = K[X]$ gilt dies also insbesondere für $R = \Integer$:
@@ -90,7 +86,7 @@ Für $K = \Finite_2$ gilt dabei $X^2 - X - 2 = X^2 + X$, und für $K = \Finite_3
         0       & \cdots  & \cdots  & \cdots  & \cdots  & 0
       \end{pmatrix}
     \]
-    bringen, so dass $c_i \divides c_{i+1}$ für alle $1 \leq i < t$ gilt.
+    bringen, so dass $c_1, \dotsc, c_t \neq 0$ gilt, und $c_i \divides c_{i+1}$ für alle $1 \leq i < t$ gilt.
     Die Einträge $c_1, \dotsc, c_t$ sind dabei jeweils bis auf Vorzeichen eindeutig bestimmt.
   \end{theorem}
   
