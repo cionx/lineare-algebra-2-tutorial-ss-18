@@ -2,7 +2,253 @@
 
 
 
-\addtocounter{subsection}{1}
+
+
+\subsection{}
+
+Die möglichen Smith-Normalenformen einer Matrix $A \in \matrices{3}{K}$ sind
+\[
+  \begin{pmatrix}
+    p_1 &     &     \\
+        & p_2 &     \\
+        &     & p_3
+  \end{pmatrix}
+\]
+mit normierten Polynomen $p_1, p_2, p_3 \in K[X]$, für die $p_1 \divides p_2 \divides p_3$ gilt.
+Dabei gilt $\charpol{A} = p_1 p_2 p_3$.
+
+Dabei ist $A$ genau dann invertierbar, wenn $\ker(A) = 0$ gilt, wenn also $0$ kein Eigenwert von $A$ ist.
+Dies ist genau dann der Fall wenn $X \notdivides \charpol{A} = p_1 p_2 p_3$ gilt, was wegen $p_1 \divides p_2 \divides p_3$ äquivalent zu $X \notdivides p_3$ ist.
+Der konstante Koeffizient von $p_3$ darf also nicht verschwinden.
+
+Aus $\charpol{A} = p_1 p_2 p_3$ und $\deg(p_1) \leq \deg(p_2) \leq \deg(p_3)$ folgt nun, dass
+\[
+    3
+  = \deg(\charpol{A})
+  = \deg(p_1 p_2 p_3)
+  = \deg(p_1) + \deg(p_2) + \deg(p_3) \,.
+\]
+Wir erhalten deshalb für die Grade der Polynome $p_1, p_2, p_3$ die folgenden drei Fälle:
+\begin{itemize}
+  \item
+    Es gilt $\deg(p_1) = \deg(p_2) = \deg(p_3) = 1$.
+  \item
+    Es gilt $\deg(p_1) = 0$, $\deg(p_2) = 1$ und $\deg(p_3) = 2$.
+  \item
+    Es gilt $\deg(p_1) = \deg(p_2) = 0$ und $\deg(p_3) = 3$.
+\end{itemize}
+
+
+
+\subsubsection*{Der Fall $\deg(p_1) = \deg(p_2) = \deg(p_3) = 1$}
+
+Zusammen mit den Teilbarkeitsrelationen $p_1 \divides p_2 \divides p_2$ ergibt sich in diesem Fall, dass bereits $p_1 = p_2 = p_3 = X - a$ für ein $a \in K$ gelten muss.
+Die möglichen Smith-Normalenformen für $\matrices{3}{K}$ sind für diesen Fall also
+\[
+  \begin{pmatrix}
+    X - a &       &       \\
+          & X - a &       \\
+          &       & X - a
+  \end{pmatrix}
+  \qquad\text{mit}\qquad
+  a \in K \,.
+\]
+Die entsprechende Frobenius- und Weierstraß-Normalenformen sind jeweils
+\[
+  \begin{pmatrix}
+    a &   &   \\
+      & a &   \\
+      &   & a
+  \end{pmatrix}.
+\]
+
+Für $\matrices{3}{K}$ ergeben sich für diesen Fall also $\card{K} = 3$ Konjugationsklassen.
+Für $\GL{3}{K}$ ergibt ist die zusätzliche Bedingung $X \notdivides (X - a)$ äquvalent zu $a \neq 0$, und es ergeben sich $\card{K} - 1 = 2$ Konjugationsklassen.
+
+
+
+\subsubsection*{Der Fall $\deg(p_1) = 0$, $\deg(p_2) = 1$, $\deg(p_3) = 2$}
+
+In diesem Fall ergibt sich, dass $p_1 = X - a$ für ein $a \in K$ gelten muss.
+Aus $\deg(p_2) = 2$ und $p_1 \divides p_2$ ergibt sich, dass $p_2 = (X - b) p_1$ für ein $b \in K$ gilt.
+Die möglichen Smith-Normalenformen für $\matrices{3}{K}$ sind für diesen Fall also
+\[
+  \begin{pmatrix}
+    1 &       &                 \\
+      & X - a &                 \\
+      &       & (X - a)(X - b)
+  \end{pmatrix}
+  \qquad\text{mit}\qquad
+  a, b \in K \,.
+\]
+Es gilt $(X - a)(X - b) = X^2 - (a+b) + ab$, die entsprechende Frobenius-Normalform ist also jeweils
+\[
+  \begin{pmatrix}
+    a &   &     \\
+      & 0 & -ab \\
+      & 1 & a+b
+  \end{pmatrix}.
+\]
+Die Weierstraß-Normalform hängt davon ab, wie das Polynom $(X - a)(X - b)$ in irreduzible Faktoren zerfällt:
+Im Fall $a \neq b$ zerfällt es in die beiden verschiedenen Linearfaktoren $(X - a)$ und $(X - b)$;
+im Fall $a = b$ gilt $(X - a)(X - b) = (X - a)^2$.
+Somit ergeben sich die beiden möglichen Weierstraß-Normalenformen
+\begin{gather*}
+  \begin{pmatrix}
+    a &   &   \\
+      & a &   \\
+      &   & b
+  \end{pmatrix}
+  \qquad\text{falls $a \neq b$}
+\shortintertext{und}
+  \begin{pmatrix}
+    a &   &       \\
+      & 0 & -a^2  \\
+      & 1 &  2a
+  \end{pmatrix}
+  \qquad\text{falls $a = b$} \,.
+\end{gather*}
+
+Für $\matrices{3}{K}$ ergeben sich für diesen Fall also $\card{K} \cdot \card{K} = 3 \cdot 3 = 9$ Konjugationsklassen.
+Für $\GL{3}{K}$ ergibt sich aus der zusätzlichen Bedingung $X \notdivides (X-a)(X-b)$, dass $a, b \neq 0$ gelten muss, wodurch sich nur $(\card{K} - 1) \cdot (\card{K} - 1) = 2 \cdot 2 = 4$ ergeben.
+
+
+
+\subsubsection*{Der Fall $\deg(p_1) = \deg(p_2) = 0$, $\deg(p_3) = 3$}
+
+Die möglichen Smith-Normalenformen für $\matrices{3}{K}$ sind für diesen Fall
+\[
+  \begin{pmatrix}
+    1 &   &                       \\
+      & 1 &                       \\
+      &   & X^3 + a X^2 + b X + c
+  \end{pmatrix}
+  \qquad\text{mit}\qquad
+  a, b, c \in K \,.
+\]
+Die zugehörige Frobenius-Normalform ist jeweils
+\[
+  \begin{pmatrix}
+    0 & 0 & -c  \\
+    1 & 0 & -b  \\
+    0 & 1 & -a
+  \end{pmatrix}.
+\]
+Die zugehörige Weierstraß-Normalform hängt allerdings davon ab, wie das Polynom $X^3 + a X^2 + b X + c$ in irreduzible Faktoren zerfällt.
+Hierbei gibt es die folgenden Möglichkeiten:
+
+\begin{itemize}
+  \item
+    Es gilt $X^3 + a X^2 + b X + c = (X - \alpha)^3$ für ein $\alpha \in K$.
+    Die Weierstraß-Normalform  ist dann
+    \[
+      \begin{pmatrix}
+        0 & 0 & -c  \\
+        1 & 0 & -b  \\
+        0 & 1 & -a
+      \end{pmatrix}.
+    \]
+    Dies gilt für die Polynome
+    \begin{align*}
+      X^3     &= X^3      \,, \\
+      X^3 + 2 &= (X-1)^3  \,, \\
+      X^3 + 1 &= (X-2)^3  \,.
+    \end{align*}
+  \item
+    Es gilt $X^3 + a X^2 + b X + c = (X - \alpha)^2 (X - \beta)$ für $\alpha, \beta \in K$ mit $\alpha \neq \beta$.
+    Mit $(X - \alpha)^2 = X^2 - 2 \alpha + \alpha^2$ ergibt sich dann die Weierstraß-Normalform
+    \[
+      \begin{pmatrix}
+        0 & -\alpha^2 &       \\
+        1 &  2\alpha  &       \\
+          &           & \beta
+      \end{pmatrix}.
+    \]
+    Dies gilt für die Polynome
+    \begin{align*}
+      X^3 + 2 X^2           &=  X^2 (X - 1)   \,,   \\
+      X^3 +   X^2           &=  X^2 (X - 2)   \,,   \\
+      X^3 +   X^2 +   X     &=  (X-1)^2 X     \,,   \\
+      X^3 + 2 X^2 + 2 X + 1 &=  (X-1)^2 (X-2) \,,   \\
+      X^3 + 2 X^2 +   X     &=  (X-2)^2 X     \,,   \\
+      X^3 +   X^2 + 2 X + 2 &=  (X-2)^2 (X-1) \,.
+    \end{align*}
+  \item
+    Es gilt $X^3 + a X^2 + b X + c = (X - \alpha)(X - \beta)(X - \gamma)$ für paarweise verschiedene $\alpha, \beta, \gamma \in K$.
+    Die Weierstraß-Normalform ist dann
+    \[
+      \begin{pmatrix}
+        \alpha  &       &         \\
+                & \beta &         \\
+                &       & \gamma
+      \end{pmatrix}.
+    \]
+    Das einzige solche Polynom ist
+    \[
+      X^3 + 2X = X(X-1)(X-2) \,.
+    \]
+  \item
+    Es gilt $X^3 + a X^2 + b X + c = (X - \alpha)(X^2 + \beta X + \gamma)$ für $\alpha, \beta, \gamma \in K$, wobei der Faktor $X^2 + \beta X + \gamma$ irreduzibel ist.
+    Die Weierstraß-Normalform ist dann
+    \[
+      \begin{pmatrix}
+        \alpha  &   &         \\
+                & 0 & -\gamma \\
+                & 1 & -\beta
+      \end{pmatrix}.
+    \]
+    Dies gilt für die Polynome
+    \begin{align*}
+      X^3         +   X     &=  X (X^2 + 1)           \,, \\
+      X^3 +   X^2 + 2 X     &=  X (X^2 + X + 2)       \,, \\
+      X^3 + 2 X^2 + 2 X     &=  X (X^2 + 2 X + 2)     \,, \\
+      X^3 + 2 X^2 +   X + 2 &=  (X-1) (X^2 + 1)       \,, \\
+      X^3         +   X + 1 &=  (X-1) (X^2 + X + 2)   \,, \\
+      X^3 +   X^2 +     + 1 &=  (X-1) (X^2 + 2X + 2)  \,, \\
+      X^3 +   X^2 +   X + 1 &=  (X-2) (X^2 + 1)       \,, \\
+      X^3 + 2 X^2 +     + 2 &=  (X-2) (X^2 + X + 2)   \,, \\
+      X^3         +   X + 2 &=  (X-2) (X^2 + 2X + 2)  \,.
+    \end{align*}
+  \item
+    Das Polynom $X^3 + a X^2 + b X + c$ ist irreduzibel.
+    Die Weierstraß-Normalform ist dann
+    \[
+      \begin{pmatrix}
+        0 & 0 & -c  \\
+        1 & 0 & -b  \\
+        0 & 1 & -a
+      \end{pmatrix}.
+    \]
+    Dies gilt für die Polyonme
+    \begin{gather*}
+      X^3         + 2 X + 1 \,,
+      \qquad
+      X^3         + 2 X + 2 \,,
+      \qquad
+      X^3 +   X^2       + 2 \,,
+      \\
+      X^3 +   X^2 +   X + 2 \,,
+      \qquad
+      X^3 +   X^2 + 2 X + 1 \,,
+      \qquad
+      X^3 + 2 X^2       + 1 \,,
+      \\
+      X^3 + 2 X^2 +   X + 1 \,,
+      \qquad
+      X^3 + 2 X^2 + 2 X + 2 \,.
+    \end{gather*}
+\end{itemize}
+
+Für $\matrices{3}{K}$ ergeben sich in diesem Fall $\card{K} \cdot \card{K} \cdot \card{K} = 3 \cdot 3 \cdot 3 = 27$ Konjugationsklassen.
+Für $\GL{3}{K}$ ist die Bedingung $X \notdivides (X^3 + a X^2 + b X + c)$ äquivalent zu $c \neq 0$, weshalb sich $\card{K} \cdot \card{K} \cdot (\card{K} - 1) = 3 \cdot 3 \cdot 3 \cdot 2 = 3 \cdot 3 \cdot 2 = 18$ Konjugationsklassen ergeben.
+
+
+
+\subsubsection*{Gesamtzahl der Konjugationsklassen}
+
+Ingesamt erhalten wir $3 + 9 + 27 = 39$ Konjugationsklassen für $\matrices{3}{K}$ und $2 + 4 + 18 = 24$ Konjugationsklassen für $\GL{3}{K}$.
+
+
 
 
 
@@ -311,7 +557,6 @@ udn die Weierstraß-Normalform von $A$ ist
         & 1 & -2
     \end{pmatrix*} \,.
 \]
-
 
 
 
