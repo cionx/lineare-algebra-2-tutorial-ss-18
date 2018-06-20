@@ -96,18 +96,22 @@ Es genügt nun zu zeigen, dass für alle $1 \leq \ell_1, \dotsc, \ell_k \leq n$ 
 \]
 eine $K$-Linearkombination der $(k \times k)$-Minoren von $B$ ist.
 Wir unterscheiden hierfür zwischen zwei Fällen:
-Sind $\ell_1, \dotsc, \ell_k$ paarweise verschieden, so ist die Matrix
-\begin{equation}
-  \label{equation: quasi submatrix}
-    \begin{pmatrix}
-      z_{\ell_1}^{j_1, \dotsc, j_k} \\
-      \vdots                        \\
-      z_{\ell_k}^{j_1, \dotsc, j_k}
-    \end{pmatrix}
-\end{equation}
-bis auf Permutation der Zeilen eine $(k \times k)$-Teilmatrix von $B$, und die Determinante von \eqref{equation: quasi submatrix} somit bis auf Vorzeichen ein $(k \times k)$-Minor von $B$.
-Sind $\ell_1, \dotsc, \ell_k$ nicht paarweise verschieden, so hat die Matrix \eqref{equation: quasi submatrix} zwei gleiche Zeilen, und somit Determinante $0$.
-In beiden Fällen gilt dies gewünschte Aussage.
+\begin{itemize}
+  \item
+    Sind $\ell_1, \dotsc, \ell_k$ paarweise verschieden, so ist die Matrix
+    \begin{equation}
+      \label{equation: quasi submatrix}
+        \begin{pmatrix}
+          z_{\ell_1}^{j_1, \dotsc, j_k} \\
+          \vdots                        \\
+          z_{\ell_k}^{j_1, \dotsc, j_k}
+        \end{pmatrix}
+    \end{equation}
+    bis auf Permutation der Zeilen eine $(k \times k)$-Teilmatrix von $B$, und die Determinante von \eqref{equation: quasi submatrix} somit bis auf Vorzeichen ein $(k \times k)$-Minor von $B$.
+  \item
+    Sind $\ell_1, \dotsc, \ell_k$ nicht paarweise verschieden, so hat die Matrix \eqref{equation: quasi submatrix} zwei gleiche Zeilen, und somit Determinante $0$.
+\end{itemize}
+In beiden Fällen gilt die gewünschte Aussage.
 
 \begin{remark}
   In der obigen Argumentation lässt sich $K$ jeweils durch $K[X]$ ersetzen:
