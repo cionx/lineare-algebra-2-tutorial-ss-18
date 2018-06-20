@@ -1,6 +1,6 @@
 \section*{Ein Beispiel zu Quotientenräumen}
 
-Es sei $I = [0,1]$ das abgeschlossene Einheitsintervall, und es sei
+Es sei $I = [a,b]$ mit $a < b$ ein abgeschlossenes Intervall, und es sei
 \[
             R
   \defined  \{
@@ -13,24 +13,24 @@ der $\Real$-Vektorraum der Riemann-integrierbaren reellwertigen Funktionen auf $
 Für jede Riemann-integrierbare Funktion $f \colon I \to \Real$ ist auch $\abs{f} \colon I \to \Real$ Riemann-integrierbar, weshalb
 \[
             \norm{f}_0
-  \defined  \int_0^1 \abs{f(x)} \,\text{d}x
+  \defined  \int_a^b \abs{f(x)} \,\text{d}x
 \]
 wohldefiniert ist.
 Wir hätten gerne, dass $\norm{\cdot}_0$ eine Norm auf $R$ definiert.
 Es gelten $\norm{0}_0 = 0$, 
 \[
     \norm{\lambda f}_0
-  = \int_0^1 \abs{\lambda f(x)}  \,\text{d}x
-  = \int_0^1 \abs{\lambda} \abs{f(x)} \,\text{d}x
-  = \abs{\lambda} \int_0^1 \abs{f(x)} \,\text{d}x
+  = \int_a^b \abs{\lambda f(x)}  \,\text{d}x
+  = \int_a^b \abs{\lambda} \abs{f(x)} \,\text{d}x
+  = \abs{\lambda} \int_a^b \abs{f(x)} \,\text{d}x
   = \abs{\lambda} \norm{f}_0
 \]
 für alle $\lambda \in \Real$ und $f \in R$, sowie
 \begin{align*}
         \norm{f + g}_0
-  =     \int_0^1 \abs{f(x) + g(x)} \,\text{d}x
-  &\leq \int_0^1 \abs{f(x)} + \abs{g(x)} \,\text{d}x  \\
-  &=    \int_0^1 \abs{f(x)} \,\text{d}x + \int_0^1 \abs{g(x)} \,\text{d}x
+  =     \int_a^b \abs{f(x) + g(x)} \,\text{d}x
+  &\leq \int_a^b \abs{f(x)} + \abs{g(x)} \,\text{d}x  \\
+  &=    \int_a^b \abs{f(x)} \,\text{d}x + \int_a^b \abs{g(x)} \,\text{d}x
   =     \norm{f}_0 + \norm{g}_0
 \end{align*}
 für alle $f, g \in R$.
@@ -42,14 +42,14 @@ Man betrachte etwa die Riemann-integrierbare Funktion
   \to     \Real,
   \quad   x
   \mapsto \begin{cases}
-            1 & \text{falls $x = 1/2$}, \\
+            1 & \text{für $x = a$}, \\
             0 & \text{sonst}.
           \end{cases}
 \]
 Deshalb ist $\norm{\cdot}_0$ leider keine Norm auf $R$.
-Dieses Problem lässt sich allerdings wie folgt lösen:
+Dieses Problem lässt sich allerdings lösen:
 
-Man betrachte
+Es handelt sich bei
 \[
             N
   \defined  \left\{
@@ -58,7 +58,7 @@ Man betrachte
               \norm{f}_0 = 0
             \right\} \,.
 \]
-Es handelt sich um einen Untervektorraum von $R$:
+um einen Untervektorraum von $R$:
 Es gilt $0 \in N$, für alle $f \in N$ und $\lambda \in \Real$ gilt
 \[
     \norm{\lambda f}_0
@@ -84,7 +84,7 @@ Für je zwei Funktionen $f, g \in R$ mit $f - g \in N$ gilt
   =     \norm{g}_0
 \]
 sowie analog auch $\norm{g}_0 \leq \norm{f}_0$, und somit $\norm{f}_0 = \norm{g}_0$.
-Wir erhalten deshalb eine Wohldefinierte Abbildung $\norm{\cdot} \colon L \to \Real$ mit
+Deshalb induziert $\norm{\cdot}_0$ eine wohldefinierte Abbildung $\norm{\cdot} \colon L \to \Real$ mit
 \[
             \norm{[f]}
   \defined  \norm{f}_0
@@ -121,8 +121,7 @@ Bei $\norm{\cdot}$ handelt es sich also um eine Norm!
       $\norm{x + y}_0 \leq \norm{x}_0 + \norm{y}_0$ für alle $x, y \in V$ gilt.
   \end{enumerate}
   Im Gegensatz zu einer Norm muss eine Seminorm also nicht reflexiv sein:
-  Es kann Elemente $x \in V$ mit $x \neq 0$ aber $\norm{x}_0 = 0$ geben.
-  (Die erste Bedingung, dass $\norm{0}_0 = 0$ gilt, ist redundant, denn es gilt $\norm{0}_0 = \norm{0 \cdot 0}_0 = 0 \cdot \norm{0}_0 = 0$.)
+  Es kann Elemente $x \in V$ mit $x \neq 0$ geben, für die $\norm{x}_0 = 0$ gilt.
   Dann ist $N = \{x \in V \suchthat \norm{x}_0 = 0\}$ ein Untervektorraum von $V$, und auf dem Quotientenvektorraum $V/N$ ergibt sich durch $\norm{[x]} \defined \norm{x}_0$ eine wohldefinierte Norm.
 \end{remark}
 
@@ -132,34 +131,34 @@ die Elemente von $L$ haben deshalb keine wohldefinierten Funktionswerte mehr.
 
 Für $f, g \in R$ mit $f - g \in N$ gilt allerdings
 \begin{align*}
-        \abs*{ \int_0^1 f(x) \,\text{d}x - \int_0^1 g(x) \,\text{d}x }
-  &=    \abs*{ \int_0^1 f(x) - g(x) \,\text{d}x } \\
-  &\leq \int_0^1 \abs{f(x) - g(x)} \,\text{d}x
+        \abs*{ \int_a^b f(x) \,\text{d}x - \int_a^b g(x) \,\text{d}x }
+  &=    \abs*{ \int_a^b f(x) - g(x) \,\text{d}x } \\
+  &\leq \int_a^b \abs{f(x) - g(x)} \,\text{d}x
   =     \norm{f - g}_0
   =     0 \,,
 \end{align*}
 und deshalb
 \[
-    \int_0^1 f(x) \,\text{d}x
-  = \int_0^1 g(x) \,\text{d}x \,.
+    \int_a^b f(x) \,\text{d}x
+  = \int_a^b g(x) \,\text{d}x \,.
 \]
 Die lineare Abbildung
 \[
           R
   \to     \Real,
   \quad   f
-  \mapsto \int_0^1 f(x) \,\text{d}x
+  \mapsto \int_a^b f(x) \,\text{d}x
 \]
 induzierte deshalb eine wohldefinierte lineare Abbildung
 \[
           L
   \to     \Real,
   \quad   [f]
-  \mapsto \int_0^1 f(x) \,\text{d}x \,.
+  \mapsto \int_a^b f(x) \,\text{d}x \,.
 \]
 
-Die Elemente $[f] \in L$ haben zwar keine wohldefinierten Funktionswerte mehr, lassen sich aber trotzdem noch integrieren.
-In der Analysis ist dies häufig noch gut genug.
+Die Elemente $[f] \in L$ lassen sich also immer noch integrieren, obwohl die Funktionswerte $f(x)$ selber nicht mehr wohldefiniert sind.
+Indem man $R$ durch $L$ ersetzt, kann man also immer noch integrieren, und hat anstelle der Seminorm $\norm{\cdot}_0$ eine tatsächliche Norm $\norm{\cdot}$.
 
 
 

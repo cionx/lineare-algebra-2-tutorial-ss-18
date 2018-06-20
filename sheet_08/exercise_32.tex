@@ -22,28 +22,28 @@ Gilt $v - w \in U$, so gilt $(v - w) + U = U$ und deshalb $v + U = w + (v-w) + U
 
 \subsection{}
 
-Mithilfe der Charakterisierung (a) ergibt sich wie folgt, dass $\sim$ eine Äquivalenzrelation ist:
+Es handelt sich bei $\sim$ um eine Äquivalenzrelation:
 
 \begin{itemize}
   \item
     Für alle $v \in V$ gilt $v + U = v + U$ und deshalb $v \sim v$.
   \item
-    Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v + U = v' + U$, also auch $v + U = v' + U$ und somit $v \sim v'$.
+    Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v + U = v' + U$, also auch $v' + U = v + U$ und somit $v' \sim v$.
   \item
-    Für alle $v, v', v'' \in V$ mit $v \sim v'$ und $v'' \sim v'''$ gelten $v + U = v' + U$ und $v' + U = v'' + U$, also auch $v + U = v'' + U$ und somit $v \sim v''$.
+    Für alle $v, v', v'' \in V$ mit $v \sim v'$ und $v' \sim v''$ gelten $v + U = v' + U$ und $v' + U = v'' + U$, also gilt $v + U = v'' + U$ und somit $v \sim v''$.
 \end{itemize}
 
 \begin{remark}
-  Ist allgemein $f \colon X \to Y$ eine Abbildung zwischen zwei Mengen $X$ und $Y$, so wird durch
+  Ist $f \colon X \to Y$ eine Abbildung zwischen zwei Mengen $X$ und $Y$, so wird durch
   \[
           x \sim x'
     \iff  f(x) = f(x')
   \]
   eine Äquivalenzrelation auf $X$ definiert.
-  Mit $X = V$, der Potenzmenge $Y = \mathcal{P}(V)$ und der Funktion $f(v) = v + U$ ergibt sich die obige Äquivalenzrelation.
+  Mit $X = V$, der Potenzmenge $Y = \mathcal{P}(V)$ und der Funktion $f \colon V \to \mathcal{P}(V)$ mit $f(v) \defined v + U$ ergibt sich die obige Äquivalenzrelation.
 \end{remark}
 
-Anstelle der Charakterisierung (a) lässt sich auch die Charakterisierung (b) nutzen, um zu zeigen, dass $\sim$ eine Äquivalenzrelation ist:
+Nach dem vorherigen Aufgabenteil lässt sich auch Bedingung (b) nutzen, um zu zeigen, dass $\sim$ eine Äquivalenzrelation ist:
 
 \begin{itemize}
   \item
@@ -54,7 +54,7 @@ Anstelle der Charakterisierung (a) lässt sich auch die Charakterisierung (b) nu
     Für alle $v, v', v'' \in V$ mit $v \sim v'$ und $v' \sim v''$ gilt $v - v', v' - v'' \in U$, und deshalb auch $v - v'' = (v - v') + (v' - v'') \in U$, also $v \sim v''$.
 \end{itemize}
 
-Für jedes $v \in V$ gilt nun, dass
+Für jedes $v \in V$ gilt nun
 \[
     \class{v}
   = \{ w \in V \suchthat w \sim v \}
@@ -64,7 +64,7 @@ Für jedes $v \in V$ gilt nun, dass
 \]
 
 \begin{remark}
-  Man hätte die obigen beiden Aufgabenteile auch in anderen Reihenfolge durchgehen können:
+  Man kann auch umgekehrt an diese beiden Aufgabenteile herangehen:
   Man zeigt zunächst, dass durch $v \sim w \iff v - w \in U$ eine Äquivalenzrelation auf $V$ definiert wird.
   Dann erhält man, dass $\class{v} = v + U$ für alle $v \in V$ gilt.
   Der erste Aufgabenteil ergibt sich dann daraus, dass
@@ -98,13 +98,11 @@ Wir zeigen zunächst die Wohldefiniertheit der Addition und Skalarmultiplikation
     \[
           \lambda v - \lambda v'
       =   \lambda (v - v')
-      \in U 
+      \in U \,,
     \]
     und somit $(\lambda v) \sim (\lambda v')$.
 \end{itemize}
-
-Die Vektorraum-Axiome lassen sich nun repräsentantenweise Nachrechnen:
-
+Die Vektorraum-Axiome lassen sich nun auf Repräsentanten nachrechnen:
 \begin{itemize}
   \item
     Für alle $\class{v}, \class{v'}, \class{v''} \in V\!/U$ gilt
@@ -132,7 +130,7 @@ Die Vektorraum-Axiome lassen sich nun repräsentantenweise Nachrechnen:
       = \class{v + 0}
       = \class{v} \,.
     \]
-    Das zeigt, dass $\class{0}$ ein neutrales Element bezüglich der Additon von $V\!/U$ ist.
+    Das zeigt, dass $\class{0}$ neutral bezüglich der Additon von $V\!/U$ ist, dass also $0_{V\!/U} = [0]$ gilt.
   \item
     Für alle $\class{v} \in V\!/U$ gilt
     \[
@@ -177,8 +175,15 @@ Die Vektorraum-Axiome lassen sich nun repräsentantenweise Nachrechnen:
       = \lambda \class{v} + \mu \class{v} \,.
     \]
 \end{itemize}
-
-
+Man bemerke, dass die Vektorraumstruktur auf $V\!/U$ genau so definiert ist, dass die kanonische Projektion
+\[
+          p
+  \colon  V
+  \to     V\!/U
+  \quad   v
+  \mapsto \class{v}
+\]
+linear ist.
 
 
 
@@ -191,6 +196,7 @@ Für alle $v, v' \in V$ mit $v \sim v'$ gilt $v - v' \in \ker(f)$, also
   = 0
 \]
 und deshalb $f(v) = f(v')$.
+Außerdem gilt $f(v) \in \im(f)$ für alle $v \in V$.
 Es folgt, dass $f$ eine wohldefinierte Abbildung
 \[
           \induced{f}
@@ -200,7 +206,7 @@ Es folgt, dass $f$ eine wohldefinierte Abbildung
   \mapsto f(v)
 \]
 induziert.
-Für alle $v, v' \in V$ gilt
+Für alle $\class{v}, \class{v'} \in V\!/U$ gilt
 \[
     \induced{f}(\class{v} + \class{v'})
   = \induced{f}(\class{v + v'})
@@ -208,7 +214,7 @@ Für alle $v, v' \in V$ gilt
   = f(v) + f(v')
   = \induced{f}(\class{v}) + \induced{f}(\class{v'}) \,,
 \]
-und für alle $\lambda \in K$, $v \in V$ gilt
+und für alle $\lambda \in K$ und $\class{v} \in V\!/U$ gilt
 \[
     \induced{f}(\lambda \class{v})
   = \induced{f}(\class{\lambda v})
@@ -231,18 +237,18 @@ Die Abbildung $\induced{f}$ ist injektiv, denn für alle $\class{v}, \class{v'} 
   \iff  v - v' \in \ker(f)
   \iff  \class{v} = \class{v'} \,;
 \]
-alternativ ergibt sich die Injektivität von $\induced{f}$ dadurch, dass
+alternativ ergibt sich die Injektivität von $\induced{f}$ durch
 \[
-        \induced{f}(\class{v}) = 0
+        \class{v} \in \ker(f)
+  \iff  \induced{f}(\class{v}) = 0
   \iff  f(v) = 0
   \iff  v \in \ker(f)
   \iff  \class{v} = 0 \,.
 \]
 
 \begin{remark}
-  Die kanonische Projection $p \colon V \to V\!/U$, $v \mapsto \class{v}$ ist ein Epimorphismus, die kanonische Inklusion $i \colon \im(f) \to W$ ist ein Monomorphismus, und es gilt $f = i \circ \induced{f} \circ p$.
-  Wir können also jede lineare Abbildung in die Komposition eines Epimorphismus, Isomorphismus und Monomorphismus zerlegen.
-  Dies lässt sich mit dem folgenden kommutativen Diagramm darstellen:
+  Die kanonische Projection $p \colon V \to V\!/U$, $v \mapsto \class{v}$ ist ein Epimorphismus, die kanonische Inklusion $i \colon \im(f) \to W$, $w \mapsto w$ ist ein Monomorphismus, und es gilt $f = i \circ \induced{f} \circ p$.
+  Wir können also jede lineare Abbildung $f$ in die Komposition eines Epimorphismus $p$, Isomorphismus $\induced{f}$ und Monomorphismus $i$ zerlegen.
   \[
     \begin{tikzcd}[sep = large]
         V
@@ -269,20 +275,8 @@ alternativ ergibt sich die Injektivität von $\induced{f}$ dadurch, dass
     \to     f(v) \,,
   \]
   wenn $U \subseteq \ker(f)$ gilt, wenn also $\restrict{f}{U} = 0$ gilt.
-  \[
-    \begin{tikzcd}[sep = large]
-        V
-        \arrow{r}[above]{f}
-        \arrow{d}[left]{v \mapsto \class{v}}
-      & W
-      \\
-        V\!/U
-        \arrow[dashed]{ru}[below right]{\induced{f}}
-      & {}
-    \end{tikzcd}
-  \]
-  Es gilt dann $\im(\induced{f}) = \im(f)$ und $\ker(\induced{f}) = \ker(f)/U$.
-  Ist umgekehrt $g \colon V \to W$ eine lineare Abbildung, so ist $\hat{g} \colon V \to W$ mit $\hat{g}(v) = g(\class{v})$ eine lineare Abbildung mit $U \subseteq \ker(g)$.
+  Die Abbildung $\induced{f}$ ist dann linear, und es gelten $\im(\induced{f}) = \im(f)$ und $\ker(\induced{f}) = \ker(f)/U$.
+  Ist umgekehrt $g \colon V\!/U \to W$ eine lineare Abbildung, so ist $\hat{g} \colon V \to W$ mit $\hat{g}(v) = g(\class{v})$ eine lineare Abbildung mit $U \subseteq \ker(\hat{g})$.
   Dies liefert eine Bijektion
   \begin{align*}
                       \Hom_K(V/U,W)
@@ -292,15 +286,30 @@ alternativ ergibt sich die Injektivität von $\induced{f}$ dadurch, dass
     &\longmapsto      \hat{g} \,,
     \\
                       f
-    &\longmapsfrom    \induced{f} \,.
+    &\longmapsfrom    \induced{f} \,,
   \end{align*}
+  die sich grafisch wie folgt darstellen lässt:
+  \[
+    \begin{tikzcd}[sep = large]
+        V
+        \arrow{r}[above]{f = \hat{g}}
+        \arrow{d}[left]{v \mapsto \class{v}}
+      & W
+      \\
+        V\!/U
+        \arrow{ru}[below right]{\induced{f} = g}
+      & {}
+    \end{tikzcd}
+  \]
 
   Man bezeichnet dies als den \emph{Homomorphiesatz}, bzw.\ die \emph{universelle Eigenschaft des Quotientenvektorraums}.
-  Die universelle Eigenschaft des Quotientenvektorraums erklärt uns, wie für jeden anderen $K$-Vektorraum die linearen Abbildungen $V\!/U \to W$ aussehen (man vergleiche mit Idee~\ref{idea: universal properties}).
+  Diese universelle Eigenschaft erklärt uns, wie für jeden anderen $K$-Vektorraum die linearen Abbildungen $V\!/U \to W$ aussehen (siehe Idee~\ref{idea: universal properties}).
 \end{remark}
 
 \begin{remark}
-  Wir wollen hier an die analogen Aussagen über Äquivalenzrelationen auf Mengen erinnern:
+  Wir wollen hier an die analogen Aussagen über Äquivalenzrelationen auf Mengen erinnern\footnote{
+  Wir nutzen den Begriff \enquote{erinnern} hier im mathematischen Sinne:
+  Sofern dem Leser/der Leserin die folgenden Aussagen bisher unbekannt waren, so sollte er/sie sich diese Resultate jetzt erarbeiten.}:
   
   Ist $\sim$ eine Äquivalenzrelation auf einer Menge $X$, so induziert eine Abbildung $f \colon X \to Y$ genau dann eine wohldefinierte Funktion
   \[
@@ -313,10 +322,10 @@ alternativ ergibt sich die Injektivität von $\induced{f}$ dadurch, dass
   wenn $x \sim x' \implies f(x) = f(x')$ für alle $x, x' \in X$ gilt.
   Dabei gilt dann $\im(\induced{f}) = \im(f)$, und für alle $\class{x}, \class{x'} \in X/{\sim}$ gilt genau dann $\induced{f}(x) = \induced{f}(x')$, wenn $f(x) = f(x')$ gilt.
   
-  Ist $\sim$ die Äquivalenzrelation, die durch $x \sim x' \iff f(x) = f(x')$ gegeben ist, so ist die induziert Funktion $\induced{f} \colon (X/{\sim}) \to Y$ injektiv, und schränkt sich zu einer Bijektion $(X/{\sim}) \to \im(f)$ ein.
+  Ist dabei $\sim$ die Äquivalenzrelation, die durch $x \sim x' \iff f(x) = f(x')$ gegeben ist, so ist die induziert Funktion $\induced{f} \colon (X/{\sim}) \to Y$ injektiv, und schränkt sich zu einer Bijektion $(X/{\sim}) \to \im(f)$ ein.
   
   Jede Funktion $f \colon X \to Y$ zwischen Mengen $X$ und $Y$ lässt sich für die Äquivalenzrelation $\sim$ auf $X$ mit $x \sim x' \iff f(x) = f(x')$ als $f = i \circ \induced{f} \circ p$ zerlegen, wobei $p \colon X \to X/{\sim}$, $x \to \class{x}$ die kanonische Projektion ist, und $i \colon \im(f) \to Y$, $y \to y$ die kanonische Inklusion.
-  Es lässt sich also jede Funktion in die Komposition einer Surjektion, Bijektion und Injektion zerlegen:
+  Es lässt sich also jede Funktion in die Komposition einer Surjektion $p$, Bijektion $\induced{f}$ und Injektion $i$ zerlegen:
   \[
     \begin{tikzcd}[sep = large]
         X
@@ -356,7 +365,7 @@ Hat $v \in V$ die Zerlegung $v = u + u'$ mit $u \in U$, $u' \in U'$, so gilt fü
 \begin{gather*}
     \lambda v
   = \lambda (u + u')
-  = \lambda u + \lambda u'
+  = \underbrace{\lambda u}_{\in U} + \underbrace{\lambda u'}_{\in U'}
 \shortintertext{und deshalb}
     f(\lambda v)
   = \lambda u'
@@ -367,7 +376,15 @@ Für alle $u' \in U$ gilt $f(u') = f(0 + u') = u'$, und somit gilt $\im(f) = U'$
 Hat $v \in V$ die Zerlegung $v = u + u'$ mit $u \in U$, $u' \in U'$, so gilt genau dann $v \in \ker(f)$, wenn $u' = f(v) = 0$, wenn also $v = u \in U$.
 Deshalb gilt $\ker(f) = U$.
 
-Mit den obigen Beobachtungen erhalten wir aus dem vorherigen Aufgabenteil, dass die lineare Abbildung $f \colon V \to U'$ einen Isomorphismus $V\!/U \to U'$ induziert.
+Mit den obigen Beobachtungen erhalten wir aus dem vorherigen Aufgabenteil, dass die lineare Abbildung $f \colon V \to U'$ einen Isomorphismus
+\[
+          \induced{f}
+  \colon  V\!/U
+  \to     U',
+  \quad   \class{u + u'}
+  \mapsto u'
+\]
+induziert.
 
 
 

@@ -2,13 +2,14 @@
 
 Es sei $K$ ein Körper und es seien $V$ und $W$ zwei $K$-Vektorräume.
 In der Vorlesung haben wir die universelle Eigenschaft des Tensorprodukts $V \otimes W$ kennengelernt.
-Es gibt in der Mathematik eine Vielzahl an Objekten und Konstruktionen, die eine sogenannt universelle Eigenschaft haben.
-Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine \enquote{universelle Eigenschaft} ist, nützlich ist aber die folgende informelle Beschreibung:
+
+Es gibt in der Mathematik eine Vielzahl an Objekten und Konstruktionen, die eine sogenannt \emph{universelle Eigenschaft} haben.
+Es gibt zwar keine (allgemein akzeptierte) Definition dafür, was genau eine universelle Eigenschaft ist, nützlich ist aber die folgende informelle Beschreibung:
  
 \begin{idea}
   \label{idea: universal properties}
   Es sei $X$ ein mathematisches Objekt eines bestimmten Typs ($K$-Vektorraum, Gruppe, Ring, metrischer Raum, topologischer Raum, usw.).
-  Eine \emph{universelle Eigenschaft} von $X$ beschreibt entweder, wie für jedes andere andere Objekt $Y$ vom gleichen Typ die Homomorphismen $X \to Y$ aussehen, oder wie für jedes Objekt $Y$ vom gleichen Typ die Homomorphismen $Y \to X$ aussehen.
+  Eine \emph{universelle Eigenschaft} von $X$ beschreibt entweder, wie für jedes Objekt $Y$ vom gleichen Typ die Homomorphismen $X \to Y$ aussehen, oder wie für jedes Objekt $Y$ vom gleichen Typ die Homomorphismen $Y \to X$ aussehen.
 \end{idea}
 
 Im Falle des Tensorprodukts $V \otimes W$ erklärt die universelle Eigeschaft, wie für jeden anderen $K$-Vektorraum $U$ die Homomorphismen $V \otimes W \to U$ aussehen:
@@ -20,13 +21,13 @@ Ist $f \colon V \otimes W \to U$ eine lineare Abbildung, so ist die Abbildung
   \quad   (v,w)
   \mapsto f(v \otimes w)
 \]
-$K$-bilinear, und umgekert für jede $K$-bilineare Abbildung $\beta \colon V \times W \to U$ gibt es eine eindeutige lineare Abbildung $\induced{\beta} \colon V \otimes W \to U$ mit
+$K$-bilinear, und ist umgekehrt $\beta \colon V \times W \to U$ eine $K$-bilineare Abbildung, so gibt es auch eine eindeutige lineare Abbildung $\induced{\beta} \colon V \otimes W \to U$ mit
 \[
     \induced{\beta}(v \otimes w)
   = \beta(v,w)
 \]
 für alle $v \in V$, $w \in W$.
-Damit ergibt sich eine Bijektion
+Wir erhalten also eine Bijektion
 \begin{align*}
                     \Hom_K(V,W)
   &\longrightarrow  \{ \text{bilineare Abbildungen $V \times W \to U$} \} \,,
@@ -54,7 +55,8 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
       \mapsto u_{v,w} \,.
     \]
   \item
-    Wir müssen nachrechnen, dass die Abbildung $\beta$ bilinear ist.
+    Wir rechnen nach, dass die Abbildung $\beta$ bilinear ist.
+    (Sollte sich herausstellen, dass $\beta$ nicht bilinear ist, so existiert die gewünschte lineare Abbildung $f$ nicht.)
   \item
     Aus der universellen Eigenschaft des Tensorprodukts $V \otimes W$ folgt schließlich, dass es eine eindeutige lineare Abbildung $f \colon V \otimes W \to U$ gibt, so dass
     \[
@@ -63,7 +65,6 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
       = u_{v,w}
     \]
     für alle $v \in V$, $w \in W$ gilt.
-    Dies ist genau die gewünschte lineare Abbildung.
 \end{itemize}
 
 \begin{example}
@@ -76,7 +77,6 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
         = \varphi(v)
       \]
       für alle $\varphi \in V^*$, $v \in V$ gibt:
-      
       Die Abbildung
       \[
                 \tilde{e}
@@ -115,13 +115,12 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
       \]
       für alle $\varphi \in V^*$, $v \in V$.
     \item
-      Wir zeigen, dass es eine eindeutige lineare Abbildung $\sigma \colon V \otimes W \to W \otimes V$ mit
+      Wir zeigen, dass es eine eindeutige lineare Abbildung $\sigma \colon V \otimes W \to W \otimes V$ gibt, so dass
       \[
           \sigma(v \otimes w)
         = w \otimes v
       \]
-      für alle $v \in V$, $w \in W$ gibt:
-      
+      für alle $v \in V$, $w \in W$ gilt:
       Die Abbildung
       \[
                 \tilde{\sigma}
@@ -166,7 +165,7 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
           \tau(w \otimes v)
         = v \otimes w
       \]
-      für alle $w \in W$, $v \in V$ (deren Existenz wir oben gezeigt haben) gilt
+      für alle $w \in W$, $v \in V$ (deren Existenz wir durch Vertauschen der Rollen von $V$ und $W$ oben gezeigt haben) gilt
       \[
           (\tau \circ \sigma)(v \otimes w)
         = \tau(\sigma(v \otimes w))
@@ -192,9 +191,9 @@ Möchten wir also eine lineare Abbildung $f \colon V \otimes W \to U$ definieren
     \item
       Für jede Familie $V_i$, $i \in I$ von $K$-Vektorräumen $V_i$ besitzt das Produkt $\prod_{i \in I} V_i$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to \prod_{i \in I} V_i$ beschrieben werden.
     \item
-      Für jede lineare Abbildung $f \colon V \to W$ zwischen $K$-Vektorräumen $V$ und $W$ besitzt der Kern $\ker(f)$ eine universelle Eigenschaft, durch den für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to \ker(f)$ beschrieben werden.
+      Für jede lineare Abbildung $f \colon V \to W$ zwischen $K$-Vektorräumen $V$ und $W$ besitzt der Kern $\ker(f)$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to \ker(f)$ beschrieben werden.
     \item
-      Für jeden $K$-Vektorraum $V$ und Untervektorraum $U \subseteq V$ besitzt der Quotientenvektorraum $V/U$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $W$ die linearen Abbildungen $V/U \to W$ beschrieben werden.
+      Für jeden $K$-Vektorraum $V$ und Untervektorraum $U \subseteq V$ besitzt der Quotientenvektorraum $V\!/U$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $W$ die linearen Abbildungen $V\!/U \to W$ beschrieben werden.
     \item
       Für jeden $K$-Vektorraum $V$ besitzt der Dualraum $V^*$ eine universelle Eigenschaft, durch die für jeden $K$-Vektorraum $U$ die linearen Abbildungen $U \to V^*$ beschrieben werden.
   \end{enumerate}

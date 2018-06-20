@@ -6,22 +6,23 @@
 
 \subsection{}
 
-Die möglichen Smith-Normalenformen einer Matrix $A \in \matrices{3}{K}$ sind
+Die möglichen Smith-Normalenformen einer Matrix $A \in \matrices{3}{K}$ sind die Matrizen
 \[
-  \begin{pmatrix}
-    p_1 &     &     \\
-        & p_2 &     \\
-        &     & p_3
-  \end{pmatrix}
+      \begin{pmatrix}
+        p_1 &     &     \\
+            & p_2 &     \\
+            &     & p_3
+      \end{pmatrix}
+  \in \matrices{3}{K[X]}
 \]
 mit normierten Polynomen $p_1, p_2, p_3 \in K[X]$, für die $p_1 \divides p_2 \divides p_3$ gilt.
 Dabei gilt $\charpol{A} = p_1 p_2 p_3$.
 
-Dabei ist $A$ genau dann invertierbar, wenn $\ker(A) = 0$ gilt, wenn also $0$ kein Eigenwert von $A$ ist.
+Die Matrix $A$ genau dann invertierbar, wenn $\ker(A) = 0$ gilt, wenn also $0$ kein Eigenwert von $A$ ist.
 Dies ist genau dann der Fall wenn $X \notdivides \charpol{A} = p_1 p_2 p_3$ gilt, was wegen $p_1 \divides p_2 \divides p_3$ äquivalent zu $X \notdivides p_3$ ist.
 Der konstante Koeffizient von $p_3$ darf also nicht verschwinden.
 
-Aus $\charpol{A} = p_1 p_2 p_3$ und $\deg(p_1) \leq \deg(p_2) \leq \deg(p_3)$ folgt nun, dass
+Aus $\charpol{A} = p_1 p_2 p_3$ und $\deg(p_1) \leq \deg(p_2) \leq \deg(p_3)$ folgt
 \[
     3
   = \deg(\charpol{A})
@@ -134,7 +135,7 @@ Die zugehörige Frobenius-Normalform ist jeweils
     0 & 1 & -a
   \end{pmatrix}.
 \]
-Die zugehörige Weierstraß-Normalform hängt allerdings davon ab, wie das Polynom $X^3 + a X^2 + b X + c$ in irreduzible Faktoren zerfällt.
+Die zugehörige Weierstraß-Normalform hängt allerdings stark davon ab, wie das Polynom $X^3 + a X^2 + b X + c$ in irreduzible Faktoren zerfällt.
 Hierbei gibt es die folgenden Möglichkeiten:
 
 \begin{itemize}
@@ -239,7 +240,7 @@ Hierbei gibt es die folgenden Möglichkeiten:
     \end{gather*}
 \end{itemize}
 
-Für $\matrices{3}{K}$ ergeben sich in diesem Fall $\card{K} \cdot \card{K} \cdot \card{K} = 3 \cdot 3 \cdot 3 = 27$ Konjugationsklassen.
+Für $\matrices{3}{K}$ ergeben sich für diesen Fall $\card{K} \cdot \card{K} \cdot \card{K} = 3 \cdot 3 \cdot 3 = 27$ Konjugationsklassen.
 Für $\GL{3}{K}$ ist die Bedingung $X \notdivides (X^3 + a X^2 + b X + c)$ äquivalent zu $c \neq 0$, weshalb sich $\card{K} \cdot \card{K} \cdot (\card{K} - 1) = 3 \cdot 3 \cdot 3 \cdot 2 = 3 \cdot 3 \cdot 2 = 18$ Konjugationsklassen ergeben.
 
 
@@ -272,6 +273,8 @@ Es seien
             \end{pmatrix*} \,.
 \]
 Wir erhalten die Smith-Normalform von $A$ durch
+\begingroup
+\allowdisplaybreaks
 \begin{align*}
     M_X(A)
   =&\,
@@ -314,12 +317,12 @@ Wir erhalten die Smith-Normalform von $A$ durch
       0 &         X-2 &  -1 & X-2
     \end{pmatrix}
   \\
-  \xrightarrow{\substack{Z_2 \to Z_2 + (X-2)(X-1)Z_2 \\ Z_3 \to Z_3 - (X-2) Z_1}}&\,
+  \xrightarrow{\substack{Z_3 \to Z_3 + (X-2)(X-1)Z_2 \\ Z_4 \to Z_4 - (X-2) Z_2}}&\,
     \begin{pmatrix}
       1 & 0 &           0 &          0  \\
       0 & 1 &           X &          1  \\
       0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
-      0 & 0 &   -X(X-2)-1 &          0
+      0 & 0 &   -1-X(X-2) &          0
     \end{pmatrix}
   \\
   \xrightarrow{\substack{S_3 \to S_3 - X S_2 \\ S_4 \to S_4 - S_2}}&\,
@@ -327,7 +330,7 @@ Wir erhalten die Smith-Normalform von $A$ durch
       1 & 0 &           0 &          0  \\
       0 & 1 &           0 &          0  \\
       0 & 0 & X(X-2)(X-1) & (X-2)(X-1)  \\
-      0 & 0 &   -X(X-2)-1 &          0
+      0 & 0 &   -1-X(X-2) &          0
     \end{pmatrix}
   \\
   =&\,
@@ -416,9 +419,9 @@ Wir erhalten die Smith-Normalform von $A$ durch
       0 & 1 &     0 &             0 \\
       0 & 0 & (X-1) &             0 \\
       0 & 0 &     0 & (X-1)^2 (X-2)
-    \end{pmatrix}
+    \end{pmatrix}.
 \end{align*}
-
+\endgroup
 Die Frobenius-Normalform von $A$ ist nun
 \begin{align*}
    &\,  \begin{pmatrix}
@@ -463,7 +466,6 @@ und die Weierstraß-Normalform von $A$ ist
                   &    &   & 2
               \end{pmatrix*}.
 \end{align*}
-
 Wir erhalten die Smith-Normalform von $B$ durch
 \begin{align*}
     M_X(B)
@@ -530,7 +532,7 @@ Wir erhalten die Smith-Normalform von $B$ durch
       1 & 0 &            0  \\
       0 & 1 &            0  \\
       0 & 0 & (X-2)(X+1)^2
-    \end{pmatrix} \,.
+    \end{pmatrix}.
 \end{align*}
 Die Frobenius-Normalform von $A$ ist dementsprechend
 \[
@@ -539,9 +541,9 @@ Die Frobenius-Normalform von $A$ ist dementsprechend
       0 & 0 & 2 \\
       1 & 0 & 3 \\
       0 & 1 & 0
-    \end{pmatrix} \,,
+    \end{pmatrix},
 \]
-udn die Weierstraß-Normalform von $A$ ist
+und die Weierstraß-Normalform von $A$ ist
 \[
     \begin{pmatrix}
       B(X-2)  &                         \\
