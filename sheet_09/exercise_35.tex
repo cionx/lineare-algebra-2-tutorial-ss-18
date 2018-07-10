@@ -1,0 +1,71 @@
+\section{}
+
+\begin{remark}
+  Auf der linken Seite der Äquivalenz sollte jeweils stehen, dass es sich um eine Metrik handelt, siehe Lemma~17.10 aus der Vorlesung.
+\end{remark}
+
+
+In der Vorlesung wurde bereits gezeigt, dass
+\[
+  \text{$s$ ist eine Metrik}
+  \iff
+  \overline{\repmatrixbilone{s}{B}} = \repmatrixbilone{s}{B}^T \,.
+\]
+Hieraus ergeben sich die vier Äquivalenzen jeweils als Sonderfälle:
+
+\begin{description}
+  \item[$(1)$]
+    Wir erhalten die Äquivalenzen
+    \begin{align*}
+          &\,
+      \text{$s$ ist eine hermitesche Metrik}  \\
+      \iff&\,
+      \text{$s$ ist eine Metrik und $\overline{1} = 1$} \\
+      \iff&\,
+      \text{$\overline{\repmatrixbilone{s}{B}} = \repmatrixbilone{s}{B}^T$ und $\overline{1} = 1$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B}$ ist hermitesch}.
+    \end{align*}
+  \item[$(1^\circ)$]
+    Wir erhalten die Äquivalenzen
+    \begin{align*}
+          &\,
+      \text{$s$ ist eine symmetrische Metrik}  \\
+      \iff&\,
+      \text{$s$ ist eine Metrik und $\overline{\,\cdot\,} = \id_K$} \\
+      \iff&\,
+      \text{$\overline{\repmatrixbilone{s}{B}} = \repmatrixbilone{s}{B}^T$ und $\overline{\,\cdot\,} = \id_K$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B} = \repmatrixbilone{s}{B}^T$ und $\overline{\,\cdot\,} = \id_K$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B}$ ist symmetrisch}.
+    \end{align*}
+  \item[$(2)$]
+    Wir erhalten die Äquivalenzen
+    \begin{align*}
+          &\,
+      \text{$s$ ist eine schiefhermitesche Metrik}  \\
+      \iff&\,
+      \text{$s$ ist eine Metrik und $\overline{1} = -1$} \\
+      \iff&\,
+      \text{$\overline{\repmatrixbilone{s}{B}} = \repmatrixbilone{s}{B}^T$ und $\overline{1} = -1$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B}$ ist schiefhermitesch}.
+    \end{align*}
+  \item[$(2^\circ)$]
+    Wir erhalten die Äquivalenzen
+    \begin{align*}
+          &\,
+      \text{$s$ ist eine schiefsymmetrische Metrik}  \\
+      \iff&\,
+      \text{$s$ ist eine Metrik und $\overline{\,\cdot\,} = -\id_K$} \\
+      \iff&\,
+      \text{$\overline{\repmatrixbilone{s}{B}} = \repmatrixbilone{s}{B}^T$ und $\overline{\,\cdot\,} = -\id_K$}  \\
+      \iff&\,
+      \text{$-\repmatrixbilone{s}{B} = \repmatrixbilone{s}{B}^T$ und $\overline{\,\cdot\,} = -\id_K$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B} = -\repmatrixbilone{s}{B}^T$ und $\overline{\,\cdot\,} = -\id_K$}  \\
+      \iff&\,
+      \text{$\repmatrixbilone{s}{B}$ ist schiefsymmetrisch}.
+    \end{align*}
+\end{description}

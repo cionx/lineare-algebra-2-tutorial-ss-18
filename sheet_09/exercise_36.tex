@@ -1,0 +1,123 @@
+\section{}
+
+
+
+
+
+\subsection{}
+
+Für die Matrix
+\[
+            A
+  \defined  \begin{pmatrix*}[r]
+              0  & 3 &  4  \\
+              -3  & 0 & -1  \\
+              -4  & 1 &  0
+            \end{pmatrix*}
+  \in       \matrices{3}{\Real}
+\]
+gilt
+\[
+    s(v,w)
+  = v^T A w
+\]
+für alle $v, w \in \Real^3$.
+Hierdurch erkennen wir bereits, dass $s$ eine Bilinearform ist.
+Heraus ergibt sich wiederum, dass wir $\overline{\,\cdot\,} = \pm \id_\Real$ wählen müssen, damit $s$ zu einer Metrik wird (siehe Lemma~17.4 in der Vorlesung).
+Es gilt $A^T = -A$, also gilt
+\[
+    s(v,w)
+  = v^T A w
+  = (v^T A w)^T
+  = w^T A^T v
+  = - w^T A v
+  = -s(w,v)
+\]
+für alle $v, w \in \Real^3$.
+Wir müssen also $\overline{\,\cdot\,} = -\id_\Real$ wählen um $s$ zu einer Metrik zu machen.
+
+
+
+
+
+\subsection{}
+
+Die Metrik $s$ ist von Typ $(2^\circ)$ da $\overline{\,\cdot\,} = -\id_\Real$ gilt, und somit auch vom Typ $(2)$.
+Da $s \neq 0$ und $\ringchar(\Real) \neq 2$ gilt kann $s$ somit nicht vom Typ $(1)$ sein, und somit auch nicht vom Typ $(1^\circ)$.
+
+
+
+
+
+\subsection{}
+
+Die Basis $B = (e_1, e_2, e_3)$ ist die Standardbasis von $\Real^3$, und durch direktes ablesen ergibt sich, dass
+\[
+  \repmatrixbilone{s}{B} = A \,.
+\]
+gil.
+Außerdem gilt
+\[
+    \repmatrixhomo{\id_{\Real^3}}{C}{B}
+  = \begin{pmatrix*}[r]
+      0 & 0 &  1/4            \\
+      0 & 1 &  1\phantom{/4}  \\
+      1 & 0 & -3/4
+    \end{pmatrix*} \,.
+\]
+Wir erhalten somit, dass
+\begin{align*}
+      \repmatrixbilone{s}{C}
+  &=  \repmatrixhomo{\id_{\Real^3}}{C}{B}^T
+      \repmatrixbilone{s}{B}
+      \repmatrixhomo{\id_{\Real^3}}{C}{B}
+  \\
+  &=  \begin{pmatrix*}[r]
+        0 & 0 &  1/4            \\
+        0 & 1 &  1\phantom{/4}  \\
+        1 & 0 & -3/4
+      \end{pmatrix*}^T
+      \begin{pmatrix*}[r]
+         0  & 3 &  4  \\
+        -3  & 0 & -1  \\
+        -4  & 1 &  0
+      \end{pmatrix*}
+      \begin{pmatrix*}[r]
+        0 & 0 &  1/4            \\
+        0 & 1 &  1\phantom{/4}  \\
+        1 & 0 & -3/4
+      \end{pmatrix*}
+  \\
+  &=  \begin{pmatrix*}[l]
+        0   & 0 &  \phantom{-}1   \\
+        0   & 1 &  \phantom{-}0   \\
+        1/4 & 1 &           -3/4
+      \end{pmatrix*}
+      \begin{pmatrix*}[r]
+         0  & 3 &  4  \\
+        -3  & 0 & -1  \\
+        -4  & 1 &  0
+      \end{pmatrix*}
+      \begin{pmatrix*}[r]
+        0 & 0 &  1/4            \\
+        0 & 1 &  1\phantom{/4}  \\
+        1 & 0 & -3/4
+      \end{pmatrix*}
+  \\
+  &=  \begin{pmatrix*}[l]
+        0   & 0 &  \phantom{-}1   \\
+        0   & 1 &  \phantom{-}0   \\
+        1/4 & 1 &           -3/4
+      \end{pmatrix*}
+      \begin{pmatrix*}[r]
+         4  & 3 & 0 \\
+        -1  & 0 & 0 \\
+         0  & 1 & 0
+      \end{pmatrix*}
+   =  \begin{pmatrix*}[r]
+         0  & 1 & 0 \\
+        -1  & 0 & 0 \\
+         0  & 0 & 0
+      \end{pmatrix*}.
+      \end{pmatrix*}.
+\end{align*}
