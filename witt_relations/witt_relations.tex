@@ -1,0 +1,118 @@
+\documentclass[a4paper,10pt,numbers = noenddot]{scrartcl}
+\usepackage{../generalstyle}
+
+%opening
+\subject{Bemerkungen und Lösungen zu}
+\title{Lineare Algebra II}
+\subtitle{Beweis von Satz~19.10}
+\author{Jendrik Stelzner}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+
+Es seien $[a_1, \dotsc, a_n], [b_1, \dotsc, b_n] \in \GL{n}{K}$ zwei invertierbare Diagonalmatrizen mit
+\[
+          [a_1, \dotsc, a_n]
+  \equiv  [b_1, \dotsc, b_n] \,.
+\]
+Wir erklären im Folgenden, wie sich aus der Matrix $[a_1, \dotsc, a_n]$ durch Umformungen vom Typ~(1) und Typ~(2) eine invertierbare Diagonalmatrix $[\tilde{a}_1, \dotsc, \tilde{a}_n] \in \GL{n}{K}$ ergibt, welche die folgenden beiden Bedingungen erfüllt:
+\begin{enumerate}[label = \alph*)]
+  \item
+    \label{enumerate: b1 is sum}
+    Es gibt ein $1 \leq k \leq n$ mit $b_1 = \tilde{a}_1 + \dotsb + \tilde{a}_k$,
+  \item
+    \label{enumerate: leading sums are nonzero}
+    und es gilt $\tilde{a}_1 + \dotsb + \tilde{a}_i \neq 0$ für alle $i = 1, \dotsc, k$.
+\end{enumerate}
+
+Hierfür überführen wir die Matrix $[a_1, \dotsc, a_n]$ schrittweise (mit Umformungen vom Typ~(1) und Typ~(2)) in die gewünschte Form $[\tilde{a}_1, \dotsc, \tilde{a}_n]$.
+
+\begin{enumerate}[label = \arabic*)]
+  \item
+    Da $[a_1, \dotsc, a_n] \equiv [b_1, \dotsc, b_n]$ gilt, gibt es eine Matrix $S = (s_{ij})_{ij} \in \GL{n}{K}$ mit
+    \[
+      [b_1, \dotsc, b_n] = S^T [a_1, \dotsc, a_n] S \,.
+    \]
+    Durch Vergleichen des ersten Diagonaleintrags beider Matrizen ergibt sich, dass
+    \begin{equation}
+      \label{equation: first sum}
+      b_1 = \sum_{i=1}^n s_{i1}^2 a_i
+    \end{equation}
+    gilt.
+    Wir betrachten die Diagonalmatrix $[a'_1, \dotsc, a'_n]$ mit
+    \[
+        a'_{i}
+      = \begin{cases}
+          s_{i1}^2 a_i  & \text{falls $s_{i1} \neq 0$}, \\
+          a_i           & \text{sonst},                 \\
+        \end{cases}
+    \]
+    für alle $i = 1, \dotsc, n$.
+    Es gilt $a_i \neq 0$ für alle $i = 1, \dotsc, n$ da $[a_1, \dotsc, a_n]$ invertierbar ist.
+    Deshalb gilt auch $a'_i \neq 0$ für alle $i = 1, \dotsc, n$, weshalb auch $[a'_1, \dotsc, a'_n]$ invertierbar ist.
+    Die Diagonalmatrix $[a'_1, \dotsc, a'_n]$ geht aus $[a_1, \dotsc, a_n]$ durch wiederholte Umformungen vom Typ~(2) hervor.
+    
+  \item
+    Für die Indexmenge
+    \[
+                I
+      \defined  \{ i \in \{1, \dotsc, n\} \suchthat s_{i1} \neq 0 \}
+    \]
+    erhalten wir aus der Gleichung~\eqref{equation: first sum}, dass 
+    \[
+        b_1
+      = \sum_{i=1}^n s_{i1}^2 a_i
+      = \sum_{i \in I} s_{i1}^2 a_i
+      = \sum_{i \in I} a'_i \,.
+    \]
+    
+    Indem wir die Diagonaleinträge der Matrix $[a'_1, \dotsc, a'_n]$ mithilfe einer Umformung vom Typ~(1) passend umsortieren, erhalten wir somit eine invertierbare Diagonalmatrix $[a''_1, \dotsc, a''_n] \in \GL{n}{K}$, so dass für $k'' \defined |I|$ die Gleichung
+    \[
+        b_1
+      = \sum_{i \in I} a'_i
+      = \sum_{i=1}^{k''} a''_i
+    \]
+    gilt.
+    
+  \item
+    Wenn $[a''_1, \dotsc, a''_n]$ mit $k''$ wie oben die Bedingung~\ref*{enumerate: leading sums are nonzero} noch nicht erfüllt, dann gibt es ein $1 \leq i \leq k''$ mit 
+    \[
+        a''_1 + \dotsb + a''_i
+      = 0 \,.
+    \]
+    Wir sortieren dann die Diagonaleinträge von $[a''_1, \dotsc, a''_n]$ mithilfe einer Umformung vom Typ~(1), so um, dass wir die invertierbare Diagonalmatrix
+    \[
+        [a'''_1, \dotsc, a'''_n]
+      = [a''_{i+1}, \dotsc, a''_{k''}, a''_1, \dotsc, a''_i, a''_{k''+1}, \dotsc, a''_n] \,.
+    \]
+    erhalten.
+    Es gilt nun, dass
+    \[
+        b_1
+      = \sum_{j=1}^{k''} a''_j
+      = \underbrace{ \sum_{j=1}^i a''_j }_{=0} + \sum_{j=i+1}^{k''} a''_j
+      = \sum_{j=i+1}^{k''} a''_j
+      = \sum_{j=1}^{k''-i} a'''_j \,.
+    \]
+    Für $k''' \defined k''- i$ erfüllt also die Matrix $[a'''_1, \dotsc, a'''_n]$ auch weiterhin die Bedingung~\ref*{enumerate: b1 is sum}.
+    Dabei gilt nun allerdings $k''' < k''$.
+  \item
+    Indem wir den obigen Schritt endlich oft wiederholen, erhalten wir schließlich eine invertierbare Diagonalmatrix $[\tilde{a}_1, \dotsc, \tilde{a}_n] \in \GL{n}{K}$ und ein $k = 0, \dotsc, n$, so dass die Bedingungen \ref*{enumerate: b1 is sum} und \ref*{enumerate: leading sums are nonzero} beide erfüllt sind.
+    
+    Die Matrix $[\tilde{a}_1, \dotsc, \tilde{a}_n]$ geht dabei durch endliche viele Umformungen vom Typ~(1) aus der Matrix $[a''_1, \dotsc, a''_n]$ hervor.
+    Ingesamt geht die Diagonalmatrix $[\tilde{a}_1, \dotsc, \tilde{a}_n]$ deshalb durch Umformungen vom Typ~(1) und Typ~(2) aus der ursprünglichen Diagonalmatrix $[a_1, \dotsc, a_n]$ hervor.
+    
+    Wir bemerken schließlich noch, dass $k \geq 1$ gelten muss, denn sonst würde
+    \[
+        b_1
+      = \sum_{i=1}^k \tilde{a}_i = 0
+    \]
+    gelten, was im Widerspruch zur Invertierbarkeit von $[b_1, \dotsc, b_n]$ stünde.
+\end{enumerate}
+
+
+\end{document}
