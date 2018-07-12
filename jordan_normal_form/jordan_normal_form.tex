@@ -484,7 +484,13 @@ Wir fassen im Folgenden einige Eigenschaften zusammen, die man über $J$ aus Inf
     Für alle $\lambda \in K$, $k \geq 0$ sei $d_k(\lambda) \defined \dim \ker(f - \lambda \id_V)^k$, und es sei $d_{-1}(\lambda) = 0$.
     Dann gilt
     \begin{align*}
+       &\,   \text{Anzahl der Jordanblöcke zu $\lambda$ von Größe $\geq k$ in $J$} \\
+      =&\,  d_k(\lambda) - d_{k-1}(\lambda) \,,
+    \end{align*}
+    und somit auch
+    \begin{align*}
        &\,  \text{Anzahl der Jordanblöcke zu $\lambda$ von Größe $k$ in $J$} \\
+      =&\,  ( d_k(\lambda) - d_{k-1}(\lambda) ) - (d_{k+1}(\lambda) - d_k(\lambda) )  \\
       =&\,  2 d_k(\lambda) - d_{k-1}(\lambda) - d_{k+1}(\lambda) \,.
     \end{align*}
   \item
@@ -503,12 +509,12 @@ Wir fassen im Folgenden einige Eigenschaften zusammen, die man über $J$ aus Inf
   \item
     Es sei allgemeiner $p \in K[X]$, $p \neq 0$ ein Polymom mit $p = (X - \lambda_1)^{m'_t} \dotsm (X - \lambda_t)^{m'_t}$, wobei $\lambda_i \neq \lambda_j$ für $i \neq j$ gilt.
     Dann gilt $\minpol{f} \divides p$, wodurch sich die folgenden beiden Restriktionen an $J$ ergeben:
-    \begin{enumerate}
+    \begin{itemize}
       \item
         Jeder Diagonaleintrag von $J$ kommt in $\lambda_1, \dotsc, \lambda_t$ vor.
       \item
         Die Jordanblöcke zu $\lambda_i$ in $J$ sind jeweils höchstens $m'_i$ groß.
-    \end{enumerate}
+    \end{itemize}
   \item
     Für $\charpol{f} = (X - \lambda_1) \dotsm (X - \lambda_n)$ gilt
     \begin{align*}
