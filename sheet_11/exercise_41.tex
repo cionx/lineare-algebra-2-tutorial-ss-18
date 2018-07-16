@@ -1,1 +1,88 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Mit
+\[
+    S
+  = \begin{pmatrix}
+      a & b \\
+      c & d
+    \end{pmatrix}
+\]
+ergibt sich, dass
+\[
+    S^T A S
+  = \begin{pmatrix}
+      - a^2 - c^2 & -ab - cd    \\
+      - ab - cd   & - b^2 - d^2
+    \end{pmatrix}
+\]
+gilt.
+Es gilt also genau dann $S^T A S = B$ wenn das Gleichungssystem
+\[
+  \left\{
+    \begin{array}{rcr}
+      a^2 + c^2 &=&  0 \,,  \\
+      b^2 + d^2 &=&  0 \,,  \\
+      ab + cd   &=& -1 \,,  \\
+    \end{array}
+  \right.
+\]
+erfüllt ist.
+Die ersten beiden Gleichungen sind äquivalent zu
+\[
+  a = \pm i c
+  \quad\text{und}\quad
+  b = \pm i d \,.
+\]
+Wir wählen den Ansatz $a = 1$, $c = i$, $b = id$.
+Dann wird die dritte Gleichung zu
+\[
+  2id = -1 \,,
+\]
+und wir erhalten $d = i/2$ und somit $b = id = -1/2$.
+Insgesamt erhalten wir somit, dass sich
+\[
+    S
+  = \begin{pmatrix*}[r]
+      1 & -1/2  \\
+      i &  i/2
+    \end{pmatrix*} \,.
+\]
+wählen lässt.
+Die Invertierbarkeit von $S$ ergibt sich etwa dadurch, dass $\det(S) =  i \neq 0$ gilt.
+
+
+
+
+
+\subsection{}
+
+Dass die Matrizen $A$ und $B$ über $\Real$ nicht kongruent seien können lässt sich auf verschiedene Weisen einsehen:
+
+\begin{itemize}
+  \item
+    Es lässt sich wie im vorherigen Aufgabenteil vorgehen.
+    Dann ergibt sich allerdings aus $a^2 + c^2 = b^2 + d^2 = 0$, dass $a = b = c = d = 0$ und somit $S = 0$.
+    Dann gilt aber weder $S^T A S = B$ und noch ist $S$ invertierbar.
+  \item
+    Aus dem Sylvesterschen Trägheitssatz ergibt sich, dass die beidensymmetrischen rellen Matrizen $A, B$ genau dann kongruent zueinander sind (über $\Real$) wenn sie die gleiche Signatur besitzen.
+    Die Signatur von $A$ ist $(0,2,0)$, und aus $\det B = -1 < 0$ ergibt sich, dass die Signatur von $B$ bereits $(1,-1,0)$ seien muss.
+  \item
+    Wären $A$ und $B$ über $\Real$ kongruent, gebe es also ein $S \in \GL{2}{\Real}$ mit $S^T A S = B$, so würde insbesondere
+    \[
+        \det(B)
+      = \det(A) \underbrace{\det(S)^2}_{> 0}
+    \]
+    gelten.
+    Dann müssten $\det A$ und $\det B$ das gleiche Vorzeichen besitzen, was wegen $\det A = 1$ und $\det B = -1$ aber nicht der Fall ist.
+\end{itemize}
+
+
+
+
