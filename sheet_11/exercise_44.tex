@@ -7,7 +7,7 @@
 \addtocounter{subsection}{1}
 \subsection{}
 
-Wir beschreiben, wie sich für einen Körper $K$ mit $\ringchar(K) \neq 0$ eine schiefsymmetrische Matrix $A \in \matrices{n}{K}$ durch simultane Zeilen- und Spaltenumformungen in symplektische Normalenform bringen lässt.
+Wir beschreiben, wie sich für einen Körper $K$ mit $\ringchar(K) \neq 2$ eine schiefsymmetrische Matrix $A \in \matrices{n}{K}$ durch simultane Zeilen- und Spaltenumformungen in symplektische Normalenform bringen lässt.
 Hierfür bringen wir die Matrix $A$ zunächst in die Form
 \[
   \begin{pmatrix*}[r]
@@ -21,7 +21,7 @@ Hierfür bringen wir die Matrix $A$ zunächst in die Form
         &   &         &     &   &   &         & 0
   \end{pmatrix*}
 \]
-und bringen anschließend die Einsen (und damit auch Minus-Einsen) durch Vertausche der Zeilen und Spatlen an die richtigen Stellen.
+und bringen anschließend die Einsen (und damit auch die Minus-Einsen) durch Vertauschen der Zeilen und Spalten an die richtigen Stellen.
 Wir gehen erneut per Induktion über $n$ vor.
 
 \begin{enumerate}
@@ -48,7 +48,7 @@ Wir gehen erneut per Induktion über $n$ vor.
        0      & 0       & *       & \cdots  & *
     \end{pmatrix*}
     \]
-    ist, so lässt sich Induktiv anwenden.
+    ist, so lässt sich Induktion anwenden.
   \item
     Falls die erste Spalte von $A$ (und somit auch die erste Zeile) nur aus Nullen besteht, so vertauschen wir die erste Zeile mit der letzten Zeile, sowie anschließend auch die erste Spalte mit der letzten Spalte.
     Wir erhalten dann eine Matrix der Form
@@ -75,7 +75,7 @@ Wir gehen erneut per Induktion über $n$ vor.
         *       & *       & \cdots  & \cdots  & \cdots  & \cdots  & *       & 0
       \end{pmatrix}
     \]
-    so vertauschen wir zunächst die zweite mit der $i$-ten Zeile, sowie anschließend auch die zwei mit der $i$-ten Spalte.
+    so vertauschen wir zunächst die zweite mit der $i$-ten Zeile, sowie anschließend auch die zweite mit der $i$-ten Spalte.
     Wir erhalten hierdurch eine Matrix der Form
     \[
       \begin{pmatrix*}[r]
@@ -84,7 +84,7 @@ Wir gehen erneut per Induktion über $n$ vor.
          *      & *       & *       & \cdots  & *       \\
          \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
          *      & *       & *       & \cdots  & *
-      \end{pmatrix*}
+      \end{pmatrix*}.
     \]
     Wir teilen nun die erste Zeile durch $a_i$ sowie anschließend auch die erste Spalte durch $a_i$.
     Hierdurch erhalten wir eine Matrix der Form
@@ -95,11 +95,11 @@ Wir gehen erneut per Induktion über $n$ vor.
          *      & *       & *       & \cdots  & *       \\
          \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
          *      & *       & *       & \cdots  & *
-      \end{pmatrix*}
+      \end{pmatrix*}.
     \]
     Wir können nun die Einträge $1$ und $-1$ nutzen um mit elementaren Zeilenumformungen alle anderen Einträge aus den ersten beiden Spalten zu eliminieren.
-    Indem wir nach jeder Zeilenumformung die entsprechende Spaltenumformung durchführen werden auch alle anderen Einträge auch den ersten beiden Zeilen eliminiert.
-    Wir erhalten dann eine Matrix der Form
+    Da wir nach jeder Zeilenumformung auch die entsprechende Spaltenumformung durchführen, werden in den ersten beiden Zeilen alle anderen Einträge eliminiert.
+    Wir erhalten somit eine Matrix der Form
     \[
       \begin{pmatrix*}[r]
          0      & 1       & 0       & \cdots  & 0       \\
@@ -111,7 +111,7 @@ Wir gehen erneut per Induktion über $n$ vor.
     \]
     und befinden uns im zweiten Fall.
   \item
-    Nach wiederholten Durchführen der obigen Schritte erhalten wir eine Matrix der Form
+    Wir erhalten schließlich eine Matrix der Form
     \[
       \begin{pmatrix*}[r]
          0  & 1 &         &     &   &   &         &   \\
@@ -122,7 +122,7 @@ Wir gehen erneut per Induktion über $n$ vor.
             &   &         &     &   & 0 &         &   \\
             &   &         &     &   &   & \ddots  &   \\
             &   &         &     &   &   &         & 0
-      \end{pmatrix*}
+      \end{pmatrix*}.
     \]
     Durch Vertauschen der Zeilen und Spalten dieser Matrix erhalten wir die gesuchte symplektische Normalform.
 \end{enumerate}
@@ -241,7 +241,7 @@ Dabei bemerke man, dass der obere linke $(2 \times 2)$-Block bereits in der gew�
 \endgroup
 Man bemerke, dass nach jeder simultanen Zeilen- und Spaltenumformung die entstandene Matrix erneut schiefsymmetrisch ist.
 
-Wir bestimme ein Matrix $S \in \GL{4}{\Real} $ mit $S^T A S = J$ indem wir die genutzen Spaltenumformungen auf die Einheitsmatrix anwenden:
+Wir bestimme nun eine Matrix $S \in \GL{4}{\Real} $ mit $S^T A S = J$ indem wir die genutzen Spaltenumformungen auf die Einheitsmatrix anwenden:
 \begingroup
 \allowdisplaybreaks
 \begin{align*}

@@ -6,7 +6,7 @@
 
 \subsection{}
 
-Es lässt sich $v = \columnvector{1 \\ 0 \\ -1}$ wählen.
+Es lässt sich beispielsweise $v = \columnrvector{1 \\ 0 \\ -1}$ wählen.
 
 
 
@@ -18,16 +18,16 @@ Es lässt sich $v = \columnvector{1 \\ 0 \\ -1}$ wählen.
 
 
 \subsubsection*{Simultanes Zeilen- und Spaltenumformen}
-Häufig ergibt sich das Problem, dass eine Matrix $A \in \matrices{n}{K}$ in eine gewisse zu $A$ kongrunde Normalenform (Diagonalform, symplektische Normalenform, \dots) gebrachte werden soll, und zudem ein $S \in \GL{n}{K}$ bestimmt werden soll, so dass $S^T A S$ die gewünschte Normalenform hat.
-Wir geben nun ein allgemeines Verfahren an, wie sich an dieses Problem herangehen lässt:
+Häufig ergibt sich das Problem, dass eine Matrix $A \in \matrices{n}{K}$ in eine gewisse zu $A$ kongruente Normalenform (Diagonalform, symplektische Normalenform, \dots) gebracht werden soll, und zudem eine Matrix $S \in \GL{n}{K}$ bestimmt werden soll, für welche $S^T A S$ die gewünschte Normalenform hat.
+Wir geben nun ein allgemeines Verfahren an, wie sich an dieses Problem herangehen lässt.
 
 Die Grundidee besteht darin, die Matrix $A$ durch Zeilen- und Spaltenumformungen in die gewünschte Normalenform $N$ zu bringen.
-Das Problem dabei besteht darin, dass Zeilen- und Spaltenumformungen kongruenzzerstörend sind, d.h.\ wenn eine Matrix $A'$ aus $A$ durch Anwenden einer elemententaren Zeilen- oder Spaltenumformung entsteht, so sind $A'$ und $A$ im Allgemeinen nicht kongruent.
+Das Problem dabei besteht darin, dass Zeilen- und Spaltenumformungen kongruenzzerstörend sind, d.h.\ wenn aus $A$ durch Anwenden einer elementaren Zeilen- oder Spaltenumformung eine Matrix $A'$ entsteht, so sind $A'$ und $A$ im Allgemeinen nicht mehr kongruent zueinander.
 
 Dieses Problem lässt sich mithilfe \emph{simultaner Zeilen- und Spaltenumformungen} lösen:
-Nach jeder elementaren Zeilenumformung (bzw.\ Spaltenumformung) führen wir direkt auch die entsprechende elementare Spaltenumformung (bzw.\ Zeilenumformung) durch.
-Das Anwenden einer elementaren Zeilenumformung auf $A$ entspricht dem Multiplizieren mit einer Elementarmatrix $E$ von links, und das anschließende anwenden der entsprechenden Spaltenumformung entspricht der anschließenden Multiplikation mit $E^T$ von rechts.
-Die entstehende Matrix $E A E^T$ ist kongruent zu $A$!
+Nach jeder elementaren Zeilenumformung (bzw.\ Spaltenumformung) führen wir anschließend auch die entsprechende elementare Spaltenumformung (bzw.\ Zeilenumformung) durch.
+Das Anwenden einer elementaren Zeilenumformung auf $A$ entspricht dem Multiplizieren mit einer Elementarmatrix $E$ von links, und das anschließende Anwenden der entsprechenden Spaltenumformung entspricht der anschließenden Multiplikation mit $E^T$ von rechts.
+Die entstehende Matrix $E A E^T$ ist dann kongruent zu $A$.
 \[
   \begin{tikzcd}[column sep = 7em]
       A
@@ -40,7 +40,7 @@ Die entstehende Matrix $E A E^T$ ist kongruent zu $A$!
   \end{tikzcd}
 \]
 
-Wir können also (versuchen) $A$ durch simultane Zeilen- und Spaltenumformungen in die gewünschte Normalenform $N$ zu bringen, ohne dass dabei Kongruenz verloren geht:
+Wenn wir also versuchen, $A$ durch simultane Zeilen- und Spaltenumformungen in die gewünschte Normalenform $N$ zu bringen, so werden $A$ und $N$ kongruent sein.
 \[
   \begin{tikzcd}[column sep = small]
       A
@@ -57,14 +57,13 @@ Wir können also (versuchen) $A$ durch simultane Zeilen- und Spaltenumformungen 
   \end{tikzcd}
 \]
 
-Es lässt sich dann auch eine Matrix $S \in \GL{n}{K}$ mit $S^T A S = N$ bestimmen:
-Für $S = E_1^T \dotsm E_n^T$ gilt
+Es lässt sich dann auch eine Matrix $S \in \GL{n}{K}$ mit $S^T A S = N$ bestimmen, denn für $S = E_1^T \dotsm E_n^T$ gilt
 \[
     N
   = E_n \dotsm E_1 A E_1^T \dotsm E_n^T
   = S^T A S \,. 
 \]
-Die Matrix $S$ lässt sich dadurch ausrechnen, dass man die genutzen Spaltenumformungen auf die Einheitsmatrix $I$ anwendet:
+Die Matrix $S$ lässt sich ausrechnen, indem man die genutzen Spaltenumformungen auf die Einheitsmatrix $I$ anwendet:
 \[
   \begin{tikzcd}
       I
@@ -83,14 +82,14 @@ Die Matrix $S$ lässt sich dadurch ausrechnen, dass man die genutzen Spaltenumfo
 
 
 
-\subsubsection{Sonderfall: Symmetrische Matrizen}
+\subsubsection*{Sonderfall: Symmetrische Matrizen}
 
-Es sei nun $A \in \matrices{n}{K}$ symmetrisch, wobei $\ringchar(k) \neq 2$.
-Mit dem obigen Verfahren lässt sich eine Diagonalmatrix $D \in \matrices{n}{K}$ und eine Matrix $S \in \GL{n}{K}$ bestimmen, so dass $S^T A S = D$ gilt.
-Dabei reicht es, die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen;
-die Matrix $S \in \GL{n}{K}$ mit $S^T A S = D$ ergibt sich dann durch Anwenden der genutzen Spaltenumformungen auf die Einheitsmatrix.
+Es sei nun $A \in \matrices{n}{K}$ symmetrisch, wobei $\ringchar(K) \neq 2$ gilt.
+Wir zeigen nun, wie sich mit dem obigen Verfahren eine Diagonalmatrix $D \in \matrices{n}{K}$ und eine Matrix $S \in \GL{n}{K}$ bestimmen lassen, so dass $S^T A S = D$ gilt.
+Hierfür reicht es, die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen;
+durch Anwenden der genutzen Spaltenumformungen auf die Einheitsmatrix ergibt sich dann eine Matrix $S \in \GL{n}{K}$ mit $S^T A S = D$.
 
-Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen, lässt sich ähnlich zum Gauß-Algorithmus per Induktion über $n$ wie folgt vorgehen:
+Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen, lässt sich ähnlich zum Gauß-Algorithmus vorgehen.
 \begin{enumerate}
   \item 
     Ist die Matrix $A$ bereits in der Form
@@ -103,7 +102,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
           0       & *       & \cdots  & *
         \end{pmatrix}
     \]
-    so lässt sich Induktion anwenden.
+    so lässt sich induktiv vorgehen.
   \item
     Falls $A$ von der Form
     \[
@@ -115,8 +114,8 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
           a_n     & *       & \cdots  & *
         \end{pmatrix}
     \]
-    ist, und $a_1 \neq 0$ gilt, so ziehen man für alle $i = 1, \dotsc, n$ das $a_i/a_1$-fache der ersten Zeile von der ersten Zeile von der $i$-ten Zeile ab, sowie jeweils anschließend auch das $a_i/a_1$-fache der ersten Spalte von der $i$-ten Spalte.
-    (Alternativ lässt sich auch die $i$-te Zeile (bzw.\ Spalte) mit $a_1$ multiplizieren, um anschließend das $a_i$-fache der ersten Zeile (bzw.\ Spalte) von der ersten Zeile (bzw.\ Spalte) von der $i$-ten Zeile (bzw.\ Spalte) abzuziehen.)
+    ist, und $a_1 \neq 0$ gilt, so zieht man für alle $i = 2, \dotsc, n$ das $a_i/a_1$-fache der ersten Zeile von der $i$-ten Zeile ab, sowie jeweils anschließend auch das $a_i/a_1$-fache der ersten Spalte von der $i$-ten Spalte.
+    (Alternativ lässt sich auch die $i$-te Zeile (bzw.\ Spalte) mit $a_1$ multiplizieren, um anschließend das $a_i$-fache der ersten Zeile (bzw.\ Spalte) von der $i$-ten Zeile (bzw.\ Spalte) abzuziehen.)
     Hierdurch erhalten wir eine Matrix der Form
     \[
       \begin{pmatrix}
@@ -124,7 +123,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
         0       & *       & \cdots  & *       \\
         \vdots  & \vdots  & \ddots  & \vdots  \\
         0       & *       & \cdots  & *
-      \end{pmatrix}
+      \end{pmatrix},
     \]
     und befinden uns im ersten Fall.
   \item
@@ -141,7 +140,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
         *       & *       & \cdots  & \cdots  & \cdots  & \cdots  & \cdots  & *
       \end{pmatrix}
     \]
-    ist, und $a_i \neq 0$ gilt, so addieren wir die $i$-te Zeile auf die erste Zeile, sowie anschließend auch die $i$-te Spalte auf die erste Spalten.
+    ist, so dass $a_i \neq 0$ gilt, so addieren wir die $i$-te Zeile auf die erste Zeile, sowie anschließend auch die $i$-te Spalte auf die erste Spalten.
     Wir erhalten dann eine Matrix der Form
     \[
       \begin{pmatrix}
@@ -151,7 +150,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
         *       & *       & \cdots  & *
       \end{pmatrix}
     \]
-    und befinden uns im Fall zwei (es gilt $2 a_i \neq 0$ da $a_i \neq 0$ und $\ringchar(k) \neq 2$).
+    und befinden uns im zweiten Fall (es gilt $2 a_i \neq 0$ da $a_i \neq 0$ und $\ringchar(K) \neq 2$ gelten).
     Alternativ lässt sich auch das $1/2$-fache der $i$-ten Zeile (bzw.\ Spalte) auf die erste Zeile (bzw.\ Spalte) addieren.
     Hierdurch erhalten wir dann eine Matrix der Form
     \[
@@ -160,7 +159,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
         *       & *       & \cdots  & *       \\
         \vdots  & \vdots  & \ddots  & \vdots  \\
         *       & *       & \cdots  & *
-      \end{pmatrix}
+      \end{pmatrix}.
     \]
 \end{enumerate}
 
@@ -168,7 +167,7 @@ Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalf
 \addtocounter{subsection}{-2}
 \subsection{}
 
-Wir führen den Algorithmus anhand der gegebenen Matrix aus:
+Wir führen den obigen Algorithmus für die gegeben Matrix aus:
 \begin{align*}
   &\,
   \begin{pmatrix}
@@ -242,7 +241,7 @@ Wir führen den Algorithmus anhand der gegebenen Matrix aus:
     0 & 0 & -20 \\
   \end{pmatrix*}
   \eqqcolon
-  D \,.
+  D.
 \end{align*}
 Man bemerke, dass nach jeder \enquote{simultanen} Zeilen- und Spaltenumformung die entstandene Matrix wieder symmetrisch ist.
 
