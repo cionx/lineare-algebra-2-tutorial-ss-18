@@ -1,1 +1,305 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+\subsection{}
+
+Wir beschreiben, wie sich für einen Körper $K$ mit $\ringchar(K) \neq 0$ eine schiefsymmetrische Matrix $A \in \matrices{n}{K}$ durch simultane Zeilen- und Spaltenumformungen in symplektische Normalenform bringen lässt.
+Hierfür bringen wir die Matrix $A$ zunächst in die Form
+\[
+  \begin{pmatrix*}[r]
+     0  & 1 &         &     &   &   &         &   \\
+    -1  & 0 &         &     &   &   &         &   \\
+        &   & \ddots  &     &   &   &         &   \\
+        &   &         &  0  & 1 &   &         &   \\
+        &   &         & -1  & 0 &   &         &   \\
+        &   &         &     &   & 0 &         &   \\
+        &   &         &     &   &   & \ddots  &   \\
+        &   &         &     &   &   &         & 0
+  \end{pmatrix*}
+\]
+und bringen anschließend die Einsen (und damit auch Minus-Einsen) durch Vertausche der Zeilen und Spatlen an die richtigen Stellen.
+Wir gehen erneut per Induktion über $n$ vor.
+
+\begin{enumerate}
+  \item
+    Falls $A$ von der Form
+    \[
+        A
+      = \begin{pmatrix}
+          *       & \cdots  & *       & 0       \\
+          \vdots  & \ddots  & \vdots  & \vdots  \\
+          *       & \cdots  & *       & \vdots  \\
+          0       & \cdots  & \cdots  & 0
+        \end{pmatrix}
+    \]
+    ist, so lässt sich induktiv vorgehen.
+  \item
+    Falls $A$ von der Form
+    \[
+    \begin{pmatrix*}[r]
+       0      & 1       & 0       & \cdots  & 0       \\
+      -1      & 0       & 0       & \cdots  & 0       \\
+       0      & 0       & *       & \cdots  & *       \\
+       \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
+       0      & 0       & *       & \cdots  & *
+    \end{pmatrix*}
+    \]
+    ist, so lässt sich Induktiv anwenden.
+  \item
+    Falls die erste Spalte von $A$ (und somit auch die erste Zeile) nur aus Nullen besteht, so vertauschen wir die erste Zeile mit der letzten Zeile, sowie anschließend auch die erste Spalte mit der letzten Spalte.
+    Wir erhalten dann eine Matrix der Form
+    \[
+      \begin{pmatrix}
+        *       & \cdots  & *       & 0       \\
+        \vdots  & \ddots  & \vdots  & \vdots  \\
+        *       & \cdots  & *       & \vdots  \\
+        0       & \cdots  & \cdots  & 0
+      \end{pmatrix}
+    \]
+    und sind somit im ersten Fall.
+  \item
+    Ist $A$ von der Form
+    \[
+      \begin{pmatrix}
+        0       & *       & \cdots  & *       & a_i     & *       & \cdots  & *       \\
+        *       & 0       & *       & \cdots  & \cdots  & \cdots  & \cdots  & *       \\
+        \vdots  & *       & \ddots  & \ddots  &         &         &         & \vdots  \\
+        *       & \vdots  & \ddots  & \ddots  & \ddots  &         &         & \vdots  \\
+        -a_i    & \vdots  &         & \ddots  & \ddots  & \ddots  &         & \vdots  \\
+        *       & \vdots  &         &         & \ddots  & \ddots  & \ddots  & \vdots  \\
+        \vdots  & \vdots  &         &         &         & \ddots  & \ddots  & *       \\
+        *       & *       & \cdots  & \cdots  & \cdots  & \cdots  & *       & 0
+      \end{pmatrix}
+    \]
+    so vertauschen wir zunächst die zweite mit der $i$-ten Zeile, sowie anschließend auch die zwei mit der $i$-ten Spalte.
+    Wir erhalten hierdurch eine Matrix der Form
+    \[
+      \begin{pmatrix*}[r]
+         0      & a_i     & *       & \cdots  & *       \\
+        -a_i    & 0       & *       & \cdots  & *       \\
+         *      & *       & *       & \cdots  & *       \\
+         \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
+         *      & *       & *       & \cdots  & *
+      \end{pmatrix*}
+    \]
+    Wir teilen nun die erste Zeile durch $a_i$ sowie anschließend auch die erste Spalte durch $a_i$.
+    Hierdurch erhalten wir eine Matrix der Form
+    \[
+      \begin{pmatrix*}[r]
+         0      & 1       & *       & \cdots  & *       \\
+        -1      & 0       & *       & \cdots  & *       \\
+         *      & *       & *       & \cdots  & *       \\
+         \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
+         *      & *       & *       & \cdots  & *
+      \end{pmatrix*}
+    \]
+    Wir können nun die Einträge $1$ und $-1$ nutzen um mit elementaren Zeilenumformungen alle anderen Einträge aus den ersten beiden Spalten zu eliminieren.
+    Indem wir nach jeder Zeilenumformung die entsprechende Spaltenumformung durchführen werden auch alle anderen Einträge auch den ersten beiden Zeilen eliminiert.
+    Wir erhalten dann eine Matrix der Form
+    \[
+      \begin{pmatrix*}[r]
+         0      & 1       & 0       & \cdots  & 0       \\
+        -1      & 0       & 0       & \cdots  & 0       \\
+         0      & 0       & *       & \cdots  & *       \\
+         \vdots & \vdots  & \vdots  & \ddots  & \vdots  \\
+         0      & 0       & *       & \cdots  & *
+      \end{pmatrix*}
+    \]
+    und befinden uns im zweiten Fall.
+  \item
+    Nach wiederholten Durchführen der obigen Schritte erhalten wir eine Matrix der Form
+    \[
+      \begin{pmatrix*}[r]
+         0  & 1 &         &     &   &   &         &   \\
+        -1  & 0 &         &     &   &   &         &   \\
+            &   & \ddots  &     &   &   &         &   \\
+            &   &         &  0  & 1 &   &         &   \\
+            &   &         & -1  & 0 &   &         &   \\
+            &   &         &     &   & 0 &         &   \\
+            &   &         &     &   &   & \ddots  &   \\
+            &   &         &     &   &   &         & 0
+      \end{pmatrix*}
+    \]
+    Durch Vertauschen der Zeilen und Spalten dieser Matrix erhalten wir die gesuchte symplektische Normalform.
+\end{enumerate}
+
+
+
+
+\addtocounter{subsection}{-2}
+\subsection{}
+
+Wir wenden das obige Verfahren auf die gegebene Matrix an.
+Dabei bemerke man, dass der obere linke $(2 \times 2)$-Block bereits in der gewünschten Form ist.
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+  &\,
+  \begin{pmatrix*}[r]
+     0  &  1  &  2  & 3 \\
+    -1  &  0  &  4  & 5 \\
+    -2  & -4  &  0  & 6 \\
+    -3  & -5  & -6  & 0
+  \end{pmatrix*}
+  \xlongrightarrow{Z_3 - 2 Z_2}
+  \begin{pmatrix*}[r]
+     0  &  1  &  2  &  3  \\
+    -1  &  0  &  4  &  5  \\
+     0  & -4  & -8  & -4  \\
+    -3  & -5  & -6  &  0
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_3 - 2 S_2}&\,
+  \begin{pmatrix*}[r]
+     0  &  1  &  0  &  3  \\
+    -1  &  0  &  4  &  5  \\
+     0  & -4  &  0  & -4  \\
+    -3  & -5  &  4  &  0
+  \end{pmatrix*}
+  \xlongrightarrow{Z_4 - 3 Z_2}
+  \begin{pmatrix*}[r]
+     0  &  1  &  0  &   3 \\
+    -1  &  0  &  4  &   5 \\
+     0  & -4  &  0  &  -4 \\
+     0  & -5  & -8  & -15
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_4 - 3 S_2}&\,
+  \begin{pmatrix*}[r]
+     0  &  1  &  0  & 0 \\
+    -1  &  0  &  4  & 5 \\
+     0  & -4  &  0  & 8 \\
+     0  & -5  & -8  & 0
+  \end{pmatrix*}
+  \xlongrightarrow{Z_3 + 4 Z_1}
+  \begin{pmatrix*}[r]
+     0  &  1  &  0  & 0 \\
+    -1  &  0  &  4  & 5 \\
+     0  &  0  &  0  & 8 \\
+     0  & -5  & -8  & 0
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_3 + 4 S_1}&\,
+  \begin{pmatrix*}[r]
+     0  &  1  &  0  & 0 \\
+    -1  &  0  &  0  & 5 \\
+     0  &  0  &  0  & 8 \\
+     0  & -5  & -8  & 0
+  \end{pmatrix*}
+  \xlongrightarrow{Z_4 + 5 Z_1}
+  \begin{pmatrix*}[r]
+     0  & 1 &  0  & 0 \\
+    -1  & 0 &  0  & 5 \\
+     0  & 0 &  0  & 8 \\
+     0  & 0 & -8  & 0
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_4 + 5 S_1}&\,
+  \begin{pmatrix*}[r]
+     0  & 1 &  0  & 0 \\
+    -1  & 0 &  0  & 0 \\
+     0  & 0 &  0  & 8 \\
+     0  & 0 & -8  & 0
+  \end{pmatrix*}
+  \xlongrightarrow{\frac{1}{8} Z_3}
+  \begin{pmatrix*}[r]
+     0  & 1 &  0  & 0 \\
+    -1  & 0 &  0  & 0 \\
+     0  & 0 &  0  & 1 \\
+     0  & 0 & -8  & 0
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{\frac{1}{8} S_3}&\,
+  \begin{pmatrix*}[r]
+     0  & 1 &  0  & 0 \\
+    -1  & 0 &  0  & 0 \\
+     0  & 0 &  0  & 1 \\
+     0  & 0 & -1  & 0
+  \end{pmatrix*}
+  \xlongrightarrow{Z_2 \leftrightarrow Z_3}
+  \begin{pmatrix*}[r]
+     0  & 1 &  0  & 0 \\
+     0  & 0 &  0  & 1 \\
+    -1  & 0 &  0  & 0 \\
+     0  & 0 & -1  & 0
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_2 \leftrightarrow S_3}&\,
+  \begin{pmatrix*}[r]
+     0  &  0  & 1 & 0 \\
+     0  &  0  & 0 & 1 \\
+    -1  &  0  & 0 & 0 \\
+     0  & -1  & 0 & 0
+  \end{pmatrix*}
+  \eqqcolon
+  J
+\end{align*}
+\endgroup
+Man bemerke, dass nach jeder simultanen Zeilen- und Spaltenumformung die entstandene Matrix erneut schiefsymmetrisch ist.
+
+Wir bestimme ein Matrix $S \in \GL{4}{\Real} $ mit $S^T A S = J$ indem wir die genutzen Spaltenumformungen auf die Einheitsmatrix anwenden:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+  \begin{pmatrix*}[r]
+    1 & 0 & 0 & 0 \\
+      & 1 & 0 & 0 \\
+      &   & 1 & 0  \\
+      &   &   & 1
+  \end{pmatrix*}
+  &\xlongrightarrow{S_3 - 2 S_2}
+  \begin{pmatrix*}[r]
+    1 & 0 &  0  & 0 \\
+      & 1 & -2  & 0 \\
+      &   &  1  & 0  \\
+      &   &     & 1
+  \end{pmatrix*}
+  \xlongrightarrow{S_4 - 3 S_2}
+  \begin{pmatrix*}[r]
+    1 & 0 &  0  &  0  \\
+      & 1 & -2  & -3  \\
+      &   &  1  &  0  \\
+      &   &     &  1
+  \end{pmatrix*}
+  \\
+  &\xlongrightarrow{S_3 + 4 S_1}
+  \begin{pmatrix*}[r]
+    1 & 0 &  4  &  0  \\
+      & 1 & -2  & -3  \\
+      &   &  1  &  0  \\
+      &   &     &  1
+  \end{pmatrix*}
+  \xlongrightarrow{S_4 + 5 S_1}
+  \begin{pmatrix*}[r]
+    1  & 0 &  4 &  5  \\
+       & 1 & -2 & -3  \\
+       &   &  1 &  0  \\
+       &   &    &  1
+  \end{pmatrix*}
+  \\
+  &\xlongrightarrow{\frac{1}{8} S_3}
+  \begin{pmatrix*}[r]
+    1 & 0 &  1/2 &  5  \\
+      & 1 & -1/4 & -3  \\
+      &   &  1/8 &  0  \\
+      &   &      &  1
+  \end{pmatrix*}
+  \xlongrightarrow{S_2 \leftrightarrow S_3}
+  \begin{pmatrix*}[r]
+    1 &  1/2  & 0 &  5  \\
+    0 & -1/4  & 1 & -3  \\
+    0 &  1/8  & 0 &  0  \\
+    0 &  0    & 0 &  1
+  \end{pmatrix*}
+  \eqqcolon
+  S
+\end{align*}
+\endgroup
+
+
+
+
