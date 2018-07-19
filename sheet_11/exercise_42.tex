@@ -1,0 +1,322 @@
+\section{}
+
+
+
+
+
+\subsection{}
+
+Es lässt sich beispielsweise $v = \columnrvector{1 \\ 0 \\ -1}$ wählen.
+
+
+
+
+
+\addtocounter{subsection}{1}
+\subsection{}
+
+
+
+\subsubsection*{Simultanes Zeilen- und Spaltenumformen}
+Häufig ergibt sich das Problem, dass eine Matrix $A \in \matrices{n}{K}$ in eine gewisse zu $A$ kongruente Normalenform (Diagonalform, symplektische Normalenform, \dots) gebracht werden soll, und zudem eine Matrix $S \in \GL{n}{K}$ bestimmt werden soll, für welche $S^T A S$ die gewünschte Normalenform hat.
+Wir geben nun ein allgemeines Verfahren an, wie sich an dieses Problem herangehen lässt.
+
+Die Grundidee besteht darin, die Matrix $A$ durch Zeilen- und Spaltenumformungen in die gewünschte Normalenform $N$ zu bringen.
+Das Problem dabei besteht darin, dass Zeilen- und Spaltenumformungen kongruenzzerstörend sind, d.h.\ wenn aus $A$ durch Anwenden einer elementaren Zeilen- oder Spaltenumformung eine Matrix $A'$ entsteht, so sind $A'$ und $A$ im Allgemeinen nicht mehr kongruent zueinander.
+
+Dieses Problem lässt sich mithilfe \emph{simultaner Zeilen- und Spaltenumformungen} lösen:
+Nach jeder elementaren Zeilenumformung (bzw.\ Spaltenumformung) führen wir anschließend auch die entsprechende elementare Spaltenumformung (bzw.\ Zeilenumformung) durch.
+Das Anwenden einer elementaren Zeilenumformung auf $A$ entspricht dem Multiplizieren mit einer Elementarmatrix $E$ von links, und das anschließende Anwenden der entsprechenden Spaltenumformung entspricht der anschließenden Multiplikation mit $E^T$ von rechts.
+Die entstehende Matrix $E A E^T$ ist dann kongruent zu $A$.
+\[
+  \begin{tikzcd}[column sep = 7em]
+      A
+      \arrow{r}[above]{\text{ZU}}
+      \arrow[bend left]{r}[above]{\text{i.A.\ nicht kongruent}}
+      \arrow[bend right]{rr}[below]{\text{kongruent}}
+    & EA
+      \arrow{r}[above]{\text{SU}}
+    & EAE^T
+  \end{tikzcd}
+\]
+
+Wenn wir also versuchen, $A$ durch simultane Zeilen- und Spaltenumformungen in die gewünschte Normalenform $N$ zu bringen, so werden $A$ und $N$ kongruent sein.
+\[
+  \begin{tikzcd}[column sep = small]
+      A
+      \arrow{r}
+    & E_1 A E_1^T
+      \arrow{r}
+    & E_2 E_1 A E_1^T E_2^T
+      \arrow{r}
+    & \cdots
+      \arrow{r}
+    & E_n \dotsm E_1 A E_1^T \dotsm E_n^T
+      \arrow[equal]{r}
+    & N
+  \end{tikzcd}
+\]
+
+Es lässt sich dann auch eine Matrix $S \in \GL{n}{K}$ mit $S^T A S = N$ bestimmen, denn für $S = E_1^T \dotsm E_n^T$ gilt
+\[
+    N
+  = E_n \dotsm E_1 A E_1^T \dotsm E_n^T
+  = S^T A S \,. 
+\]
+Die Matrix $S$ lässt sich ausrechnen, indem man die genutzen Spaltenumformungen auf die Einheitsmatrix $I$ anwendet:
+\[
+  \begin{tikzcd}
+      I
+      \arrow{r}[above]{\text{SU}}
+    & I E_1^T
+      \arrow{r}[above]{\text{SU}}
+    & I E_1^T E_2^T
+      \arrow{r}[above]{\text{SU}}
+    & \cdots
+      \arrow{r}[above]{\text{SU}}
+    & I E_1^T \dotsm E_n^T
+      \arrow[equal]{r}
+    & S
+  \end{tikzcd}
+\]
+
+
+
+\subsubsection*{Sonderfall: Symmetrische Matrizen}
+
+Es sei nun $A \in \matrices{n}{K}$ symmetrisch, wobei $\ringchar(K) \neq 2$ gilt.
+Wir zeigen nun, wie sich mit dem obigen Verfahren eine Diagonalmatrix $D \in \matrices{n}{K}$ und eine Matrix $S \in \GL{n}{K}$ bestimmen lassen, so dass $S^T A S = D$ gilt.
+Hierfür reicht es, die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen;
+durch Anwenden der genutzen Spaltenumformungen auf die Einheitsmatrix ergibt sich dann eine Matrix $S \in \GL{n}{K}$ mit $S^T A S = D$.
+
+Um die Matrix $A$ durch simultanes Zeilen- und Spaltenumformen in eine Diagonalform $D$ zu bringen, lässt sich ähnlich zum Gauß-Algorithmus vorgehen.
+\begin{enumerate}
+  \item 
+    Ist die Matrix $A$ bereits in der Form
+    \[
+        A
+      = \begin{pmatrix}
+          *       & 0       & \cdots  & 0       \\
+          0       & *       & \cdots  & *       \\
+          \vdots  & \vdots  & \ddots  & \vdots  \\
+          0       & *       & \cdots  & *
+        \end{pmatrix}
+    \]
+    so lässt sich induktiv vorgehen.
+  \item
+    Falls $A$ von der Form
+    \[
+        A
+      = \begin{pmatrix}
+          a_1     & a_2     & \cdots  & a_n     \\
+          a_2     & *       & \cdots  & *       \\
+          \vdots  & \vdots  & \ddots  & \vdots  \\
+          a_n     & *       & \cdots  & *
+        \end{pmatrix}
+    \]
+    ist, und $a_1 \neq 0$ gilt, so zieht man für alle $i = 2, \dotsc, n$ das $a_i/a_1$-fache der ersten Zeile von der $i$-ten Zeile ab, sowie jeweils anschließend auch das $a_i/a_1$-fache der ersten Spalte von der $i$-ten Spalte.
+    (Alternativ lässt sich auch die $i$-te Zeile (bzw.\ Spalte) mit $a_1$ multiplizieren, um anschließend das $a_i$-fache der ersten Zeile (bzw.\ Spalte) von der $i$-ten Zeile (bzw.\ Spalte) abzuziehen.)
+    Hierdurch erhalten wir eine Matrix der Form
+    \[
+      \begin{pmatrix}
+        a_1     & 0       & \cdots  & 0       \\
+        0       & *       & \cdots  & *       \\
+        \vdots  & \vdots  & \ddots  & \vdots  \\
+        0       & *       & \cdots  & *
+      \end{pmatrix},
+    \]
+    und befinden uns im ersten Fall.
+  \item
+    Falls $A$ von der Form
+    \[
+      \begin{pmatrix}
+        0       & *       & \cdots  & *       & a_i     & *       & \cdots  & *       \\
+        *       & *       & \cdots  & \cdots  & \cdots  & \cdots  & \cdots  & *       \\
+        \vdots  & \vdots  & \ddots  &         &         &         &         & \vdots  \\
+        *       & \vdots  &         & \ddots  &         &         &         & \vdots  \\
+        a_i     & \vdots  &         &         & \ddots  &         &         & \vdots  \\
+        *       & \vdots  &         &         &         & \ddots  &         & \vdots  \\
+        \vdots  & \vdots  &         &         &         &         & \ddots  & \vdots  \\
+        *       & *       & \cdots  & \cdots  & \cdots  & \cdots  & \cdots  & *
+      \end{pmatrix}
+    \]
+    ist, so dass $a_i \neq 0$ gilt, so addieren wir die $i$-te Zeile auf die erste Zeile, sowie anschließend auch die $i$-te Spalte auf die erste Spalten.
+    Wir erhalten dann eine Matrix der Form
+    \[
+      \begin{pmatrix}
+        2a_i    & *       & \cdots  & *       \\
+        *       & *       & \cdots  & *       \\
+        \vdots  & \vdots  & \ddots  & \vdots  \\
+        *       & *       & \cdots  & *
+      \end{pmatrix}
+    \]
+    und befinden uns im zweiten Fall (es gilt $2 a_i \neq 0$ da $a_i \neq 0$ und $\ringchar(K) \neq 2$ gelten).
+    Alternativ lässt sich auch das $1/2$-fache der $i$-ten Zeile (bzw.\ Spalte) auf die erste Zeile (bzw.\ Spalte) addieren.
+    Hierdurch erhalten wir dann eine Matrix der Form
+    \[
+      \begin{pmatrix}
+        a_i     & *       & \cdots  & *       \\
+        *       & *       & \cdots  & *       \\
+        \vdots  & \vdots  & \ddots  & \vdots  \\
+        *       & *       & \cdots  & *
+      \end{pmatrix}.
+    \]
+\end{enumerate}
+
+
+\addtocounter{subsection}{-2}
+\subsection{}
+
+Wir führen den obigen Algorithmus für die gegeben Matrix aus:
+\begin{align*}
+  &\,
+  \begin{pmatrix}
+    2 & 1 & 3 \\ 
+    1 & 2 & 0 \\
+    3 & 0 & 1 \\
+  \end{pmatrix}
+  \xlongrightarrow{2 Z_2}
+  \begin{pmatrix}
+    2 & 1 & 3 \\ 
+    2 & 4 & 0 \\
+    3 & 0 & 1 \\
+  \end{pmatrix}
+  \\
+  \xlongrightarrow{2 S_2}&\,
+  \begin{pmatrix}
+    2 & 2 & 3 \\ 
+    2 & 8 & 0 \\
+    3 & 0 & 1 \\
+  \end{pmatrix}
+  \xlongrightarrow{Z_2 - Z_1}
+  \begin{pmatrix*}[r]
+    2 & 2 &  3  \\ 
+    0 & 6 & -3  \\
+    3 & 0 &  1  \\
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_2 - S_1}&\,
+  \begin{pmatrix*}[r]
+    2 &  0  &  3  \\ 
+    0 &  6  & -3  \\
+    3 & -3  &  1  \\
+  \end{pmatrix*}
+  \xlongrightarrow{2 Z_3}
+  \begin{pmatrix*}[r]
+    2 &  0  &  3  \\ 
+    0 &  6  & -3  \\
+    6 & -6  &  2  \\
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{2 S_3}&\,
+  \begin{pmatrix*}[r]
+    2 &  0  &  6  \\ 
+    0 &  6  & -6  \\
+    6 & -6  &  4  \\
+  \end{pmatrix*}
+  \xlongrightarrow{Z_3 - 3 Z_1}
+  \begin{pmatrix*}[r]
+    2 &  0  &   6 \\ 
+    0 &  6  &  -6 \\
+    0 & -6  & -14 \\
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_3 - 3 S_1}&\,
+  \begin{pmatrix*}[r]
+    2 &  0  &   0 \\ 
+    0 &  6  &  -6 \\
+    0 & -6  & -14 \\
+  \end{pmatrix*}
+  \xlongrightarrow{Z_3 + Z_2}
+  \begin{pmatrix*}[r]
+    2 & 0 &   0 \\ 
+    0 & 6 &  -6 \\
+    0 & 0 & -20 \\
+  \end{pmatrix*}
+  \\
+  \xlongrightarrow{S_3 + S_2}&\,
+  \begin{pmatrix*}[r]
+    2 & 0 &   0 \\ 
+    0 & 6 &   0 \\
+    0 & 0 & -20 \\
+  \end{pmatrix*}
+  \eqqcolon
+  D.
+\end{align*}
+Man bemerke, dass nach jeder \enquote{simultanen} Zeilen- und Spaltenumformung die entstandene Matrix wieder symmetrisch ist.
+
+Wir bestimmen nun eine Matrix $S \in \GL{3}{\Real}$ mit $S^T A S = D$ indem wir die verwendeten Spaltenumformungen auf die Einheitsmatrix anwenden
+\begin{align*}
+  \begin{pmatrix*}[r]
+    1 & 0 & 0 \\ 
+      & 1 & 0 \\
+      &   & 1 \\
+  \end{pmatrix*}
+  \xlongrightarrow{2 S_2}
+  \begin{pmatrix*}[r]
+    1 & 0 & 0 \\ 
+      & 2 & 0 \\
+      &   & 1 \\
+  \end{pmatrix*}
+  &\xlongrightarrow{S_2 - S_1}
+  \begin{pmatrix*}[r]
+    1 & -1  & 0 \\ 
+      &  2  & 0 \\
+      &     & 1 \\
+  \end{pmatrix*}
+  \xlongrightarrow{2 S_3}
+  \begin{pmatrix*}[r]
+    1 & -1  & 0 \\ 
+      &  2  & 0 \\
+      &     & 2 \\
+  \end{pmatrix*}
+  \\
+  &\xlongrightarrow{S_3 - 3 S_1}
+  \begin{pmatrix*}[r]
+    1 & -1  & -3  \\ 
+      &  2  &  0  \\
+      &     &  2  \\
+  \end{pmatrix*}
+  \xlongrightarrow{S_3 + S_2}
+  \begin{pmatrix*}[r]
+    1 & -1  & -4  \\ 
+      &  2  &  2  \\
+      &     &  2  \\
+  \end{pmatrix*}
+  \eqqcolon
+  S \,.
+\end{align*}
+
+
+
+
+
+\subsection{}
+
+Tatsächlich ist bereits jede reelle symmetrische Matrix diagonalisierbar (dies wird in der Vorlesung noch gezeigt werden).
+Wir werden den Zwischenwertsatz aus der Analysis nutzen, um die Diagonalisierbarkeit von $A$ zu begründen:
+Das charakteristische Polynom von $A$ ist
+\[
+    \charpol{A}
+  = X^3 - 5 X^2 - 2 X + 15 \,.
+\]
+Es gilt deshalb
+\begin{itemize}
+  \item
+    $\charpol{A}(x) \to -\infty$ für $x \to -\infty$,
+  \item
+    $\charpol{A}(0) = 15 > 0$,
+  \item
+    $\charpol{A}(2) = -1 < 0$,
+  \item
+    $\charpol{A}(x) \to \infty$ für $x \to \infty$.
+\end{itemize}
+Aus dem Zwischenwertsatz ergibt sich, dass $\charpol{A}$ in jeder der Intervalle $(-\infty,0)$, $(0, 2)$ und $(2,\infty)$ eine Nullstelle besitzt.
+Somit besitzt $\charpol{A}$ drei verschiedene Nullstellen, zerfällt also in drei verschiedene Linearfaktoren.
+Die Matrix $A$ ist somit diagonalisierbar.
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+\section{}
+
+Wir lösen das Problem für einige Sonderfälle.
+
+
+\subsection*{Der Fall $K = \Real$}
+
+Wir betrachten zunächst den Fall $K = \Real$, der in der korrigierten Augabenstellung zu finden ist.
+Wir betrachten den Untervektorraum $U \subseteq \matrices{n}{\Real}$ der echten oberen Dreiecksmatrizen.
+Für alle $A \in U$ gilt
+\[
+    s(A,A)
+  = \tr(A^2)
+  = 0
+\]
+da auch $A^2$ eine echte obere Dreiecksmatrix ist.
+Wir zeigen nun, dass $U$ bereits ein dimensionsmaximaler (und somit auch inklusionsmaximaler) total isotroper Untervektorraum von $\matrices{n}{\Real}$ bezüglich $s$ ist.
+
+Hierfür betrachten wir den Untervektorraum der symmetrischen Matrizen $S \subseteq \matrices{n}{\Real}$.
+Für alle $A \in S$ gilt
+\[
+    s(A,A)
+  = \tr(A^2)
+  = \tr(A A^T)
+  = \sum_{i=1}^n (A A^T)_{ii}
+  = \sum_{i,j=1}^n A_{ij} A^T_{ji}
+  = \sum_{i,j=1}^n A_{ij}^2 \,,
+\]
+und somit $s(A,A) > 0$ für $A \neq 0$.
+Das zeigt, dass $\restrict{s}{S}$ positiv definit ist.
+
+Für jeden total isotropen Untervektorraum $U' \subseteq \matrices{n}{\Real}$ muss deshalb $U' \cap S = 0$ gelten.
+Es ergibt sich dann, dass
+\[
+        \dim(S) + \dim(U')
+  =     \dim(S + U') + \dim(S \cap U')
+  =     \dim(S + U')
+  \leq  \dim(\matrices{n}{\Real})
+  =     n^2
+\]
+gilt, und somit
+\[
+        \dim(U') 
+  \leq  n^2 - \dim(S) \,.
+\]
+Es gilt $\dim(S) = n(n+1)/2$, denn eine Basis von $S$ ist durch die Matrizen $E_{ii}$ mit $i = 1, \dotsc, n$ zusammen mit den Matrizen $E_{ij} + E_{ji}$ mit $1 \leq i < j \leq n$ gegeben.
+Es ergibt sich somit, dass
+\[
+        \dim(U')
+  \leq  n^2 - \frac{n(n+1)}{2}
+  =     \frac{n(n-1)}{2}
+\]
+für jeden total isotropen Untervektorraum $U' \subseteq \matrices{n}{\Real}$ gilt.
+Es gilt $\dim(U) = n(n-1)/2$, also ist $U$ bereits ein dimensionsmaximaler total isotroper Untervektorraum von $\matrices{n}{\Real}$ bezüglich $s$.
+
+
+
+
+
+\subsection*{Der Fall $\ringchar(K) = 2$}
+
+Gilt $\ringchar(K) = 2$ so gilt für alle $A \in \matrices{n}{K}$, dass
+\begin{align*}
+      s(A,A)
+  &=  \tr(A^2)
+   =  \sum_{i=1}^n (A^2)_{ii}
+   =  \sum_{i,j=1}^n A_{ij} A_{ji}
+  \\
+  &=    \sum_{i=1}^n A_{ii}^2
+      + \sum_{i < j} A_{ij} A_{ji}
+      + \sum_{i > j} A_{ij} A_{ji}
+   =    \sum_{i=1}^n A_{ii}^2
+      + \sum_{i < j} A_{ij} A_{ji}
+      + \sum_{i < j} A_{ji} A_{ij}
+  \\
+  &=    \sum_{i=1}^n A_{ii}^2
+      + 2\sum_{i < j} A_{ij} A_{ji}
+   =  \sum_{i=1}^n A_{ii}^2
+   =  \left( \sum_{i=1}^n A_{ii} \right)^2
+   =  \tr(A)^2 \,.
+\end{align*}
+Es ist deshalb
+\[
+            S
+  \defined  \ker(\tr)
+\]
+der eindeutige dimensions- sowie inklusionsmaximale total isrotope Untervektorraum von $\matrices{n}{K}$ bezüglich $s$.
+Man bemerke, dass bereits $\dim S = n^2 - 1$ gilt.
+
+
+
+
+
+\subsection*{Eine Bemerkung zum Fall $\ringchar(K) \neq 2$}
+
+Im Fall $\ringchar(K) \neq 2$ kann jeder total isotrope Untervektrraum $U \subseteq \matrices{n}{\Real}$ höchstens Dimension $n^2/2$ haben.
+Für die Einschränkung $\restrict{s}{U}$ gilt nämlich $\restrict{s}{U}(u,u) = 0$ für alle $u \in U$, und wegen der Polarisationsformel
+\[
+    s(u_1, u_2)
+  = \frac{s(u_1 + u_2, u_1 + u_2) - s(u_1, u_1) - s(u_2,u_2)}{2}
+\]
+somit bereits $\restrict{s}{U}(u_1, u_2) = 0$ für alle $u_1, u_2 \in U$, also $\restrict{s}{U} = 0$.
+Dies bedeutet, dass $U \subseteq U^\perp$ gilt.
+Da $s$ regulär ist, gilt
+\[
+    \dim U^\perp
+  = \dim \matrices{n}{\Real} - \dim U
+  = n^2 - \dim U \,.
+\]
+Es muss also
+\[
+        \dim U
+  \leq  \dim U^\perp
+  \leq  n^2 - \dim U
+\]
+gelten, und somit
+\[
+        2 \dim U
+  \leq  n^2 \,.
+\]
+
+
+\subsection*{Der Fall $\ringchar(K) \neq 2$, $K$ quadratisch abgeschlossen}
+
+Ist $K$ quadratisch abgeschlossen, so gibt es ein Element $i \in K$ mit $i^2 = -1$.
+Wir können dann den Untervektorraum $U \subseteq \matrices{n}{K}$ aller oberen Dreiecksmatrizen der Form
+\[
+  \begin{pmatrix}
+    a_1 & *     & \cdots  & \cdots  & \cdots  & *       \\
+        & i a_1 & \ddots  &         &         & \vdots  \\
+        &       & a_2     & \ddots  &         & \vdots  \\
+        &       &         & i a_2   & \ddots  & \vdots  \\
+        &       &         &         & \ddots  & *       \\
+        &       &         &         &         & ?
+  \end{pmatrix}
+\]
+mit $a_1, a_2, \dotsc \in K$ betrachten, wobei der letzte Diagonaleintrag $?$ entweder $0$ oder $i a_{n/2}$ ist, je nach Parität von $n$.
+Es ist dann $U$ ein total isotroper Untvervektorraum von $\matrices{n}{K}$ bezüglich $s$, denn für die obige Matrix $A$ gilt
+\[
+    s(A,A)
+  = \tr(A^2)
+  = \sum_j (A^2)_{jj}
+  = \sum_k \left( a_k^2 + (i a_k)^2 \right)
+  = \sum_k ( a_k^2 - a_k^2 )
+  = 0 \,.
+\]
+Außerdem gilt $\dim U = \lfloor n^2/2 \rfloor$, weshalb $U$ nach der vorherigen Bemerkung im Fall $\ringchar(K) \neq 2$ bereits dimensionsmaximal (und somit auch inklusionsmaximal) unter allen total isotropen Untervektorräumen von $\matrices{n}{K}$ ist.
+
+
+
